@@ -14,8 +14,8 @@ pieza.json (todos los textos en español; MAYÚSCULAS solo en titular, franja y 
   "cuerpo": "Con probióticos y prebióticos (FOS y GOS), a base de quinua y amaranto",
   "heroe": "ruta/a/cebollin-con-producto.png",   # PNG transparente (Cebollín + producto)
   "nota": "Sin azúcar añadida.",       # opcional (se omite en 4x5 si no cabe)
-  "boton": "PIDE EL TUYO",
-  "precio": "$74.000"                  # opcional: círculo junto al producto
+  "boton": "ESCRÍBENOS PARA SABER MÁS",   # sin precio: invitar a escribir
+  "precio": NO USAR (SentirseBien no publica precios por ahora)
 }
 Requiere: pip install playwright (Chromium ya instalado en el entorno de Claude).
 """
@@ -73,7 +73,7 @@ svg.bg{{position:absolute;inset:0}}
 .heroe img{{position:absolute;left:50%;bottom:{18*k}px;transform:translateX(-50%);max-height:{y['heroeH']-20}px;max-width:{720*k/ (1 if tall else 0.92)}px}}
 .precio{{position:absolute;right:{110*k}px;top:{40*k}px;width:{190*k}px;height:{190*k}px;border-radius:50%;background:{c['oscuro']};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:{44*k}px;transform:rotate(-8deg);box-shadow:0 6px 0 #0002}}
 .nota{{position:absolute;left:150px;right:150px;top:{y['nota'] or 0}px;text-align:center;font-weight:600;font-size:36px;line-height:1.3;text-wrap:balance}}
-.cta{{position:absolute;left:50%;transform:translateX(-50%);top:{y['cta']}px;width:{510*k}px;height:{86*k}px;border-radius:{24*k}px;background:{c['oscuro']};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:{46*k}px;letter-spacing:.5px}}
+.cta{{position:absolute;left:50%;transform:translateX(-50%);top:{y['cta']}px;min-width:{510*k}px;padding:0 {40*k}px;box-sizing:border-box;white-space:nowrap;height:{86*k}px;border-radius:{24*k}px;background:{c['oscuro']};color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:{46*k}px;letter-spacing:.5px}}
 .pie{{position:absolute;left:{100*k}px;right:{80*k}px;top:{y['pie']}px;display:grid;grid-template-columns:1fr 2px 1fr;column-gap:{36*k}px;font-weight:700;font-size:{31*k}px}}
 .pie .col{{display:flex;flex-direction:column;gap:{22*k}px}}
 .pie .sep{{background:{c['oscuro']};height:{100*k}px;margin-top:4px}}
@@ -103,7 +103,7 @@ svg.bg{{position:absolute;inset:0}}
 {f'<div class="precio">{e(precio)}</div>' if precio else ''}
 </div>
 {f'<div class="nota">{e(nota)}</div>' if nota else ''}
-<div class="cta">{e(p.get('boton','PIDE EL TUYO'))}</div>
+<div class="cta">{e(p.get('boton','ESCRÍBENOS PARA SABER MÁS'))}</div>
 <div class="pie">
 <div class="col">
 <div class="it"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="{c['oscuro']}"/><path d="M13.2 19v-6h2l.3-2.4h-2.3V9.2c0-.7.2-1.2 1.2-1.2h1.2V5.9c-.2 0-1-.1-1.8-.1-1.8 0-3 1.1-3 3.1v1.7H8.8V13h2V19z" fill="#fff"/></svg>Sentirse Bien</div>
