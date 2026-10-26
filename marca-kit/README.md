@@ -9,7 +9,7 @@ SentirseBien es cercana, cálida y confiable. Habla como una amiga que sabe de b
 - **Así sí:** "Te cuento cómo lo tomo yo: una porción en el café de las 7."
 - **Así no:** "¡¡Transforma tu cuerpo YA!!"
 - **INVIMA:** sin promesas de salud. Las únicas frases de beneficio permitidas son las de `data/catalogo-publico.json` marcadas con *, con la nota "*Declaración aceptada por el INVIMA para el nutriente". Está prohibido decir "cura", "previene", "trata", "elimina toxinas", "baja de peso", "rejuvenece" o "aliado digestivo", usar antes y después, o crear urgencia falsa.
-- **Testimonios y precios:** no se inventan testimonios. No se publican precios mayoristas.
+- **Testimonios y precios:** no se inventan testimonios. **Por ahora no se publica ningún precio** (ni público ni mayorista): cada pieza cierra con "Escríbenos para saber más" y el WhatsApp, para generar curiosidad y conversación.
 
 ## Dos estilos de pieza
 
@@ -26,7 +26,7 @@ SentirseBien es cercana, cálida y confiable. Habla como una amiga que sabe de b
 4. Frase descriptiva centrada de máximo 2 líneas. No repite la franja.
 5. Héroe: Cebollín sosteniendo o abrazando el producto, con sombra en el piso, un corazón de línea y brillos.
 6. Nota (solo en 9:16).
-7. Botón píldora oscuro: "PIDE EL TUYO" o "PIDE LA TUYA".
+7. Botón píldora oscuro: "ESCRÍBENOS PARA SABER MÁS" (sin precio en ninguna parte de la pieza).
 8. Pie de redes en 2 columnas: Facebook Sentirse Bien, TikTok @SENTIRSEBIEN26, WhatsApp +57 322 455 9027 e Instagram @SENTIRSEBIENCOL.
 
 **Tema de color = color del empaque del producto.** El fondo y los acentos salen del empaque:
