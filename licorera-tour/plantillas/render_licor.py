@@ -18,8 +18,8 @@ pieza.json:
   "etiqueta": "PRECIO DE LA SEMANA",          # opcional: cinta sobre el precio
   "producto_img": "ruta/a/botella.png",       # PNG sin fondo (o varias: "producto_imgs": [..] para combos)
   "cta": "PIDE POR WHATSAPP",
-  "whatsapp": "3XX XXX XXXX",
-  "extra": "Domicilio en Bogotá · Pagas con Nequi, Daviplata o tarjeta"
+  "whatsapp": "311 327 8815",
+  "extra": "Domicilio a todo Bogotá $9.000 · Gratis desde $300.000"
 }
 Las leyendas legales (Ley 30 de 1986 / Decreto 780 de 2016) se agregan siempre.
 """
@@ -44,9 +44,9 @@ def build(p):
     imgs = p.get("producto_imgs") or ([p["producto_img"]] if p.get("producto_img") else [])
     imgs = [pathlib.Path(i).resolve().as_uri() for i in imgs]
     # zonas por formato (9x16 respeta 250 px arriba y abajo para historias)
-    Z = {1920: dict(top=230, hero=(690, 650), nombre=1360, cta=1432, extra=None, legal_b=236),
-         1350: dict(top=44, hero=(380, 610), nombre=1000, cta=1072, extra=None, legal_b=24),
-         1080: dict(top=36, hero=(300, 470), nombre=780, cta=845, extra=None, legal_b=20)}[H]
+    Z = {1920: dict(top=230, hero=(660, 640), nombre=1320, cta=1386, extra=1530, legal_b=236),
+         1350: dict(top=44, hero=(370, 600), nombre=984, cta=1050, extra=1184, legal_b=24),
+         1080: dict(top=36, hero=(290, 460), nombre=764, cta=822, extra=938, legal_b=20)}[H]
     hero_top, hero_h = Z["hero"]
     antes = f'<div class="antes">{e(p.get("antes"))}</div>' if p.get("antes") else ""
     cinta = f'<div class="cinta">{e(p.get("etiqueta"))}</div>' if p.get("etiqueta") else ""
@@ -69,7 +69,7 @@ background:radial-gradient(60% 40% at 38% {(hero_top+hero_h*0.5)/H*100:.0f}%,{ac
 .gancho{{margin-top:{30*k}px;font-weight:800;font-size:{(110 if tall else 84)*k}px;line-height:.98;letter-spacing:-2px;text-wrap:balance;text-shadow:0 6px 30px rgba(0,0,0,.6)}}
 .sub{{margin-top:{14*k}px;font-weight:600;font-size:{38*k}px;color:{ac}}}
 .hero{{position:absolute;left:{40*k}px;width:{W*0.58}px;top:{hero_top}px;height:{hero_h}px;display:flex;justify-content:center;align-items:flex-end}}
-.hero img{{position:relative;filter:drop-shadow(0 30px 40px rgba(0,0,0,.65))}}
+.hero img{{position:relative;max-width:100%;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(0,0,0,.65))}}
 .piso{{position:absolute;left:{40*k+W*0.29-260*k}px;top:{hero_top+hero_h-20*k}px;width:{520*k}px;height:{46*k}px;border-radius:50%;background:radial-gradient(closest-side,{ac}66,transparent)}}
 .precio{{position:absolute;right:{54*k}px;left:{W*0.56}px;top:{hero_top+hero_h*0.28}px;text-align:right}}
 .cinta{{display:inline-block;background:{ac};color:#111;font-weight:800;font-size:{22*k}px;letter-spacing:1px;padding:{8*k}px {14*k}px;border-radius:6px;margin-bottom:{10*k}px}}
@@ -80,7 +80,7 @@ background:radial-gradient(60% 40% at 38% {(hero_top+hero_h*0.5)/H*100:.0f}%,{ac
 .cta{{position:absolute;left:50%;transform:translateX(-50%);top:{Z['cta']}px;background:{ac};color:#111;border-radius:999px;padding:{22*k}px {48*k}px;white-space:nowrap;text-align:center;line-height:1.05}}
 .cta b{{display:block;font-weight:800;font-size:{38*k}px;letter-spacing:1px}}
 .cta span{{display:block;font-weight:800;font-size:{46*k}px;margin-top:{4*k}px}}
-.extra{{position:absolute;left:{60*k}px;right:{60*k}px;top:{Z['extra'] or 0}px;text-align:center;font-weight:600;font-size:{26*k}px;color:#d8d2c8}}
+.extra{{position:absolute;left:{60*k}px;right:{60*k}px;top:{Z['extra'] or 0}px;text-align:center;font-weight:600;font-size:{26*k}px;color:#d8d2c8;line-height:1.3}}\n.extra b{{color:{ac};font-weight:800}}
 .legal{{position:absolute;left:{40*k}px;right:{40*k}px;bottom:{Z['legal_b']}px;display:flex;align-items:center;gap:{16*k}px;border-top:1px solid rgba(255,255,255,.25);padding-top:{14*k}px}}
 .legal .edad{{flex:0 0 auto;width:{64*k}px;height:{64*k}px;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:{24*k}px}}
 .legal p{{margin:0;font-weight:600;font-size:{18*k}px;line-height:1.3;letter-spacing:.3px;color:#e8e3dc}}
@@ -92,8 +92,8 @@ background:radial-gradient(60% 40% at 38% {(hero_top+hero_h*0.5)/H*100:.0f}%,{ac
 <div class="hero">{prod}</div>
 <div class="precio">{cinta}{antes}<div class="valor">{e(p.get('precio'))}</div><div class="pres">{e(p.get('presentacion'))}</div></div>
 <div class="nombre">{e(p.get('producto'))}</div>
-<div class="cta"><b>{e(p.get('cta','PIDE POR WHATSAPP'))}</b><span>{e(p.get('whatsapp',''))}</span></div>
-{f'<div class="extra">{e(p.get("extra"))}</div>' if (p.get('extra') and Z['extra']) else ''}
+<div class="cta"><b>{e(p.get('cta','PIDE POR WHATSAPP'))}</b><span>{e(p.get('whatsapp','311 327 8815'))}</span></div>
+{f'<div class="extra">{e(p.get("extra")).replace("Gratis","<b>Gratis").replace("$300.000","$300.000</b>")}</div>' if (p.get('extra') and Z['extra']) else ''}
 <div class="legal"><div class="edad">+18</div><p>{LEGAL}</p></div>
 </body></html>""", (W, H)
 

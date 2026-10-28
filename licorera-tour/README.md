@@ -5,7 +5,16 @@ Licorera Tour es una licorera de **domicilios por WhatsApp en Bogotá**. El prot
 - **Panel Licorera Tour:** https://claude.ai/artifact/NDopN9ueGpbAXjYBzixnM1 (colecciones `indicaciones`, `opciones`, `historias`, `videos`, `sugerencias`, `reportes`; configuración en `estado/config`, con `metricool.blogId` y `pendientes`).
 - **Tareas programadas:** "Publicaciones Licorera Tour" (diaria, 4:38 p.m.) y "Videos Licorera Tour" (martes y jueves, 4:12 p.m.). Están **pausadas** hasta que exista la marca en Metricool y haya precios confirmados.
 
-Datos pendientes de confirmar con Jhoan: número de WhatsApp, usuarios de Instagram, TikTok y Facebook, zonas y horario de domicilio, medios de pago, costo del domicilio y logo. Mientras falten, usa `3XX XXX XXXX` y no publiques nada.
+## Datos del negocio (confirmados por Jhoan el 28-oct-2026)
+
+- **WhatsApp de pedidos:** 311 327 8815 (enlace: https://wa.me/573113278815).
+- **Cobertura:** todo Bogotá. Venta sobre pedido.
+- **Domicilio:** $9.000; **gratis en compras mayores a $300.000**.
+- **Medios de pago:** transferencia, Nequi, Llave (Bre-B) y efectivo.
+- **Pendientes:** usuarios de Instagram, Facebook y TikTok, marca en Metricool, logo definitivo (hay propuestas en `licorera-tour/logo/`), horario y precios confirmados. Mientras falten precios o la marca en Metricool, no se publica nada.
+
+Texto base de cierre: "Pide por WhatsApp 311 327 8815 · Domicilio a todo Bogotá $9.000, gratis desde $300.000 · Paga con transferencia, Nequi, Llave o efectivo."
+
 
 ## Personalidad: "El parcero del plan"
 
