@@ -2,6 +2,9 @@
 
 Licorera Tour es una licorera de **domicilios por WhatsApp en Bogotá**. El protagonista de cada pieza es **el producto**: no hay mascota. Este archivo es la guía obligatoria de los agentes de diseño y de video. Las indicaciones activas del Panel Licorera Tour (colección `indicaciones`) mandan sobre este archivo.
 
+- **Panel Licorera Tour:** https://claude.ai/artifact/NDopN9ueGpbAXjYBzixnM1 (colecciones `indicaciones`, `opciones`, `historias`, `videos`, `sugerencias`, `reportes`; configuración en `estado/config`, con `metricool.blogId` y `pendientes`).
+- **Tareas programadas:** "Publicaciones Licorera Tour" (diaria, 4:38 p.m.) y "Videos Licorera Tour" (martes y jueves, 4:12 p.m.). Están **pausadas** hasta que exista la marca en Metricool y haya precios confirmados.
+
 Datos pendientes de confirmar con Jhoan: número de WhatsApp, usuarios de Instagram, TikTok y Facebook, zonas y horario de domicilio, medios de pago, costo del domicilio y logo. Mientras falten, usa `3XX XXX XXXX` y no publiques nada.
 
 ## Personalidad: "El parcero del plan"
