@@ -1,0 +1,270 @@
+{
+ "nota": "Catálogo de Licorera Tour. SOLO se publican productos con confirmado=true y precio puesto por Jhoan (precio público con IVA, COP). precio_referencia_mercado es para comparar, nunca para publicar.",
+ "actualizado": "2026-10-28",
+ "productos": [
+  {
+   "id": "LT001",
+   "categoria": "aguardiente",
+   "nombre": "Aguardiente Antioqueño Tapa Azul sin azúcar",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 53000,
+   "fuente_referencia": "domicilios24siete.com (oct 2026)"
+  },
+  {
+   "id": "LT002",
+   "categoria": "aguardiente",
+   "nombre": "Aguardiente Antioqueño 24° Verde",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT003",
+   "categoria": "aguardiente",
+   "nombre": "Aguardiente Néctar Club sin azúcar",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 43000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT004",
+   "categoria": "aguardiente",
+   "nombre": "Aguardiente Néctar Club sin azúcar",
+   "presentacion": "1,5 L",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 72000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT005",
+   "categoria": "aguardiente",
+   "nombre": "Aguardiente Amarillo de Manzanares",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 53000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT006",
+   "categoria": "ron",
+   "nombre": "Ron Viejo de Caldas 3 años",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 54000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT007",
+   "categoria": "ron",
+   "nombre": "Ron Medellín 3 años",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT008",
+   "categoria": "ron",
+   "nombre": "Ron Santa Fe 4 años",
+   "presentacion": "1 L",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 59000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT009",
+   "categoria": "whisky",
+   "nombre": "Buchanan's Deluxe 12 años",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 160000,
+   "fuente_referencia": "domicilios24siete.com; Búhos Nocturnos $178.000 promo"
+  },
+  {
+   "id": "LT010",
+   "categoria": "whisky",
+   "nombre": "Old Parr 12 años",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": "Infobae: $136.000–$178.000 (2026)"
+  },
+  {
+   "id": "LT011",
+   "categoria": "whisky",
+   "nombre": "Johnnie Walker Red Label",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 70000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT012",
+   "categoria": "whisky",
+   "nombre": "Chivas Regal 12 años",
+   "presentacion": "700 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 149000,
+   "fuente_referencia": "Búhos Nocturnos promo (normal $196.000)"
+  },
+  {
+   "id": "LT013",
+   "categoria": "whisky",
+   "nombre": "Something Special",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 70000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT014",
+   "categoria": "tequila",
+   "nombre": "Tequila Olmeca Reposado",
+   "presentacion": "700 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 95000,
+   "fuente_referencia": "Búhos Nocturnos promo"
+  },
+  {
+   "id": "LT015",
+   "categoria": "tequila",
+   "nombre": "Tequila José Cuervo Especial",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT016",
+   "categoria": "ginebra",
+   "nombre": "Gin Bombay Sapphire",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 135000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT017",
+   "categoria": "vodka",
+   "nombre": "Vodka Absolut",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT018",
+   "categoria": "crema",
+   "nombre": "Baileys",
+   "presentacion": "700 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": 79000,
+   "fuente_referencia": "domicilios24siete.com"
+  },
+  {
+   "id": "LT019",
+   "categoria": "cerveza",
+   "nombre": "Cerveza Águila lata x6",
+   "presentacion": "6 x 330 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT020",
+   "categoria": "cerveza",
+   "nombre": "Cerveza Club Colombia Dorada lata x6",
+   "presentacion": "6 x 330 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT021",
+   "categoria": "cerveza",
+   "nombre": "Cerveza Corona x6",
+   "presentacion": "6 x 355 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT022",
+   "categoria": "vino",
+   "nombre": "Vino Gato Negro",
+   "presentacion": "750 ml",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT023",
+   "categoria": "complemento",
+   "nombre": "Hielo",
+   "presentacion": "bolsa",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  },
+  {
+   "id": "LT024",
+   "categoria": "complemento",
+   "nombre": "Gaseosa / soda",
+   "presentacion": "1,5 L",
+   "precio": null,
+   "confirmado": false,
+   "foto": null,
+   "precio_referencia_mercado": null,
+   "fuente_referencia": ""
+  }
+ ]
+}
