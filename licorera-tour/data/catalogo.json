@@ -97,9 +97,10 @@
    "presentacion": "750 ml",
    "precio": null,
    "confirmado": false,
-   "foto": null,
-   "precio_referencia_mercado": 160000,
-   "fuente_referencia": "domicilios24siete.com; Búhos Nocturnos $178.000 promo"
+   "foto": "licorera-tour/productos/LT009-buchanans-deluxe-12-botella.png",
+   "precio_referencia_mercado": 173100,
+   "fuente_referencia": "exito.com (28-oct-2026)",
+   "foto_estuche": "licorera-tour/productos/LT009-buchanans-deluxe-12-estuche.png"
   },
   {
    "id": "LT010",
