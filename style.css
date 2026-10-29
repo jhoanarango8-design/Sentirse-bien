@@ -3,8 +3,8 @@
 :root {
   --primary: #103F29;
   --primary-hover: #08291A;
-  --secondary: #CA6843;
-  --secondary-hover: #A74E2B;
+  --secondary: #A8502F;
+  --secondary-hover: #8A3F23;
   --accent: #D4A373;
   --accent-light: #F4E8D7;
   --bg-light: #FDFBF7;
@@ -1557,7 +1557,7 @@ footer {
 
 /* About Us specific styling */
 .about-hero {
-  background: linear-gradient(rgba(16, 63, 41, 0.85), rgba(16, 63, 41, 0.85)), url('https://images.unsplash.com/photo-1545241047-6083a3684587?q=80&w=1200') no-repeat center center/cover;
+  background: linear-gradient(rgba(16, 63, 41, 0.86), rgba(16, 63, 41, 0.86)), url('/marca/fondo-nosotros.webp') no-repeat center center/cover;
   padding: 8rem 0;
   text-align: center;
   color: var(--text-light);
@@ -1801,3 +1801,116 @@ footer {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+
+/* ==========================================================================
+   Fase 1 (oct 2026): producto flotante, WhatsApp flotante, cómo pedir,
+   redes reales, precio en tarjeta, accesibilidad
+   ========================================================================== */
+html, body { overflow-x: clip; }
+img { max-width: 100%; }
+
+/* --- Producto flotante --- */
+.product-float {
+  position: relative;
+  padding: 2rem 1.5rem 2.6rem;
+  min-height: 290px;
+  background: radial-gradient(120% 90% at 50% 100%, #F4E8D7 0%, #FAF6F0 55%, #FFFFFF 100%);
+  isolation: isolate;
+}
+.product-float-glow {
+  position: absolute; z-index: -1; left: 50%; top: 46%;
+  width: 62%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,163,115,.28) 0%, rgba(212,163,115,0) 70%);
+  transform: translate(-50%, -50%) scale(.85);
+  transition: transform .6s cubic-bezier(.16,1,.3,1), opacity .6s;
+  opacity: .7;
+}
+.product-float .product-card-image {
+  position: relative; z-index: 1;
+  max-height: 230px;
+  filter: drop-shadow(0 10px 12px rgba(16,63,41,.14));
+  transition: transform .6s cubic-bezier(.16,1,.3,1), filter .6s cubic-bezier(.16,1,.3,1);
+  will-change: transform;
+}
+.product-float-shadow {
+  position: absolute; z-index: 0; left: 50%; bottom: 1.3rem;
+  width: 52%; height: 16px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(16,63,41,.28), rgba(16,63,41,0));
+  transform: translateX(-50%) scale(1);
+  transition: transform .6s cubic-bezier(.16,1,.3,1), opacity .6s;
+}
+.product-card:hover .product-card-image,
+.product-card:focus-within .product-card-image {
+  transform: translateY(-16px) rotate(-3deg) scale(1.05);
+  filter: drop-shadow(0 26px 22px rgba(16,63,41,.22));
+  animation: sb-flotar 3.2s ease-in-out .6s infinite;
+}
+.product-card:hover .product-float-shadow,
+.product-card:focus-within .product-float-shadow { transform: translateX(-50%) scale(.68); opacity: .55; }
+.product-card:hover .product-float-glow,
+.product-card:focus-within .product-float-glow { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+@keyframes sb-flotar {
+  0%, 100% { transform: translateY(-16px) rotate(-3deg) scale(1.05); }
+  50% { transform: translateY(-24px) rotate(-1deg) scale(1.05); }
+}
+/* En celular (sin mouse): flota suave al tocar */
+@media (hover: none) {
+  .product-card:active .product-card-image { transform: translateY(-12px) rotate(-2deg) scale(1.04); }
+}
+/* Ficha (modal): el producto flota todo el tiempo */
+.modal-image-wrapper { background: radial-gradient(120% 90% at 50% 100%, #F4E8D7 0%, #FAF6F0 60%); }
+#modal-product-img { filter: drop-shadow(0 24px 22px rgba(16,63,41,.2)); animation: sb-flotar-suave 4s ease-in-out infinite; }
+@keyframes sb-flotar-suave { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) {
+  .product-card:hover .product-card-image, .product-card:focus-within .product-card-image, #modal-product-img { animation: none; }
+  .product-float .product-card-image, .product-float-shadow, .product-float-glow { transition: none; }
+}
+.product-card-price {
+  font-family: var(--font-heading); font-weight: 700; font-size: 1.35rem;
+  color: var(--primary); margin: -.4rem 0 1rem;
+}
+.product-card-price span { font-family: var(--font-body); font-size: .8rem; font-weight: 600; color: var(--text-muted); }
+.modal-legal-note { list-style: none; font-size: .78rem; color: var(--text-muted); margin-top: .4rem; }
+
+/* --- Botón flotante de WhatsApp --- */
+.whatsapp-float {
+  position: fixed; right: 18px; bottom: 18px; z-index: 900;
+  display: inline-flex; align-items: center; gap: .55rem;
+  min-height: 56px; padding: 0 1.1rem 0 1rem; border-radius: 999px;
+  background: #1F8F4E; color: #fff; font-weight: 700; text-decoration: none;
+  box-shadow: 0 12px 28px -8px rgba(16,63,41,.55);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.whatsapp-float i { font-size: 1.7rem; }
+.whatsapp-float:hover { transform: translateY(-3px); color: #fff; box-shadow: 0 16px 32px -8px rgba(16,63,41,.6); }
+.whatsapp-float:focus-visible { outline: 3px solid #F4E8D7; outline-offset: 3px; }
+@media (max-width: 480px) { .whatsapp-float-label { display: none; } .whatsapp-float { padding: 0; width: 58px; justify-content: center; } }
+body.cart-open .whatsapp-float { display: none; }
+
+/* --- Cómo pedir --- */
+.how-to { background: var(--bg-card); }
+.how-to-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; }
+.how-to-step { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.8rem 1.5rem; }
+.how-to-num { display: inline-flex; width: 44px; height: 44px; border-radius: 50%; align-items: center; justify-content: center; background: var(--primary); color: #fff; font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem; }
+.how-to-step h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: .4rem; }
+.how-to-step p { color: var(--text-muted); font-size: .95rem; }
+
+/* --- Redes reales --- */
+.social-follow-grid { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.social-follow-image img { width: 100%; height: auto; border-radius: 200px 200px 24px 24px; border: 6px solid #fff; box-shadow: var(--shadow-md); }
+.social-follow-content h2 { margin: .8rem 0 1rem; }
+.social-follow-content p { color: var(--text-muted); margin-bottom: 1.5rem; max-width: 34em; }
+.social-follow-links { display: flex; flex-wrap: wrap; gap: .8rem; }
+.social-follow-links .btn i { margin-right: .4rem; }
+@media (max-width: 768px) { .social-follow-grid { grid-template-columns: 1fr; gap: 2rem; } .social-follow-image { max-width: 320px; margin: 0 auto; } }
+
+/* --- Pie de página --- */
+.footer-help { font-size: .9rem; color: rgba(255,255,255,.85); margin-bottom: 1rem; }
+.footer-wa-btn i { margin-right: .4rem; }
+.footer-bottom p, .footer-bottom-links a { color: rgba(255,255,255,.85); }
+.cart-close-btn, .modal-close-btn { background: none; border: 0; cursor: pointer; font: inherit; color: inherit; }
+.legal-content { max-width: 760px; }
+.legal-content h2 { font-size: 1.5rem; color: var(--primary); margin: 2.2rem 0 .8rem; }
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content p { color: var(--text-dark); margin-bottom: 1rem; line-height: 1.7; }
+.legal-updated { font-size: .85rem; color: var(--text-muted) !important; }

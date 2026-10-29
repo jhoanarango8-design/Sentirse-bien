@@ -7,6 +7,18 @@ import { inject } from '@vercel/analytics';
 // Configuration
 const WHATSAPP_NUMBER = "573224559027"; // Client's WhatsApp number (+57 3224559027)
 let catalogProducts = [];
+const FALLBACK_IMG = '/marca/logo-sentirsebien.png';
+// Foto del producto: recorte limpio en WebP (public/productos/<id>.webp)
+const productImage = (p) => p && p.imagen ? `/${p.imagen}` : (p && p.imagen_referencia ? `/imagenes/${p.imagen_referencia}` : FALLBACK_IMG);
+const cartItemImage = (item) => !item.image ? FALLBACK_IMG : (item.image.includes('/') ? `/${item.image}` : `/imagenes/${item.image}`);
+// Bloque de imagen con efecto "producto flotante"
+const floatingImage = (p) => `
+        <div class="product-card-image-wrapper product-float">
+          <span class="product-float-glow" aria-hidden="true"></span>
+          <img src="${productImage(p)}" alt="${p.nombre}" class="product-card-image" loading="lazy" decoding="async" width="360" height="360" onerror="this.onerror=null;this.src='${FALLBACK_IMG}'">
+          <span class="product-float-shadow" aria-hidden="true"></span>
+        </div>`;
+const hasInvimaNote = (p) => (p.beneficios || []).some(b => b.includes('*'));
 let cart = JSON.parse(localStorage.getItem('sentirsebien_cart')) || [];
 
 // Initialize Application
@@ -26,9 +38,12 @@ function initCommonUI() {
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('open');
-      menuToggle.innerHTML = navMenu.classList.contains('open') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
+      const open = navMenu.classList.contains('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menuToggle.innerHTML = open
+        ? '<i class="fas fa-times" aria-hidden="true"></i>'
+        : '<i class="fas fa-bars" aria-hidden="true"></i>';
     });
   }
 
@@ -56,8 +71,7 @@ function initCommonUI() {
     // Close on clicking overlay background
     cartOverlay.addEventListener('click', (e) => {
       if (e.target === cartOverlay) {
-        cartOverlay.classList.remove('remove');
-        cartOverlay.classList.remove('open');
+                cartOverlay.classList.remove('open');
         document.body.style.overflow = 'auto';
       }
     });
@@ -132,6 +146,8 @@ function renderCartItems() {
       </div>
     `;
     if (subtotalVal) subtotalVal.textContent = formatCOP(0);
+    const totalVal0 = document.getElementById('cart-total-val');
+    if (totalVal0) totalVal0.textContent = formatCOP(0);
     if (checkoutBtn) checkoutBtn.setAttribute('disabled', 'true');
     return;
   }
@@ -146,12 +162,12 @@ function renderCartItems() {
     subtotal += itemTotal;
     
     // Default placeholder image if target is missing
-    const imageSrc = item.image ? `imagenes/${item.image}` : 'https://placehold.co/100x100?text=SentirseBien';
+    const imageSrc = cartItemImage(item);
 
     html += `
       <div class="cart-item" data-index="${index}">
         <div class="cart-item-image">
-          <img src="${imageSrc}" alt="${item.name}" onerror="this.src='https://placehold.co/100x100?text=SentirseBien'">
+          <img src="${imageSrc}" alt="${item.name}" onerror="this.onerror=null;this.src='/marca/logo-sentirsebien.png'">
         </div>
         <div class="cart-item-details">
           <h4>${item.name}</h4>
@@ -172,6 +188,8 @@ function renderCartItems() {
 
   container.innerHTML = html;
   if (subtotalVal) subtotalVal.textContent = formatCOP(subtotal);
+  const totalVal = document.getElementById('cart-total-val');
+  if (totalVal) totalVal.textContent = formatCOP(subtotal);
 }
 
 // Global functions for cart mutations (attached to window for inline onclick triggers)
@@ -216,7 +234,7 @@ function addToCart(product, presentationIndex, qty = 1) {
       price: presentation.precio,
       presentationType: presentation.tipo + (presentation.variedad ? ` (${presentation.variedad})` : ''),
       size: size,
-      image: product.imagen_referencia,
+      image: product.imagen || product.imagen_referencia,
       quantity: qty
     });
   }
@@ -577,7 +595,6 @@ function renderFeaturedProducts() {
 
   let html = '';
   catalogProducts.forEach(product => {
-    const imageSrc = product.imagen_referencia ? `imagenes/${product.imagen_referencia}` : 'https://placehold.co/300x300?text=SentirseBien';
     
     // Generate variants badges HTML
     const variantsHtml = product.presentaciones.map(p => {
@@ -588,18 +605,16 @@ function renderFeaturedProducts() {
 
     html += `
       <div class="product-card">
-        <span class="badge product-badge">${product.categoria}</span>
-        <div class="product-card-image-wrapper">
-          <img src="${imageSrc}" alt="${product.nombre}" class="product-card-image" onerror="this.src='https://placehold.co/300x300?text=SentirseBien'">
-        </div>
+        ${floatingImage(product)}
         <div class="product-card-content">
           <span class="product-card-category">${product.categoria}</span>
           <h3 class="product-card-title">${product.nombre}</h3>
-          <p class="product-card-benefits">${product.beneficios.length > 0 ? product.beneficios[0] : product.descripcion}</p>
+          <p class="product-card-benefits">${product.descripcion}</p>
           
           <div class="product-card-variants">
             ${variantsHtml}
           </div>
+          <p class="product-card-price">${product.presentaciones.length > 1 ? '<span>Desde</span> ' : ''}${formatCOP(Math.min(...product.presentaciones.map(x => x.precio)))}</p>
           
           <div class="product-card-footer">
             <button onclick="window.addToCartByDefault('${product.id}')" class="btn btn-primary btn-block">
@@ -678,7 +693,6 @@ function renderShopProducts() {
 
   let html = '';
   filtered.forEach(product => {
-    const imageSrc = product.imagen_referencia ? `imagenes/${product.imagen_referencia}` : 'https://placehold.co/300x300?text=SentirseBien';
 
     // Generate variants badges HTML
     const variantsHtml = product.presentaciones.map(p => {
@@ -689,17 +703,16 @@ function renderShopProducts() {
 
     html += `
       <div class="product-card">
-        <div class="product-card-image-wrapper">
-          <img src="${imageSrc}" alt="${product.nombre}" class="product-card-image" onerror="this.src='https://placehold.co/300x300?text=SentirseBien'">
-        </div>
+        ${floatingImage(product)}
         <div class="product-card-content">
           <span class="product-card-category">${product.categoria}</span>
           <h3 class="product-card-title">${product.nombre}</h3>
-          <p class="product-card-benefits">${product.beneficios.length > 0 ? product.beneficios[0] : product.descripcion}</p>
+          <p class="product-card-benefits">${product.descripcion}</p>
           
           <div class="product-card-variants">
             ${variantsHtml}
           </div>
+          <p class="product-card-price">${product.presentaciones.length > 1 ? '<span>Desde</span> ' : ''}${formatCOP(Math.min(...product.presentaciones.map(x => x.precio)))}</p>
           
           <div class="product-card-footer">
             <button onclick="window.addToCartByDefault('${product.id}')" class="btn btn-primary btn-block">
@@ -747,10 +760,9 @@ window.quickViewProduct = (productId) => {
   const modalPrice = document.getElementById('modal-product-price');
 
   if (modalImg) {
-    const imageSrc = product.imagen_referencia ? `imagenes/${product.imagen_referencia}` : 'https://placehold.co/300x300?text=SentirseBien';
-    modalImg.src = imageSrc;
+    modalImg.src = productImage(product);
     modalImg.alt = product.nombre;
-    modalImg.onerror = function() { this.src = 'https://placehold.co/300x300?text=SentirseBien'; };
+    modalImg.onerror = function() { this.onerror = null; this.src = FALLBACK_IMG; };
   }
   if (modalCat) modalCat.textContent = product.categoria;
   if (modalTitle) modalTitle.textContent = product.nombre;
@@ -760,8 +772,8 @@ window.quickViewProduct = (productId) => {
     if (product.beneficios.length > 0) {
       modalBenefitsList.parentElement.style.display = 'block';
       modalBenefitsList.innerHTML = product.beneficios.map(b => `
-        <li><i class="fas fa-check-circle"></i><span>${b}</span></li>
-      `).join('');
+        <li><i class="fas fa-check-circle" aria-hidden="true"></i><span>${b}</span></li>
+      `).join('') + (hasInvimaNote(product) ? '<li class="modal-legal-note">*Declaración aceptada por el INVIMA para el nutriente.</li>' : '');
     } else {
       modalBenefitsList.parentElement.style.display = 'none';
     }
@@ -846,11 +858,11 @@ function injectProductSchema(product) {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.nombre,
-    "image": `${window.location.origin}/imagenes/${product.imagen_referencia}`,
+    "image": `${window.location.origin}${productImage(product)}`,
     "description": product.descripcion,
     "brand": {
       "@type": "Brand",
-      "name": product.categoria.includes("GMN") ? "GMN" : "SentirseBien"
+      "name": (product.categoria + product.nombre).includes("GMN") ? "GMN" : "ZOI"
     },
     "offers": {
       "@type": "Offer",

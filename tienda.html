@@ -6,19 +6,20 @@
   
   <!-- SEO Optimization for Colombia -->
   <title>Tienda de Suplementos y Bienestar Natural | SentirseBien Colombia</title>
-  <meta name="description" content="Explora el catálogo completo de SentirseBien. Compra colágenos hidrolizados, aceites vegetales y productos homeopáticos. Envíos nacionales en Colombia con checkout a WhatsApp.">
-  <meta name="keywords" content="comprar colágeno marino Colombia, aceites vegetales prensados en frío, plata coloidal farmacia, alimentación saludable, suplementos Nequi Daviplata">
-  <link rel="canonical" href="https://sentirsebien.co/tienda.html">
+  <meta name="description" content="Explora el catálogo completo de SentirseBien. Compra colágenos hidrolizados, Kfir, maca, calcio marino y suplementos deportivos GMN, con precios al público y pedido por WhatsApp.">
+  <meta name="keywords" content="comprar colágeno marino Bogotá, Kfir ZOI, maca roja y negra, Super Mega Gainer GMN, creatina, productos ZOI">
+  <link rel="canonical" href="https://sentirsebien-v2.vercel.app/tienda.html">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sentirsebien.co/tienda.html">
+  <meta property="og:url" content="https://sentirsebien-v2.vercel.app/tienda.html">
   <meta property="og:title" content="Catálogo de Productos Naturales | SentirseBien">
-  <meta property="og:description" content="Nutre tu salud con suplementos, polvos y aceites premium. Compra rápida por WhatsApp con envíos nacionales en toda Colombia.">
-  <meta property="og:image" content="assets/hero_wellness.jpg">
+  <meta property="og:description" content="Productos naturales ZOI y suplementos deportivos con precio. Pide fácil por WhatsApp.">
+  <meta property="og:image" content="https://sentirsebien-v2.vercel.app/marca/og-sentirsebien.jpg">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://placehold.co/32x32/103f29/ffffff?text=SB" type="image/png">
+  <link rel="icon" href="/marca/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/marca/favicon-180.png">
 
   <!-- Icons and Styles -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -46,12 +47,12 @@
 
       <!-- Nav Actions -->
       <div class="nav-actions">
-        <a href="tienda.html" class="nav-action-btn" title="Buscar productos"><i class="fas fa-search"></i></a>
-        <button id="cart-btn" class="nav-action-btn" title="Ver carrito">
+        <a href="tienda.html" class="nav-action-btn" title="Buscar productos" aria-label="Buscar productos"><i class="fas fa-search"></i></a>
+        <button id="cart-btn" class="nav-action-btn" type="button" title="Ver carrito" aria-label="Ver carrito">
           <i class="fas fa-shopping-bag"></i>
           <span class="cart-count-badge">0</span>
         </button>
-        <button class="menu-toggle" id="menu-toggle">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -62,13 +63,13 @@
     <!-- Shop Hero Section -->
     <section class="shop-hero">
       <div class="container">
-        <span class="badge">Nuestra Farmacia Natural</span>
+        <span class="badge">Tienda natural</span>
         <h1>Catálogo de Bienestar</h1>
-        <p>Encuentra las mejores formulaciones e ingredientes naturales clasificados para tu rutina de salud diaria.</p>
+        <p>Precios al público con IVA. Elige la presentación, agrégala al carrito y envíanos tu pedido por WhatsApp.</p>
         
         <!-- Search bar -->
         <div class="shop-search-bar">
-          <input type="text" id="shop-search" class="shop-search-input" placeholder="Buscar por colágeno, aceite, magnesio, etc...">
+          <input type="text" id="shop-search" class="shop-search-input" placeholder="Buscar: colágeno, Kfir, maca, gainer…" aria-label="Buscar productos">
           <div class="shop-search-btn"><i class="fas fa-search"></i></div>
         </div>
       </div>
@@ -78,13 +79,11 @@
     <section class="section-padding" style="background-color: var(--bg-light);">
       <div class="container">
         <!-- Category Filter Slider -->
-        <div class="category-filters">
-          <button class="filter-btn active" data-category="all">Todos los productos</button>
-          <button class="filter-btn" data-category="Pulverizados">Pulverizados</button>
-          <button class="filter-btn" data-category="Aceites">Aceites Vegetales</button>
-          <button class="filter-btn" data-category="Homeopáticos">Homeopáticos</button>
-          <button class="filter-btn" data-category="Jarabes">Jarabes</button>
-          <button class="filter-btn" data-category="Alimentación">Alimentación Saludable</button>
+        <div class="category-filters" role="group" aria-label="Filtrar por línea">
+          <button class="filter-btn active" type="button" data-category="all">Todos</button>
+          <button class="filter-btn" type="button" data-category="Pulverizados">Pulverizados</button>
+          <button class="filter-btn" type="button" data-category="Deportivos">Deportivos</button>
+          <button class="filter-btn" type="button" data-category="Jarabes">Jarabes</button>
         </div>
 
         <!-- Products Grid -->
@@ -107,20 +106,19 @@
         <a href="index.html" class="logo footer-logo" style="color: white;">Sentirse<span>Bien</span></a>
         <p>Tu aliado en el camino hacia un estilo de vida saludable y en armonía natural en Colombia.</p>
         <div class="social-links">
-          <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/search/top?q=Sentirse%20Bien" class="social-btn" title="Facebook" aria-label="Facebook de SentirseBien" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/sentirsebiencol/" class="social-btn" title="Instagram" aria-label="Instagram @sentirsebiencol" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@sentirsebien26" class="social-btn" title="TikTok" aria-label="TikTok @sentirsebien26" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
       <!-- Column 2 -->
       <div class="footer-col">
         <h3>Categorías</h3>
         <ul class="footer-links">
-          <li><a href="tienda.html">Línea de Pulverizados</a></li>
-          <li><a href="tienda.html">Línea de Aceites Vegetales</a></li>
-          <li><a href="tienda.html">Línea de Homeopáticos</a></li>
-          <li><a href="tienda.html">Línea de Jarabes</a></li>
-          <li><a href="tienda.html">Alimentación Saludable</a></li>
+          <li><a href="tienda.html">Línea de pulverizados</a></li>
+          <li><a href="tienda.html">Suplementos deportivos</a></li>
+          <li><a href="tienda.html">Jarabes</a></li>
+          <li><a href="legal.html">Aviso legal</a></li>
         </ul>
       </div>
       <!-- Column 3 -->
@@ -130,27 +128,24 @@
           <li><a href="index.html">Inicio</a></li>
           <li><a href="tienda.html">Tienda</a></li>
           <li><a href="nosotros.html">Nuestra Historia</a></li>
-          <li><a href="#">Preguntas Frecuentes</a></li>
-          <li><a href="#">Contacto Directo</a></li>
+          <li><a href="legal.html#envios">Envíos y pagos</a></li>
+          <li><a href="https://wa.me/573224559027" target="_blank" rel="noopener">WhatsApp 322 455 9027</a></li>
         </ul>
       </div>
       <!-- Column 4 -->
       <div class="footer-col">
-        <h3>Boletín Informativo</h3>
-        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Suscríbete para recibir consejos de salud y ofertas exclusivas para Colombia.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
-          <input type="email" placeholder="Tu correo electrónico" class="newsletter-input" required>
-          <button type="submit" class="newsletter-btn">Unirme</button>
-        </form>
+        <h3>¿Tienes dudas?</h3>
+        <p class="footer-help">Escríbenos y te ayudamos a elegir el producto y la presentación que mejor te queda.</p>
+        <a href="https://wa.me/573224559027?text=Hola%20SentirseBien%2C%20tengo%20una%20pregunta" class="btn btn-secondary footer-wa-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Escríbenos por WhatsApp</a>
       </div>
     </div>
 
     <div class="container footer-bottom">
-      <p>&copy; 2026 SentirseBien. Todos los derechos reservados. Diseñado para un público saludable en Colombia.</p>
+      <p>&copy; 2026 SentirseBien – Siempre Contigo. Los productos que vendemos no son medicamentos: no previenen, tratan ni curan enfermedades. Lee siempre la etiqueta.</p>
       <div class="footer-bottom-links">
-        <a href="#">Términos y Condiciones</a>
-        <a href="#">Políticas de Privacidad</a>
-        <a href="#">Políticas de Envíos</a>
+        <a href="legal.html#terminos">Términos y condiciones</a>
+        <a href="legal.html#privacidad">Privacidad</a>
+        <a href="legal.html#envios">Envíos</a>
       </div>
     </div>
   </footer>
@@ -160,7 +155,7 @@
     <div class="cart-drawer" id="cart-drawer">
       <div class="cart-header">
         <h2>Mi Carrito</h2>
-        <div class="cart-close-btn" id="cart-close">&times;</div>
+        <button type="button" class="cart-close-btn" id="cart-close" aria-label="Cerrar carrito">&times;</button>
       </div>
       
       <!-- Cart Items Container -->
@@ -176,7 +171,7 @@
         </div>
         <div class="cart-summary-line total">
           <span>Total Estimado</span>
-          <span id="cart-subtotal-val">$0</span>
+          <span id="cart-total-val">$0</span>
         </div>
         <p class="cart-checkout-note">El despacho y el pago de tu pedido se acordarán de forma directa y personalizada a través de WhatsApp.</p>
         <button id="checkout-whatsapp-btn" class="btn btn-secondary btn-block" onclick="window.checkoutWhatsApp()">
@@ -189,7 +184,7 @@
   <!-- Product Detail Modal (Quick View) -->
   <div class="modal-overlay" id="product-modal-overlay">
     <div class="product-modal">
-      <div class="modal-close-btn" onclick="window.closeProductModal()">&times;</div>
+      <button type="button" class="modal-close-btn" onclick="window.closeProductModal()" aria-label="Cerrar">&times;</button>
       <div class="modal-grid">
         <!-- Image Area -->
         <div class="modal-image-wrapper">
@@ -229,6 +224,12 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/573224559027?text=Hola%20SentirseBien%2C%20quiero%20informaci%C3%B3n" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i><span class="whatsapp-float-label">¿Te ayudamos?</span>
+  </a>
 
   <!-- Script links -->
   <script type="module" src="main.js"></script>

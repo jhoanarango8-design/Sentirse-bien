@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Allow BASE_URL to be configured dynamically via environment variables (useful for dev, staging, or domain changes)
-const BASE_URL = process.env.BASE_URL || 'https://sentirsebien.co';
+const BASE_URL = process.env.BASE_URL || 'https://sentirsebien-v2.vercel.app';
 
 const CATALOG_PATH = path.join(__dirname, 'public', 'Catalogo.json');
 const OUTPUT_DIR = path.join(__dirname, 'public', 'p');
@@ -22,8 +22,7 @@ const catalog = JSON.parse(catalogRaw);
 
 catalog.forEach(product => {
   // Safe fallbacks for missing product attributes to prevent page breakage
-  const imgName = product.imagen_referencia || 'placeholder.jpg';
-  const imageUrl = `${BASE_URL}/imagenes/${encodeURIComponent(imgName)}`;
+  const imageUrl = `${BASE_URL}/productos/og/${product.id}.jpg`;
   const description = product.descripcion || 'Descubre los detalles de este producto de bienestar natural.';
   const productUrl = `${BASE_URL}/p/${product.id}.html`;
   const redirectUrl = `../tienda.html#${product.id}`;
@@ -45,8 +44,8 @@ catalog.forEach(product => {
   <meta property="og:image" content="${imageUrl}">
   <meta property="og:image:secure_url" content="${imageUrl}">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="600">
-  <meta property="og:image:height" content="600">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
