@@ -665,6 +665,37 @@ function initCarousel() {
   setTimeout(updateCarousel, 300);
 }
 
+
+// ---- Visor 3D (solo productos con etiqueta plana: campo modelo3d) ----
+const supportsWebGL = (() => { try { const c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'))); } catch (e) { return false; } })();
+function mount3D(container, product) {
+  if (!supportsWebGL || !product || !product.modelo3d) return Promise.resolve(null);
+  return import('./colmare3d.js').then(m => m.mountJar3D(container, { label: product.modelo3d })).catch(() => null);
+}
+let modal3D = null, modal3DToken = 0;
+function setModal3D(product) {
+  const wrap = document.querySelector('.modal-image-wrapper');
+  const token = ++modal3DToken;
+  if (modal3D) { modal3D.dispose(); modal3D = null; }
+  if (!wrap) return;
+  let box = wrap.querySelector('.modal-3d');
+  if (!product || !product.modelo3d || !supportsWebGL) { wrap.classList.remove('has-3d'); if (box) box.remove(); return; }
+  if (!box) { box = document.createElement('div'); box.className = 'modal-3d jar3d'; box.innerHTML = '<span class="jar3d-hint"><i class="fas fa-hand-pointer" aria-hidden="true"></i> Arrástralo para girarlo</span>'; wrap.appendChild(box); }
+  wrap.classList.add('has-3d');
+  mount3D(box, product).then(v => { if (token !== modal3DToken) { v && v.dispose(); return; } modal3D = v; if (!v) wrap.classList.remove('has-3d'); });
+}
+function initFeatured3D() {
+  const box = document.getElementById('colmare-3d');
+  if (!box) return;
+  const product = catalogProducts.find(p => p.id === box.dataset.id);
+  if (!product) return;
+  const price = document.getElementById('colmare-3d-price');
+  if (price) price.textContent = formatCOP(product.presentaciones[0].precio);
+  if (!supportsWebGL) { box.classList.add('no-3d'); return; }
+  const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { io.disconnect(); mount3D(box, product); } }, { rootMargin: '200px' });
+  io.observe(box);
+}
+
 // Render Home Page Featured Products (all catalog products for carousel)
 function renderFeaturedProducts() {
   const container = document.getElementById('featured-products-grid');
@@ -706,6 +737,7 @@ function renderFeaturedProducts() {
 
   container.innerHTML = html;
   initCarousel();
+  initFeatured3D();
 }
 
 // Shop Filtering and Logic
@@ -836,6 +868,7 @@ window.quickViewProduct = (productId) => {
   const modalPresentationOptions = document.getElementById('modal-presentation-options');
   const modalPrice = document.getElementById('modal-product-price');
 
+  setModal3D(product);
   if (modalImg) {
     modalImg.src = presentationImage(product, 0); modalImg.style.setProperty('--size', '1');
     modalImg.alt = product.nombre;
@@ -900,6 +933,7 @@ window.selectModalPresentation = (index) => {
 };
 
 window.closeProductModal = () => {
+  setModal3D(null);
   const modalOverlay = document.getElementById('product-modal-overlay');
   if (modalOverlay) {
     modalOverlay.classList.remove('open');

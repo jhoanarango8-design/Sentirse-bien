@@ -1,5 +1,32 @@
 [
   {
+    "id": "colmare",
+    "categoria": "Línea de Pulverizados",
+    "nombre": "Colmaré con Colágeno Hidrolizado ZOI",
+    "presentaciones": [
+      {
+        "tipo": "Tarro",
+        "peso": "1000 g",
+        "precio": 70000,
+        "imagen": "productos/colmare.webp"
+      }
+    ],
+    "descripcion": "Alimento en polvo a base de proteína de suero con colágeno hidrolizado y proteína de colágeno, con bisglicinato de magnesio y probióticos. Sabor vainilla.",
+    "beneficios": [
+      "16 g de proteína por porción preparada (30 g), según su tabla nutricional.",
+      "Trae vitaminas A, C, D3, E y del complejo B, calcio, hierro, magnesio, zinc y selenio.",
+      "Sin colorantes artificiales y sin maltodextrina, según su etiqueta.",
+      "Se prepara con 1 y 1/2 cucharadas dosificadoras en 240 mL de agua."
+    ],
+    "imagen": "productos/colmare.webp",
+    "modelo3d": "productos/colmare-etiqueta.webp",
+    "etiquetas": [
+      "16 g de proteína por porción",
+      "Con magnesio y probióticos",
+      "1000 g · 33 porciones aprox."
+    ]
+  },
+  {
     "id": "colageno-marino-natural",
     "categoria": "Línea de Pulverizados",
     "nombre": "Colágeno Hidrolizado Marino Zoí",
