@@ -2077,3 +2077,13 @@ body.cart-open .whatsapp-float { display: none; }
 .modal-image-wrapper.has-3d #modal-product-img { visibility: hidden; }
 .modal-3d { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); aspect-ratio: 1 / 1; max-height: 100%; margin: 0 auto; }
 @media (max-width: 768px) { .modal-image-wrapper.has-3d { min-height: 360px; } }
+
+/* Tarjeta con modelo 3D: al pasar el mouse el tarro sale de la tarjeta y gira con el puntero */
+.float-3d { position: absolute; z-index: 3; left: -8%; right: -8%; bottom: .4rem; height: 122%; pointer-events: none; opacity: 0; transition: opacity .35s ease; }
+.float-3d .jar3d-canvas { pointer-events: none; }
+.float-3d.is-ready { opacity: 1; }
+.product-float:has(.float-3d.is-ready) .product-card-image { opacity: 0; transition: opacity .25s ease; }
+.product-float:has(.float-3d.is-ready) .product-float-shadow { opacity: 0; }
+.product-float:has(.float-3d.is-ready) .product-float-tags,
+.product-float:has(.float-3d.is-ready) .product-float-glass { opacity: 0 !important; }
+.colmare3d-stage .jar3d-hint, .modal-3d .jar3d-hint { top: 14px; bottom: auto; }

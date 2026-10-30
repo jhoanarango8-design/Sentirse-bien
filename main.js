@@ -20,6 +20,7 @@ const floatingImage = (p) => {
   return `
         <div class="product-card-image-wrapper product-float" data-id="${p.id}">
           <span class="product-float-glow" aria-hidden="true"></span>
+          ${p.modelo3d ? '<span class="float-3d jar3d" aria-hidden="true"></span>' : ''}
           <img src="${productImage(p)}" alt="${p.nombre}" class="product-card-image" loading="lazy" decoding="async" width="360" height="360" onerror="this.onerror=null;this.src='${FALLBACK_IMG}'">
           <span class="product-float-shadow" aria-hidden="true"></span>
           <span class="product-float-tags" aria-hidden="true">${tags}</span>
@@ -35,6 +36,7 @@ function initFloatingProducts() {
     const el = e.target.closest && e.target.closest('.product-card');
     if (!el) return;
     const f = el.querySelector('.product-float'); if (!f) return;
+    if (f.querySelector('.float-3d')) { card3DEnter(el); card3DMove(el, e); }
     const r = f.getBoundingClientRect();
     const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
     const y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
@@ -48,6 +50,7 @@ function initFloatingProducts() {
     if (!el || el.contains(e.relatedTarget)) return;
     const f = el.querySelector('.product-float');
     if (f) { f.style.setProperty('--ry', '0deg'); f.style.setProperty('--rx', '0deg'); }
+    if (card3D && card3D.card === el) card3DLeave();
   });
   // En celular: el primer toque hace saltar el producto; el segundo abre la ficha
   document.addEventListener('click', (e) => {
@@ -58,6 +61,8 @@ function initFloatingProducts() {
       document.querySelectorAll('.product-float.is-active').forEach(x => x.classList.remove('is-active'));
       f.classList.add('is-active');
       f.style.setProperty('--ry', '-12deg'); f.style.setProperty('--rx', '4deg');
+      const card = f.closest('.product-card');
+      if (card && f.querySelector('.float-3d')) { card3DEnter(card); card3D && (card3D.last = [Math.PI * 0.35, 0]); setTimeout(() => card3D && card3D.viewer && card3D.viewer.point(Math.PI * 0.35, 0), 50); }
       return;
     }
     window.quickViewProduct(f.dataset.id);
@@ -668,9 +673,39 @@ function initCarousel() {
 
 // ---- Visor 3D (solo productos con etiqueta plana: campo modelo3d) ----
 const supportsWebGL = (() => { try { const c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'))); } catch (e) { return false; } })();
-function mount3D(container, product) {
+function mount3D(container, product, opts = {}) {
   if (!supportsWebGL || !product || !product.modelo3d) return Promise.resolve(null);
-  return import('./colmare3d.js').then(m => m.mountJar3D(container, { label: product.modelo3d })).catch(() => null);
+  return import('./colmare3d.js').then(m => m.mountJar3D(container, { label: product.modelo3d, ...opts })).catch(() => null);
+}
+// Tarjetas: al pasar el mouse el tarro sale de la tarjeta en 3D y gira según dónde esté el puntero
+let card3D = null; // { card, box, viewer, timer }
+function card3DEnter(card) {
+  const box = card.querySelector('.float-3d'); if (!box || !supportsWebGL) return;
+  if (card3D && card3D.card === card) { clearTimeout(card3D.timer); return; }
+  card3DLeave(true);
+  const product = catalogProducts.find(p => p.id === card.querySelector('.product-float').dataset.id);
+  const entry = { card, box, viewer: null, timer: null };
+  card3D = entry;
+  mount3D(box, product, { fit: 0.92, interactive: false, autoSpin: false }).then(v => {
+    if (card3D !== entry) { v && v.dispose(); return; }
+    entry.viewer = v; if (v && entry.last) v.point(...entry.last);
+  });
+}
+function card3DMove(card, e) {
+  if (!card3D || card3D.card !== card) return;
+  const r = card.getBoundingClientRect();
+  const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+  const y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+  card3D.last = [(x - 0.5) * Math.PI * 1.9, (y - 0.5) * 0.25];
+  card3D.viewer && card3D.viewer.point(...card3D.last);
+}
+function card3DLeave(now) {
+  if (!card3D) return;
+  const entry = card3D;
+  const kill = () => { entry.viewer && entry.viewer.dispose(); if (card3D === entry) card3D = null; };
+  if (now) { kill(); return; }
+  entry.viewer && entry.viewer.release();
+  clearTimeout(entry.timer); entry.timer = setTimeout(kill, 700);
 }
 let modal3D = null, modal3DToken = 0;
 function setModal3D(product) {
@@ -682,7 +717,7 @@ function setModal3D(product) {
   if (!product || !product.modelo3d || !supportsWebGL) { wrap.classList.remove('has-3d'); if (box) box.remove(); return; }
   if (!box) { box = document.createElement('div'); box.className = 'modal-3d jar3d'; box.innerHTML = '<span class="jar3d-hint"><i class="fas fa-hand-pointer" aria-hidden="true"></i> Arrástralo para girarlo</span>'; wrap.appendChild(box); }
   wrap.classList.add('has-3d');
-  mount3D(box, product).then(v => { if (token !== modal3DToken) { v && v.dispose(); return; } modal3D = v; if (!v) wrap.classList.remove('has-3d'); });
+  mount3D(box, product, { fit: 0.8 }).then(v => { if (token !== modal3DToken) { v && v.dispose(); return; } modal3D = v; if (!v) wrap.classList.remove('has-3d'); });
 }
 function initFeatured3D() {
   const box = document.getElementById('colmare-3d');
@@ -692,7 +727,7 @@ function initFeatured3D() {
   const price = document.getElementById('colmare-3d-price');
   if (price) price.textContent = formatCOP(product.presentaciones[0].precio);
   if (!supportsWebGL) { box.classList.add('no-3d'); return; }
-  const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { io.disconnect(); mount3D(box, product); } }, { rootMargin: '200px' });
+  const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { io.disconnect(); mount3D(box, product, { fit: 0.8 }); } }, { rootMargin: '200px' });
   io.observe(box);
 }
 
