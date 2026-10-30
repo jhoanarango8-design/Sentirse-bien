@@ -7,17 +7,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 76000,
+        "imagen": "productos/colageno-marino-natural.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 39600,
+        "imagen": "productos/colageno-marino-natural-500g.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22000,
+        "imagen": "productos/colageno-marino-natural-250g.webp"
       }
     ],
     "descripcion": "Mezcla en polvo para preparar bebida con colágeno hidrolizado marino tipo I y II, péptidos de colágeno, biotina y vitamina E.",
@@ -42,17 +45,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 76000,
+        "imagen": "productos/colageno-marino-crema-coco.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 39600,
+        "imagen": "productos/colageno-marino-crema-coco-500g.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22000,
+        "imagen": "productos/colageno-marino-crema-coco-250g.webp"
       }
     ],
     "descripcion": "Mezcla en polvo con colágeno hidrolizado marino tipo I y II, péptidos de colágeno bovino, biotina y vitamina E, con sabor a crema de coco.",
@@ -77,17 +83,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 76000,
+        "imagen": "productos/maca-negra-maca-roja.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 39600,
+        "imagen": "productos/maca-negra-maca-roja-500g.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22000,
+        "imagen": "productos/maca-negra-maca-roja-250g.webp"
       }
     ],
     "descripcion": "Mezcla para preparar bebida con vitaminas y minerales con: Maca Roja, Maca Negra, Chontaduro, Borojó, Zinc, Moringa, Jalea Real y Polen.",
@@ -111,17 +120,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 76000,
+        "imagen": "productos/factor-transferencia.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 39600,
+        "imagen": "productos/factor-transferencia-500g.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22000,
+        "imagen": "productos/factor-transferencia-250g.webp"
       }
     ],
     "descripcion": "Mezcla en polvo con calostro bovino, betaglucanos de Ganoderma lucidum y vitamina C.",
@@ -146,7 +158,8 @@
       {
         "tipo": "Gotero",
         "peso": "Estándar",
-        "precio": 17800
+        "precio": 17800,
+        "imagen": "productos/stevia-jarabe.webp"
       }
     ],
     "descripcion": "Endulzante a base de estevia natural. 0 calorías.",
@@ -171,7 +184,8 @@
       {
         "tipo": "Bolsa",
         "peso": "450 g",
-        "precio": 74000
+        "precio": 74000,
+        "imagen": "productos/superalimento-quinua-amaranto.webp"
       }
     ],
     "descripcion": "Alimento en polvo con probióticos y prebióticos (FOS y GOS), sin azúcar añadida, a base de quinua y amaranto.",
@@ -195,17 +209,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 76000,
+        "imagen": "productos/calcio-coral-marino.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 39600,
+        "imagen": "productos/calcio-coral-marino-500g.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22000,
+        "imagen": "productos/calcio-coral-marino-250g.webp"
       }
     ],
     "descripcion": "Mezcla en polvo con calcio de origen marino, cloruro de magnesio, péptidos de colágeno, cúrcuma, biotina y vitamina C.",
@@ -230,12 +247,14 @@
       {
         "tipo": "Tarro",
         "peso": "500 g",
-        "precio": 44000
+        "precio": 44000,
+        "imagen": "productos/cafe-brusca.webp"
       },
       {
         "tipo": "Tarro",
         "peso": "250 g",
-        "precio": 24000
+        "precio": 24000,
+        "imagen": "productos/cafe-brusca-250.webp"
       }
     ],
     "descripcion": "Polvo tradicional a base de café de brusca (Senna occidentalis).",
@@ -260,7 +279,8 @@
       {
         "tipo": "Bolsa",
         "peso": "2 lb",
-        "precio": 100000
+        "precio": 100000,
+        "imagen": "productos/super-mega-gainer-gmn.webp"
       }
     ],
     "descripcion": "Alimento en polvo a base de maltodextrina y proteína concentrada de suero para preparar bebida con glutamina y aminoácidos (leucina, isoleucina y valina), sabor artificial a vainilla gourmet. Por porción preparada: 50 g de proteína, 967 calorías y 178 g de carbohidratos. Contiene edulcorantes.",
@@ -285,7 +305,8 @@
       {
         "tipo": "Bolsa",
         "peso": "2 lb",
-        "precio": 110000
+        "precio": 110000,
+        "imagen": "productos/mega-gainer-gmn.webp"
       }
     ],
     "descripcion": "Proteína hipercalórica en polvo de la marca GMN, sabor vainilla gourmet.",
@@ -309,7 +330,8 @@
       {
         "tipo": "Tarro",
         "peso": "100 g",
-        "precio": 180000
+        "precio": 180000,
+        "imagen": "productos/creatina-gmn.webp"
       }
     ],
     "descripcion": "Suplemento deportivo en polvo a base de creatina, de la marca GMN.",

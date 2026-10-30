@@ -1811,14 +1811,15 @@ img { max-width: 100%; }
 .product-card { overflow: visible; }
 .product-card:has(.product-float) { z-index: 1; }
 .product-card:hover, .product-card:focus-within { z-index: 20; }
-.carousel-track-wrapper { padding-top: 3.5rem; margin-top: -3rem; }
+.carousel-track-wrapper { padding-top: 6rem; margin-top: -5.5rem; }
 .product-float {
   --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 40%;
   position: relative;
   padding: 2rem 1.5rem 2.6rem;
-  min-height: 290px;
+  min-height: 300px;
+  padding-top: 3rem;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  background: radial-gradient(120% 90% at 50% 100%, #F4E8D7 0%, #FAF6F0 55%, #FFFFFF 100%);
+  background: #F6EEDF url('./assets/escena-cocina-campo.svg') center bottom / cover no-repeat;
   overflow: visible;
   isolation: isolate;
   perspective: 900px;
@@ -1881,7 +1882,7 @@ img { max-width: 100%; }
 .product-card:hover .product-card-image,
 .product-card:focus-within .product-card-image,
 .product-float.is-active .product-card-image {
-  transform: translateY(-58px) scale(1.32) rotateX(var(--rx)) rotateY(var(--ry));
+  transform: translateY(-34px) scale(1.18) rotateX(var(--rx)) rotateY(var(--ry));
   filter: drop-shadow(0 38px 30px rgba(16,63,41,.28));
 }
 .product-card:hover .product-float-shadow,
@@ -1901,7 +1902,7 @@ img { max-width: 100%; }
 @keyframes sb-tag-flota { 0%,100% { translate: 0 0; } 50% { translate: 0 -5px; } }
 
 /* Ficha (modal): el producto flota todo el tiempo */
-.modal-image-wrapper { background: radial-gradient(120% 90% at 50% 100%, #F4E8D7 0%, #FAF6F0 60%); }
+.modal-image-wrapper { background: #F6EEDF url('./assets/escena-cocina-campo.svg') center bottom / cover no-repeat; }
 #modal-product-img { filter: drop-shadow(0 24px 22px rgba(16,63,41,.2)); animation: sb-flotar-suave 4s ease-in-out infinite; }
 @keyframes sb-flotar-suave { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
 @media (max-width: 480px) {
@@ -2019,3 +2020,24 @@ body.cart-open .whatsapp-float { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .cebollin-main, .cebollin-floor, .cebollin-leaf, .cebollin-bubble { animation: none; }
 }
+
+/* --- Escena cocina-campo y cambio de presentación --- */
+.product-float-glow { display: none; }
+.product-float-shadow { background: radial-gradient(closest-side, rgba(60,35,15,.45), rgba(60,35,15,0)); bottom: 1.1rem; }
+.product-float .product-card-image { filter: drop-shadow(0 12px 14px rgba(60,35,15,.25)); }
+.product-card-image, #modal-product-img { --size: 1; scale: var(--size); transition: transform .7s cubic-bezier(.16,1,.3,1), filter .7s, scale .5s cubic-bezier(.16,1,.3,1), opacity .26s ease; }
+.morph-out { opacity: 0 !important; filter: blur(4px) !important; }
+.morph-in { animation: sb-morph-in .6s cubic-bezier(.16,1,.3,1); }
+@keyframes sb-morph-in { 0% { opacity: 0; translate: 0 18px; rotate: -8deg; } 60% { opacity: 1; translate: 0 -6px; rotate: 2deg; } 100% { translate: 0 0; rotate: 0deg; } }
+#modal-product-img.morph-in { animation: sb-morph-in .6s cubic-bezier(.16,1,.3,1), sb-flotar-suave 4s ease-in-out .6s infinite; }
+.variant-tag { cursor: pointer; font-family: inherit; transition: background-color .25s, border-color .25s, color .25s; }
+.variant-tag:hover { border-color: var(--primary); }
+.variant-tag.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+.variant-tag:focus-visible, .presentation-option:focus-visible { outline: 3px solid var(--secondary); outline-offset: 2px; }
+.presentation-option { color: var(--primary); }
+.presentation-option.active { background: var(--primary); color: #fff; }
+.modal-price-row { display: flex !important; }
+.modal-price { font-family: var(--font-heading); font-weight: 700; font-size: 1.6rem; color: var(--primary); }
+.modal-image-wrapper { align-items: flex-end; padding: 3rem 2rem 14%; position: relative; }
+.modal-image-wrapper::after { content: ""; position: absolute; left: 50%; bottom: 12%; width: 55%; height: 22px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(60,35,15,.4), rgba(60,35,15,0)); pointer-events: none; }
+#modal-product-img { position: relative; z-index: 1; max-height: 340px; width: auto; transform-origin: 50% 100%; filter: drop-shadow(0 16px 16px rgba(60,35,15,.28)); }

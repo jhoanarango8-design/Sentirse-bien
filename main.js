@@ -63,6 +63,37 @@ function initFloatingProducts() {
     window.quickViewProduct(f.dataset.id);
   });
 }
+// Imagen de cada presentación (tarro, bolsa...). Si aún no existe, usa la principal más pequeña.
+const presentationImage = (p, i) => (p.presentaciones[i] && p.presentaciones[i].imagen) || productImage(p);
+function morphImage(img, product, idx) {
+  if (!img) return;
+  const src = presentationImage(product, idx);
+  const bigger = (product.presentaciones[idx].precio || 0) >= Math.max(...product.presentaciones.map(x => x.precio));
+  const apply = () => {
+    img.classList.remove('morph-out');
+    img.classList.add('morph-in');
+    img.style.setProperty('--size', '1');
+    img.onerror = function () { this.onerror = null; this.src = productImage(product); this.style.setProperty('--size', bigger ? '1' : String(0.72 + 0.14 * (product.presentaciones.length - 1 - idx))); };
+    img.src = src;
+    setTimeout(() => img.classList.remove('morph-in'), 650);
+  };
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { apply(); return; }
+  img.classList.add('morph-out');
+  setTimeout(apply, 260);
+}
+// Tocar una presentación en la tarjeta cambia el empaque y el precio
+document.addEventListener('click', (e) => {
+  const t = e.target.closest && e.target.closest('.variant-tag[data-idx]');
+  if (!t) return;
+  e.stopPropagation();
+  const product = catalogProducts.find(p => p.id === t.dataset.id); if (!product) return;
+  const idx = +t.dataset.idx; const card = t.closest('.product-card');
+  card.querySelectorAll('.variant-tag').forEach(b => { const on = b === t; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on)); });
+  morphImage(card.querySelector('.product-card-image'), product, idx);
+  const price = card.querySelector('.product-card-price');
+  if (price) price.textContent = formatCOP(product.presentaciones[idx].precio);
+  card.dataset.idx = idx;
+});
 const hasInvimaNote = (p) => (p.beneficios || []).some(b => b.includes('*'));
 let cart = JSON.parse(localStorage.getItem('sentirsebien_cart')) || [];
 
@@ -280,7 +311,7 @@ function addToCart(product, presentationIndex, qty = 1) {
       price: presentation.precio,
       presentationType: presentation.tipo + (presentation.variedad ? ` (${presentation.variedad})` : ''),
       size: size,
-      image: product.imagen || product.imagen_referencia,
+      image: presentation.imagen || product.imagen,
       quantity: qty
     });
   }
@@ -298,10 +329,10 @@ function addToCart(product, presentationIndex, qty = 1) {
 }
 
 // Add product to cart by ID (first/default presentation)
-window.addToCartByDefault = (productId) => {
+window.addToCartByDefault = (productId, idx = 0) => {
   const product = catalogProducts.find(p => p.id === productId);
   if (!product) return;
-  addToCart(product, 0, 1);
+  addToCart(product, Math.min(idx || 0, product.presentaciones.length - 1), 1);
 };
 
 // Check URL for product parameter or hash to open modal
@@ -643,10 +674,10 @@ function renderFeaturedProducts() {
   catalogProducts.forEach(product => {
     
     // Generate variants badges HTML
-    const variantsHtml = product.presentaciones.map(p => {
+    const variantsHtml = product.presentaciones.map((p, i) => {
       const sizeLabel = p.peso || p.volumen || p.cantidad || '';
       const varLabel = p.variedad ? ` (${p.variedad})` : '';
-      return `<span class="variant-tag">${p.tipo} ${sizeLabel}${varLabel}</span>`;
+      return `<button type="button" class="variant-tag${i === 0 ? ' active' : ''}" data-id="${product.id}" data-idx="${i}" aria-pressed="${i === 0}">${p.tipo} ${sizeLabel}${varLabel}</button>`;
     }).join('');
 
     html += `
@@ -663,7 +694,7 @@ function renderFeaturedProducts() {
           <p class="product-card-price">${product.presentaciones.length > 1 ? '<span>Desde</span> ' : ''}${formatCOP(Math.min(...product.presentaciones.map(x => x.precio)))}</p>
           
           <div class="product-card-footer">
-            <button onclick="window.addToCartByDefault('${product.id}')" class="btn btn-primary btn-block">
+            <button onclick="window.addToCartByDefault('${product.id}', +(this.closest('.product-card').dataset.idx || 0))" class="btn btn-primary btn-block">
               <i class="fas fa-shopping-bag" style="margin-right: 0.5rem;"></i> Añadir al Carrito
             </button>
             <button onclick="window.quickViewProduct('${product.id}')" class="btn btn-outline btn-block">Ver Detalles</button>
@@ -741,10 +772,10 @@ function renderShopProducts() {
   filtered.forEach(product => {
 
     // Generate variants badges HTML
-    const variantsHtml = product.presentaciones.map(p => {
+    const variantsHtml = product.presentaciones.map((p, i) => {
       const sizeLabel = p.peso || p.volumen || p.cantidad || '';
       const varLabel = p.variedad ? ` (${p.variedad})` : '';
-      return `<span class="variant-tag">${p.tipo} ${sizeLabel}${varLabel}</span>`;
+      return `<button type="button" class="variant-tag${i === 0 ? ' active' : ''}" data-id="${product.id}" data-idx="${i}" aria-pressed="${i === 0}">${p.tipo} ${sizeLabel}${varLabel}</button>`;
     }).join('');
 
     html += `
@@ -761,7 +792,7 @@ function renderShopProducts() {
           <p class="product-card-price">${product.presentaciones.length > 1 ? '<span>Desde</span> ' : ''}${formatCOP(Math.min(...product.presentaciones.map(x => x.precio)))}</p>
           
           <div class="product-card-footer">
-            <button onclick="window.addToCartByDefault('${product.id}')" class="btn btn-primary btn-block">
+            <button onclick="window.addToCartByDefault('${product.id}', +(this.closest('.product-card').dataset.idx || 0))" class="btn btn-primary btn-block">
               <i class="fas fa-shopping-bag" style="margin-right: 0.5rem;"></i> Añadir al Carrito
             </button>
             <button onclick="window.quickViewProduct('${product.id}')" class="btn btn-outline btn-block">Ver Detalles</button>
@@ -806,7 +837,7 @@ window.quickViewProduct = (productId) => {
   const modalPrice = document.getElementById('modal-product-price');
 
   if (modalImg) {
-    modalImg.src = productImage(product);
+    modalImg.src = presentationImage(product, 0); modalImg.style.setProperty('--size', '1');
     modalImg.alt = product.nombre;
     modalImg.onerror = function() { this.onerror = null; this.src = FALLBACK_IMG; };
   }
@@ -865,6 +896,7 @@ window.selectModalPresentation = (index) => {
   if (modalPrice && activeProduct) {
     modalPrice.textContent = formatCOP(activeProduct.presentaciones[index].precio);
   }
+  if (activeProduct) morphImage(document.getElementById('modal-product-img'), activeProduct, index);
 };
 
 window.closeProductModal = () => {
