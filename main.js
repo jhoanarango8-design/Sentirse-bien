@@ -3,14 +3,15 @@
 
 // Import Vercel Analytics
 import { inject } from '@vercel/analytics';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // Configuration
 const WHATSAPP_NUMBER = "573224559027"; // Client's WhatsApp number (+57 3224559027)
 let catalogProducts = [];
-const FALLBACK_IMG = '/marca/logo-sentirsebien.png';
+const FALLBACK_IMG = 'marca/logo-sentirsebien.png';
 // Foto del producto: recorte limpio en WebP (public/productos/<id>.webp)
-const productImage = (p) => p && p.imagen ? `/${p.imagen}` : (p && p.imagen_referencia ? `/imagenes/${p.imagen_referencia}` : FALLBACK_IMG);
-const cartItemImage = (item) => !item.image ? FALLBACK_IMG : (item.image.includes('/') ? `/${item.image}` : `/imagenes/${item.image}`);
+const productImage = (p) => (p && p.imagen) ? p.imagen : FALLBACK_IMG;
+const cartItemImage = (item) => (item.image && item.image.includes('/')) ? item.image : FALLBACK_IMG;
 // Bloque de imagen con efecto "producto flotante"
 const minPrice = (p) => Math.min(...p.presentaciones.map(x => x.precio));
 const floatingImage = (p) => {
@@ -129,7 +130,7 @@ function initCommonUI() {
 // Fetch Catalog Data
 async function fetchCatalog() {
   try {
-    const response = await fetch('/Catalogo.json');
+    const response = await fetch('Catalogo.json');
     if (!response.ok) {
       throw new Error('No se pudo cargar el catálogo de productos');
     }
@@ -212,7 +213,7 @@ function renderCartItems() {
     html += `
       <div class="cart-item" data-index="${index}">
         <div class="cart-item-image">
-          <img src="${imageSrc}" alt="${item.name}" onerror="this.onerror=null;this.src='/marca/logo-sentirsebien.png'">
+          <img src="${imageSrc}" alt="${item.name}" onerror="this.onerror=null;this.src='marca/logo-sentirsebien.png'">
         </div>
         <div class="cart-item-details">
           <h4>${item.name}</h4>
@@ -903,7 +904,7 @@ function injectProductSchema(product) {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.nombre,
-    "image": `${window.location.origin}${productImage(product)}`,
+    "image": new URL(productImage(product), window.location.href).href,
     "description": product.descripcion,
     "brand": {
       "@type": "Brand",
