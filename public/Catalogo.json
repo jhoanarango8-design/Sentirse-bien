@@ -27,7 +27,12 @@
       "Se mezcla en agua, jugo, café o batidos."
     ],
     "imagen_referencia": "colageno-marino-hidrolizado.jpg",
-    "imagen": "productos/colageno-marino-natural.webp"
+    "imagen": "productos/colageno-marino-natural.webp",
+    "etiquetas": [
+      "Colágeno tipo I y II",
+      "Con biotina y vitamina E",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "colageno-marino-crema-coco",
@@ -57,7 +62,12 @@
       "Sabor cremoso para batidos y café."
     ],
     "imagen_referencia": "colageno-crema-coco.jpg",
-    "imagen": "productos/colageno-marino-crema-coco.webp"
+    "imagen": "productos/colageno-marino-crema-coco.webp",
+    "etiquetas": [
+      "Colágeno hidrolizado marino",
+      "Sabor crema de coco",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "maca-negra-maca-roja",
@@ -86,7 +96,12 @@
       "Se mezcla en agua, jugo, batidos o avena."
     ],
     "imagen_referencia": "maca-negra-roja.jpg",
-    "imagen": "productos/maca-negra-maca-roja.webp"
+    "imagen": "productos/maca-negra-maca-roja.webp",
+    "etiquetas": [
+      "Maca roja + maca negra",
+      "Con chontaduro y borojó",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "factor-transferencia",
@@ -116,7 +131,12 @@
       "Para toda la familia."
     ],
     "imagen_referencia": "factor-transferencia.jpg",
-    "imagen": "productos/factor-transferencia.webp"
+    "imagen": "productos/factor-transferencia.webp",
+    "etiquetas": [
+      "Con calostro bovino",
+      "Betaglucanos de Ganoderma",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "stevia-jarabe",
@@ -136,7 +156,12 @@
       "Precio especial en combo de 2 goteros."
     ],
     "imagen_referencia": "stevia-drops.jpg",
-    "imagen": "productos/stevia-jarabe.webp"
+    "imagen": "productos/stevia-jarabe.webp",
+    "etiquetas": [
+      "Endulzante a base de stevia",
+      "0 calorías",
+      "En gotero"
+    ]
   },
   {
     "id": "superalimento-quinua-amaranto",
@@ -155,7 +180,12 @@
       "Fácil de preparar: mézclalo con agua, leche o fruta."
     ],
     "imagen_referencia": "kfir-450gr.jpg",
-    "imagen": "productos/superalimento-quinua-amaranto.webp"
+    "imagen": "productos/superalimento-quinua-amaranto.webp",
+    "etiquetas": [
+      "Con probióticos",
+      "Prebióticos FOS y GOS",
+      "450 g · 15 porciones aprox."
+    ]
   },
   {
     "id": "calcio-coral-marino",
@@ -185,7 +215,12 @@
       "Para tu bebida de la mañana o de la tarde."
     ],
     "imagen_referencia": "calcio-marino.jpg",
-    "imagen": "productos/calcio-coral-marino.webp"
+    "imagen": "productos/calcio-coral-marino.webp",
+    "etiquetas": [
+      "Calcio de origen marino",
+      "Con magnesio",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "cafe-brusca",
@@ -210,7 +245,12 @@
       "Consulta a tu médico si estás en embarazo o lactancia."
     ],
     "imagen_referencia": "cafe-de-brusca.jpg",
-    "imagen": "productos/cafe-brusca.webp"
+    "imagen": "productos/cafe-brusca.webp",
+    "etiquetas": [
+      "Café de brusca",
+      "Bebida tradicional colombiana",
+      "Tarro de 500 g"
+    ]
   },
   {
     "id": "super-mega-gainer-gmn",
@@ -230,7 +270,12 @@
       "Sabor vainilla gourmet."
     ],
     "imagen_referencia": "super-mega-gainer.jpg",
-    "imagen": "productos/super-mega-gainer-gmn.webp"
+    "imagen": "productos/super-mega-gainer-gmn.webp",
+    "etiquetas": [
+      "50 g de proteína por porción",
+      "Vainilla gourmet",
+      "Bolsa de 2 lb"
+    ]
   },
   {
     "id": "mega-gainer-gmn",
@@ -249,7 +294,12 @@
       "Se prepara con agua o leche según la porción de la etiqueta."
     ],
     "imagen_referencia": "mega-gainer.jpg",
-    "imagen": "productos/mega-gainer-gmn.webp"
+    "imagen": "productos/mega-gainer-gmn.webp",
+    "etiquetas": [
+      "53 g de proteína por porción",
+      "Vainilla gourmet",
+      "Bolsa de 2 lb"
+    ]
   },
   {
     "id": "creatina-gmn",
@@ -268,6 +318,11 @@
       "Usa la porción que indica la etiqueta."
     ],
     "imagen_referencia": "creatina-gmn.jpg",
-    "imagen": "productos/creatina-gmn.webp"
+    "imagen": "productos/creatina-gmn.webp",
+    "etiquetas": [
+      "Creatina en polvo",
+      "Marca GMN",
+      "Para mezclar con agua"
+    ]
   }
 ]

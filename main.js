@@ -12,12 +12,57 @@ const FALLBACK_IMG = '/marca/logo-sentirsebien.png';
 const productImage = (p) => p && p.imagen ? `/${p.imagen}` : (p && p.imagen_referencia ? `/imagenes/${p.imagen_referencia}` : FALLBACK_IMG);
 const cartItemImage = (item) => !item.image ? FALLBACK_IMG : (item.image.includes('/') ? `/${item.image}` : `/imagenes/${item.image}`);
 // Bloque de imagen con efecto "producto flotante"
-const floatingImage = (p) => `
-        <div class="product-card-image-wrapper product-float">
+const minPrice = (p) => Math.min(...p.presentaciones.map(x => x.precio));
+const floatingImage = (p) => {
+  const tags = (p.etiquetas || []).slice(0, 3).map((t, i) => `<span class="float-tag t${i + 1}">${t}</span>`).join('');
+  const sizes = p.presentaciones.map(x => x.peso || x.volumen || x.cantidad || x.tipo).join(' · ');
+  return `
+        <div class="product-card-image-wrapper product-float" data-id="${p.id}">
           <span class="product-float-glow" aria-hidden="true"></span>
           <img src="${productImage(p)}" alt="${p.nombre}" class="product-card-image" loading="lazy" decoding="async" width="360" height="360" onerror="this.onerror=null;this.src='${FALLBACK_IMG}'">
           <span class="product-float-shadow" aria-hidden="true"></span>
+          <span class="product-float-sheen" aria-hidden="true"></span>
+          <span class="product-float-tags" aria-hidden="true">${tags}</span>
+          <span class="product-float-glass" aria-hidden="true"><strong>${p.nombre}</strong><span>${sizes} · ${p.presentaciones.length > 1 ? 'desde ' : ''}${formatCOP(minPrice(p))}</span></span>
         </div>`;
+};
+// Inclinación 3D que sigue el mouse y toque en celular
+function initFloatingProducts() {
+  if (window.__floatInit) return; window.__floatInit = true;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse' || reduce) return;
+    const el = e.target.closest && e.target.closest('.product-card');
+    if (!el) return;
+    const f = el.querySelector('.product-float'); if (!f) return;
+    const r = f.getBoundingClientRect();
+    const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+    const y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+    f.style.setProperty('--ry', `${(x - 0.5) * 34}deg`);
+    f.style.setProperty('--rx', `${(0.5 - y) * 18}deg`);
+    f.style.setProperty('--mx', `${x * 100}%`);
+    f.style.setProperty('--my', `${y * 100}%`);
+  }, { passive: true });
+  document.addEventListener('pointerout', (e) => {
+    const el = e.target.closest && e.target.closest('.product-card');
+    if (!el || el.contains(e.relatedTarget)) return;
+    const f = el.querySelector('.product-float');
+    if (f) { f.style.setProperty('--ry', '0deg'); f.style.setProperty('--rx', '0deg'); }
+  });
+  // En celular: el primer toque hace saltar el producto; el segundo abre la ficha
+  document.addEventListener('click', (e) => {
+    const f = e.target.closest && e.target.closest('.product-float');
+    if (!f) return;
+    const touch = window.matchMedia('(hover: none)').matches;
+    if (touch && !f.classList.contains('is-active')) {
+      document.querySelectorAll('.product-float.is-active').forEach(x => x.classList.remove('is-active'));
+      f.classList.add('is-active');
+      f.style.setProperty('--ry', '-12deg'); f.style.setProperty('--rx', '4deg');
+      return;
+    }
+    window.quickViewProduct(f.dataset.id);
+  });
+}
 const hasInvimaNote = (p) => (p.beneficios || []).some(b => b.includes('*'));
 let cart = JSON.parse(localStorage.getItem('sentirsebien_cart')) || [];
 
@@ -90,6 +135,7 @@ async function fetchCatalog() {
       throw new Error('No se pudo cargar el catálogo de productos');
     }
     catalogProducts = await response.json();
+    initFloatingProducts();
     
     // Check which page we are on and render accordingly
     const isHomePage = document.getElementById('featured-products-grid') !== null;
