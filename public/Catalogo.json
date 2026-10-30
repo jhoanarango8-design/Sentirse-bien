@@ -41,13 +41,15 @@
         "tipo": "Bolsa",
         "peso": "500 g",
         "precio": 39600,
-        "imagen": "productos/colageno-marino-natural-500g.webp"
+        "imagen": "productos/colageno-marino-natural-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
         "precio": 22000,
-        "imagen": "productos/colageno-marino-natural-250g.webp"
+        "imagen": "productos/colageno-marino-natural-250g.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Mezcla en polvo para preparar bebida con colágeno hidrolizado marino tipo I y II, péptidos de colágeno, biotina y vitamina E.",
@@ -79,13 +81,15 @@
         "tipo": "Bolsa",
         "peso": "500 g",
         "precio": 39600,
-        "imagen": "productos/colageno-marino-crema-coco-500g.webp"
+        "imagen": "productos/colageno-marino-crema-coco-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
         "precio": 22000,
-        "imagen": "productos/colageno-marino-crema-coco-250g.webp"
+        "imagen": "productos/colageno-marino-crema-coco-250g.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Mezcla en polvo con colágeno hidrolizado marino tipo I y II, péptidos de colágeno bovino, biotina y vitamina E, con sabor a crema de coco.",
@@ -117,13 +121,15 @@
         "tipo": "Bolsa",
         "peso": "500 g",
         "precio": 39600,
-        "imagen": "productos/maca-negra-maca-roja-500g.webp"
+        "imagen": "productos/maca-negra-maca-roja-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
         "precio": 22000,
-        "imagen": "productos/maca-negra-maca-roja-250g.webp"
+        "imagen": "productos/maca-negra-maca-roja-250g.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Mezcla para preparar bebida con vitaminas y minerales con: Maca Roja, Maca Negra, Chontaduro, Borojó, Zinc, Moringa, Jalea Real y Polen.",
@@ -154,13 +160,15 @@
         "tipo": "Bolsa",
         "peso": "500 g",
         "precio": 39600,
-        "imagen": "productos/factor-transferencia-500g.webp"
+        "imagen": "productos/factor-transferencia-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
         "precio": 22000,
-        "imagen": "productos/factor-transferencia-250g.webp"
+        "imagen": "productos/factor-transferencia-250g.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Mezcla en polvo con calostro bovino, betaglucanos de Ganoderma lucidum y vitamina C.",
@@ -212,7 +220,8 @@
         "tipo": "Bolsa",
         "peso": "450 g",
         "precio": 74000,
-        "imagen": "productos/superalimento-quinua-amaranto.webp"
+        "imagen": "productos/superalimento-quinua-amaranto.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Alimento en polvo con probióticos y prebióticos (FOS y GOS), sin azúcar añadida, a base de quinua y amaranto.",
@@ -243,13 +252,15 @@
         "tipo": "Bolsa",
         "peso": "500 g",
         "precio": 39600,
-        "imagen": "productos/calcio-coral-marino-500g.webp"
+        "imagen": "productos/calcio-coral-marino-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
         "precio": 22000,
-        "imagen": "productos/calcio-coral-marino-250g.webp"
+        "imagen": "productos/calcio-coral-marino-250g.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Mezcla en polvo con calcio de origen marino, cloruro de magnesio, péptidos de colágeno, cúrcuma, biotina y vitamina C.",
@@ -307,7 +318,8 @@
         "tipo": "Bolsa",
         "peso": "2 lb",
         "precio": 100000,
-        "imagen": "productos/super-mega-gainer-gmn.webp"
+        "imagen": "productos/super-mega-gainer-gmn.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Alimento en polvo a base de maltodextrina y proteína concentrada de suero para preparar bebida con glutamina y aminoácidos (leucina, isoleucina y valina), sabor artificial a vainilla gourmet. Por porción preparada: 50 g de proteína, 967 calorías y 178 g de carbohidratos. Contiene edulcorantes.",
@@ -333,7 +345,8 @@
         "tipo": "Bolsa",
         "peso": "2 lb",
         "precio": 110000,
-        "imagen": "productos/mega-gainer-gmn.webp"
+        "imagen": "productos/mega-gainer-gmn.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Proteína hipercalórica en polvo de la marca GMN, sabor vainilla gourmet.",

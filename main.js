@@ -72,7 +72,7 @@ function morphImage(img, product, idx) {
   const apply = () => {
     img.classList.remove('morph-out');
     img.classList.add('morph-in');
-    img.style.setProperty('--size', '1');
+    img.style.setProperty('--size', String(product.presentaciones[idx].escala || 1));
     img.onerror = function () { this.onerror = null; this.src = productImage(product); this.style.setProperty('--size', bigger ? '1' : String(0.72 + 0.14 * (product.presentaciones.length - 1 - idx))); };
     img.src = src;
     setTimeout(() => img.classList.remove('morph-in'), 650);
