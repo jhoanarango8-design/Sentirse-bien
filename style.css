@@ -1847,12 +1847,6 @@ img { max-width: 100%; }
   transform: translateX(-50%) scale(1);
   transition: transform .7s cubic-bezier(.16,1,.3,1), opacity .7s;
 }
-/* Brillo que sigue al mouse sobre el empaque */
-.product-float-sheen {
-  position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit;
-  background: radial-gradient(240px circle at var(--mx) var(--my), rgba(255,255,255,.55), rgba(255,255,255,0) 60%);
-  opacity: 0; transition: opacity .5s;
-}
 /* Etiquetas flotantes con datos de la etiqueta */
 .product-float-tags { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
 .float-tag {
@@ -1896,8 +1890,6 @@ img { max-width: 100%; }
 .product-card:hover .product-float-glow,
 .product-card:focus-within .product-float-glow,
 .product-float.is-active .product-float-glow { transform: translate(-50%, -50%) scale(1.25); opacity: 1; }
-.product-card:hover .product-float-sheen,
-.product-float.is-active .product-float-sheen { opacity: 1; }
 .product-card:hover .float-tag,
 .product-card:focus-within .float-tag,
 .product-float.is-active .float-tag { opacity: 1; transform: translateY(0) scale(1); animation: sb-tag-flota 3.6s ease-in-out infinite; }
@@ -1973,3 +1965,57 @@ body.cart-open .whatsapp-float { display: none; }
 .legal-content h2:first-child { margin-top: 0; }
 .legal-content p { color: var(--text-dark); margin-bottom: 1rem; line-height: 1.7; }
 .legal-updated { font-size: .85rem; color: var(--text-muted) !important; }
+
+/* --- Conoce a Cebollín --- */
+.cebollin { background: linear-gradient(180deg, #F3F8EF 0%, #E6F1E0 100%); overflow: hidden; }
+.cebollin-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 3.5rem; align-items: center; }
+.cebollin-hero { position: relative; display: flex; flex-direction: column; align-items: center; }
+.cebollin-arch {
+  position: relative; width: min(100%, 400px); aspect-ratio: 4 / 5;
+  border-radius: 999px 999px 32px 32px; background: radial-gradient(90% 70% at 50% 90%, #FFFFFF 0%, #F8E1EB 70%);
+  border: 8px solid #fff; box-shadow: 0 24px 50px -24px rgba(16,63,41,.35);
+  display: flex; align-items: flex-end; justify-content: center; overflow: hidden;
+}
+.cebollin-main { position: relative; z-index: 2; width: 72%; height: auto; margin-bottom: 9%; transform-origin: 50% 92%; animation: cebollin-mece 4.5s ease-in-out infinite; }
+.cebollin-floor { position: absolute; z-index: 1; bottom: 7%; left: 50%; width: 58%; height: 22px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(16,63,41,.22), rgba(16,63,41,0)); animation: cebollin-sombra 4.5s ease-in-out infinite; }
+.cebollin-leaf { position: absolute; z-index: 1; width: 90px; height: 46px; border-radius: 0 100% 0 100%; background: #86BF4A; opacity: .28; }
+.cebollin-leaf.l1 { top: 16%; left: 9%; transform: rotate(-24deg); animation: hoja-flota 6s ease-in-out infinite; }
+.cebollin-leaf.l2 { top: 34%; right: 8%; transform: rotate(150deg); width: 64px; height: 32px; animation: hoja-flota 7s ease-in-out -2s infinite; }
+@keyframes cebollin-mece { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes cebollin-sombra { 0%,100% { transform: translateX(-52%) scaleX(1); } 50% { transform: translateX(-48%) scaleX(.96); } }
+@keyframes hoja-flota { 0%,100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+.cebollin-bubble {
+  position: absolute; top: 4%; right: -2%; z-index: 3; max-width: 210px;
+  background: #fff; color: var(--primary); font-family: var(--font-heading); font-weight: 600; font-size: 1rem; line-height: 1.35;
+  padding: .85rem 1.1rem; border-radius: 22px 22px 22px 6px; box-shadow: 0 14px 30px -14px rgba(16,63,41,.45);
+  animation: burbuja 4.5s ease-in-out infinite;
+}
+@keyframes burbuja { 0%,100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+.cebollin-content h2 { margin: .8rem 0 1rem; }
+.cebollin-content > p { color: var(--text-muted); margin-bottom: 1.6rem; max-width: 34em; }
+.cebollin-facts { list-style: none; padding: 0; margin: 0 0 1.8rem; display: grid; gap: .9rem; }
+.cebollin-facts li { display: flex; gap: .9rem; align-items: center; background: rgba(255,255,255,.75); border-radius: 18px; padding: .85rem 1rem; }
+.cebollin-fact-icon { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; }
+.cebollin-facts strong { display: block; color: var(--primary); font-family: var(--font-heading); }
+.cebollin-facts span { font-size: .9rem; color: var(--text-muted); }
+.cebollin-gallery-title { text-align: center; margin: 4rem 0 1.5rem; color: var(--primary); font-size: 1.4rem; }
+.cebollin-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.cebollin-card {
+  border: 0; cursor: pointer; font: inherit; color: var(--primary);
+  background: #fff; border-radius: 28px; padding: 1.4rem 1rem 1rem; display: flex; flex-direction: column; align-items: center; gap: .8rem;
+  box-shadow: 0 10px 30px -20px rgba(16,63,41,.4); transition: transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s;
+}
+.cebollin-card img { height: 210px; width: auto; max-width: 100%; object-fit: contain; transition: transform .6s cubic-bezier(.16,1,.3,1); transform-origin: 50% 90%; }
+.cebollin-card span { font-weight: 700; font-family: var(--font-heading); }
+.cebollin-card:hover, .cebollin-card:focus-visible { transform: translateY(-6px); box-shadow: 0 20px 40px -20px rgba(16,63,41,.45); }
+.cebollin-card:hover img, .cebollin-card:focus-visible img { transform: translateY(-10px) rotate(-3deg) scale(1.05); }
+.cebollin-card:focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; }
+@media (max-width: 860px) {
+  .cebollin-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .cebollin-bubble { right: 2%; font-size: .9rem; }
+  .cebollin-gallery { grid-template-columns: repeat(3, minmax(220px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; }
+  .cebollin-card { scroll-snap-align: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cebollin-main, .cebollin-floor, .cebollin-leaf, .cebollin-bubble { animation: none; }
+}

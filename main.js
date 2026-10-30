@@ -21,7 +21,6 @@ const floatingImage = (p) => {
           <span class="product-float-glow" aria-hidden="true"></span>
           <img src="${productImage(p)}" alt="${p.nombre}" class="product-card-image" loading="lazy" decoding="async" width="360" height="360" onerror="this.onerror=null;this.src='${FALLBACK_IMG}'">
           <span class="product-float-shadow" aria-hidden="true"></span>
-          <span class="product-float-sheen" aria-hidden="true"></span>
           <span class="product-float-tags" aria-hidden="true">${tags}</span>
           <span class="product-float-glass" aria-hidden="true"><strong>${p.nombre}</strong><span>${sizes} · ${p.presentaciones.length > 1 ? 'desde ' : ''}${formatCOP(minPrice(p))}</span></span>
         </div>`;

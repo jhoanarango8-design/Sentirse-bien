@@ -88,6 +88,7 @@
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html" class="nav-link active">Inicio</a></li>
         <li><a href="tienda.html" class="nav-link">Productos</a></li>
+        <li><a href="index.html#cebollin" class="nav-link">Cebollín</a></li>
         <li><a href="nosotros.html" class="nav-link">Nuestra Historia</a></li>
       </ul>
 
@@ -221,20 +222,45 @@
       </div>
     </section>
 
-    <!-- Redes reales -->
-    <section class="social-follow section-padding" aria-labelledby="siguenos">
-      <div class="container social-follow-grid">
-        <div class="social-follow-image">
-          <img src="/campana/cebollin-colageno-4x5.jpg" alt="Cebollín, el compañero de SentirseBien, junto a un tarro de colágeno en la cocina" loading="lazy" width="1080" height="1350">
+    <!-- Conoce a Cebollín -->
+    <section class="cebollin section-padding" id="cebollin" aria-labelledby="cebollin-titulo">
+      <div class="container cebollin-grid">
+        <div class="cebollin-hero">
+          <div class="cebollin-arch">
+            <span class="cebollin-leaf l1" aria-hidden="true"></span>
+            <span class="cebollin-leaf l2" aria-hidden="true"></span>
+            <img src="/cebollin/cebollin-hola.webp" alt="Cebollín, la mascota de SentirseBien: una cebolla blanca con tres hojas verdes, ojos grandes y mejillas rosadas" class="cebollin-main" width="579" height="781" loading="lazy">
+            <span class="cebollin-floor" aria-hidden="true"></span>
+          </div>
+          <p class="cebollin-bubble">¡Hola! Soy Cebollín.<br>Te acompaño en la cocina.</p>
         </div>
-        <div class="social-follow-content">
-          <span class="badge">#SentirseBienEnComunidad</span>
-          <h2 id="siguenos">Recetas, datos curiosos y Cebollín</h2>
-          <p>Cada semana compartimos recetas fáciles, cómo preparar cada producto y datos de las etiquetas. Síguenos y cuéntanos cómo te va.</p>
+        <div class="cebollin-content">
+          <span class="badge">Nuestro compañero</span>
+          <h2 id="cebollin-titulo">Conoce a Cebollín</h2>
+          <p>Cebollín es la cara amable de SentirseBien. Vive en la cocina, presenta las recetas de la semana y te cuenta, en palabras sencillas, qué trae cada producto según su etiqueta.</p>
+          <ul class="cebollin-facts">
+            <li><span class="cebollin-fact-icon" aria-hidden="true"><i class="fas fa-utensils"></i></span><div><strong>Recetas fáciles</strong><span>Ideas con lo que ya tienes en casa.</span></div></li>
+            <li><span class="cebollin-fact-icon" aria-hidden="true"><i class="fas fa-magnifying-glass"></i></span><div><strong>Lee las etiquetas por ti</strong><span>Datos curiosos, sin promesas exageradas.</span></div></li>
+            <li><span class="cebollin-fact-icon" aria-hidden="true"><i class="fas fa-heart"></i></span><div><strong>Siempre contigo</strong><span>En Instagram, TikTok y WhatsApp.</span></div></li>
+          </ul>
           <div class="social-follow-links">
             <a href="https://www.instagram.com/sentirsebiencol/" class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> @sentirsebiencol</a>
             <a href="https://www.tiktok.com/@sentirsebien26" class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-tiktok" aria-hidden="true"></i> @sentirsebien26</a>
           </div>
+        </div>
+      </div>
+      <div class="container">
+        <h3 class="cebollin-gallery-title">Cebollín y sus favoritos</h3>
+        <div class="cebollin-gallery">
+          <button type="button" class="cebollin-card" onclick="window.quickViewProduct('superalimento-quinua-amaranto')">
+            <img src="/cebollin/cebollin-kfir.webp" alt="Cebollín sosteniendo una bolsa de Kfir ZOI" loading="lazy" width="640" height="610"><span>Kfir en polvo</span>
+          </button>
+          <button type="button" class="cebollin-card" onclick="window.quickViewProduct('superalimento-quinua-amaranto')">
+            <img src="/cebollin/cebollin-kfir-batido.webp" alt="Cebollín con un batido de fresa y una bolsa de Kfir" loading="lazy" width="640" height="627"><span>Su batido de la mañana</span>
+          </button>
+          <button type="button" class="cebollin-card" onclick="window.quickViewProduct('super-mega-gainer-gmn')">
+            <img src="/cebollin/cebollin-gainer.webp" alt="Cebollín abrazando una bolsa de Super Mega Gainer GMN" loading="lazy" width="522" height="640"><span>Super Mega Gainer</span>
+          </button>
         </div>
       </div>
     </section>
