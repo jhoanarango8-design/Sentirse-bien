@@ -17,7 +17,7 @@ Resumen de la marca, el contenido y el mercado. Las reglas completas están en `
 
 | Estilo | Cuándo | Colores | Tipografía |
 |---|---|---|---|
-| **Comunidad** | Recetas, datos curiosos, rutinas, carruseles educativos | Crema #faf6ee, salvia #e6f1e0, rosa suave #f8e1eb, texto carbón #2f3a37, acción hoja #17795a, acento ciruela #a62b66 (uno por pieza) | Títulos Fraunces SemiBold Soft; textos Nunito Sans |
+| **Comunidad** | Recetas, datos curiosos, rutinas, carruseles educativos | Crema #faf6ee, salvia #e6f1e0, rosa suave #f8e1eb, texto carbón #2f3a37, acción hoja #17795a, lima #86bf4a, acento ciruela #a62b66 (uno por pieza) | Títulos Fraunces SemiBold Soft; textos Nunito Sans |
 | **Promo** | Promociones, "pruébalo", estáticas de venta | Tema según el empaque: `aqua` (Kfir), `menta` (verdes o sin color dominante), `ciruela` (Colmaré y colágenos rosados o morados), `dorado` (amarillos o naranjas) | Montserrat ExtraBold para el titular; SemiBold/Bold para el resto |
 
 Las fuentes están en `marca-kit/fuentes/` y los logos (vertical, horizontal y símbolo, en color, blanco y carbón, más la foto de perfil) en `marca-kit/logos/`. Los logos no se estiran, recolorean ni llevan sombra.
@@ -103,7 +103,24 @@ Lista completa en `mercado/cuentas-referencia.md`.
 
 **Herramienta:** Biblioteca de anuncios de Meta para Colombia.
 
-## 2.7 Pauta
+## 2.7 Pauta en TikTok
 
-- **TikTok Ads:** se administra el presupuesto diario que indique Jhoan con "Promocionar" o Ads Manager; el agente elige video, público y objetivo, mide y propone ajustes diarios en el Panel para que Jhoan los active.
-- **Metricool:** programación y métricas de las publicaciones; ajustar las horas con sus datos.
+**Primer plan:** $5.000 al día durante 5 días (del 25 al 29 de octubre de 2026) con TikTok Promocionar. Con el 19 % de IVA son unos $5.950 al día, cerca de $29.750 en total.
+
+- **Por qué Promocionar y no Ads Manager:** Ads Manager pide mínimo US$20 al día por grupo de anuncios (unos $80.000). Promocionar acepta desde $2.500 al día.
+- **Objetivo:** conseguir clientes potenciales por "Otras aplicaciones de mensajería", con destino wa.me/573224559027.
+- **Modelo:**
+  - Se pauta el video con mejor retención orgánica.
+  - Un video y un público por día.
+  - Público: Bogotá, de 25 a 54 años, con énfasis en mujeres, más un día de prueba con público automático.
+  - Se mantiene el ganador. Si un video no logra clics en unas 1.000 impresiones (tasa de clic menor a 0,5 %), se cambia.
+- **Ciclo diario:** a las 7:20 p. m. el agente lee los resultados y deja la recomendación de mañana en el Panel. Jhoan la activa y la paga en TikTok, y toca "Ya lo activé".
+- **Al terminar el plan:** informe con gasto total, costo por clic, mejor video y mejor público, y cuándo subir el presupuesto o pasar a Ads Manager (el conector TikTok for Business ya está disponible para esa etapa).
+- **Para cambiar el presupuesto:** dejar una indicación en el Panel (área "Anuncios TikTok").
+
+## 2.8 Formatos
+
+- Feed: 4:5 (1080×1350).
+- Historias, Reels y TikTok: 9:16 (1080×1920).
+- Tienda y WhatsApp: 1:1 (1080×1080).
+- Nunca se usa 9:16 en el feed de Instagram.

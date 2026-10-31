@@ -7,11 +7,11 @@
 | Archivo | Para qué | Precios | Productos |
 |---|---|---|---|
 | `data/catalogo-publico.json` | Textos públicos para redes y fichas: qué es, presentaciones, usos y frases de beneficio aceptadas por el INVIMA (marcadas con *) | No | 72 referencias |
-| `public/Catalogo.json` | Catálogo que carga la tienda web y del que salen las páginas `public/p/*.html` | Sí | 11 productos |
+| `public/Catalogo.json` (rama `web/correcciones-fase1`) | Catálogo que carga la web vigente y del que salen las páginas `public/p/*.html` | Sí | 12 productos (incluye Colmaré) |
 
-`public/Catalogo_backup.json` es una copia anterior y más grande del catálogo de la tienda.
+`Catalogo_backup.json` es una copia anterior y más grande del catálogo de la tienda (en la rama vigente está en `recursos/`).
 
-> Los dos catálogos no están sincronizados: la tienda muestra beneficios con promesas de salud que el catálogo público ya corrigió. Ver [Pendientes y riesgos](08-pendientes-y-riesgos.md).
+> En la rama vigente, los beneficios de la web ya usan las frases INVIMA del catálogo público, pero los dos archivos se mantienen por separado. Ver [Pendientes y riesgos](07-pendientes-y-riesgos.md).
 
 ## Líneas de producto (catálogo público)
 
@@ -44,12 +44,12 @@ Los precios no se publican en redes por ahora (ver [Administración](04-administ
 
 | Producto | Precio | Fuente |
 |---|---|---|
-| Colmaré 1000 g | $70.000 | Análisis de mercado del 21 al 24-oct |
-| Kfir 450 g | $74.000 | Análisis del 25-oct y `public/Catalogo.json` |
-| Colágeno marino 1000 g / 500 g / 250 g | $76.000 / $39.600 / $22.000 | `public/Catalogo.json` |
-| Café de Brusca 500 g / 250 g | $44.000 / $24.000 | `public/Catalogo.json` |
-| Super Mega Gainer 2 lb | $100.000 | `public/Catalogo.json` |
-| Mega Gainer 2 lb | $110.000 | `public/Catalogo.json` |
-| Stevia en jarabe | $17.800 | `public/Catalogo.json` |
+| Colmaré 1000 g | $70.000 | Análisis del 21 al 24-oct y catálogo de la web vigente |
+| Kfir 450 g | $74.000 | Análisis del 25-oct y catálogo de la web |
+| Colágeno marino 1000 g / 500 g / 250 g | $76.000 / $39.600 / $22.000 | catálogo de la web |
+| Café de Brusca 500 g / 250 g | $44.000 / $24.000 | catálogo de la web |
+| Super Mega Gainer 2 lb | $100.000 | catálogo de la web |
+| Mega Gainer 2 lb | $110.000 | catálogo de la web |
+| Stevia en jarabe | $17.800 | catálogo de la web |
 
 Confirmar con Jhoan antes de usar cualquier precio.

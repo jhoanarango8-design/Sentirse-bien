@@ -4,55 +4,55 @@
 
 ## Qué es SentirseBien
 
-SentirseBien es una tienda de bienestar natural con base en Bogotá. Distribuye productos de **ZOI Productos Naturales** (colágenos, superalimentos en polvo, aceites, homeopáticos, jarabes, vinagres, semillas y cuidado personal) y una línea de **nutrición deportiva** (GMN, Iron Nutrition). Vende por WhatsApp con envíos a toda Colombia y tiene una tienda web propia donde el cliente arma el carrito y termina el pedido en WhatsApp.
+SentirseBien es la **distribuidora digital de productos naturales de Jhoan en Bogotá y la Sabana**. Vende sobre todo productos de **ZOI Productos Naturales**, una marca colombiana (colágenos, superalimentos en polvo, aceites, homeopáticos, jarabes, vinagres, semillas y cuidado personal), y una línea de **nutrición deportiva** (GMN, Iron Nutrition). Los pedidos se hacen por WhatsApp y se envían a toda Colombia. En la tienda web el cliente arma el carrito y termina el pedido en WhatsApp.
 
 - **Nombre de marca:** se escribe **SentirseBien** (junto, con la B mayúscula). Lema: **"Siempre Contigo"**.
 - **Personalidad:** "la amiga que sabe" de bienestar natural (ver [Marketing](02-marketing.md)).
-- **Mascota:** Cebollín, un bulbo de cebolla con tres hojas verdes.
+- **Mascota:** Cebollín, un bulbo de cebolla con tres hojas verdes. Presenta recetas y datos curiosos en redes.
 
-Fuentes: `marca-kit/README.md`, `nosotros.html`, `index.html`.
+Fuentes:
+- Mapa del proyecto SentirseBien.
+- `marca-kit/README.md`.
+- Página "Nuestra Historia" de la web vigente (`nosotros.html` en la rama `web/correcciones-fase1`).
 
 ## Propósito y valores
 
-Según la página "Nuestra Historia" (`nosotros.html`), SentirseBien nace para **hacer del bienestar algo cotidiano, honesto y conectado con la tierra**, con productos prácticos y transparentes en su composición. Sus tres pilares:
+SentirseBien nació de una idea sencilla: **hacer del bienestar algo cotidiano, honesto y cercano**. La marca cuenta qué trae cada producto según su etiqueta y cómo se prepara, sin promesas exageradas, y detrás de cada pedido hay una persona real que responde por WhatsApp.
 
-1. **Pureza en el origen:** materias primas de calidad y procesos cuidadosos (por ejemplo, prensado en frío en los aceites).
-2. **Salud holística:** nada de soluciones mágicas; alimentación, suplementos y cuidado del cuerpo juntos.
+Pilares (web vigente):
+
+1. **Productos originales:** de marcas reconocidas. Si el cliente quiere, se le muestran la etiqueta y el registro sanitario antes de comprar.
+2. **Sin promesas mágicas:** el bienestar se construye con alimentación balanceada, actividad física y constancia. Los productos acompañan esa rutina y no reemplazan la consulta con un profesional de la salud.
 3. **Trato humano y cercano:** atención personalizada por WhatsApp.
-
-> Ojo: algunas frases de esa página ("poder curativo") chocan con las reglas INVIMA que hoy sigue el marketing. Ver [Pendientes y riesgos](08-pendientes-y-riesgos.md).
 
 ## Público
 
 - **Principal (contenido y videos):** mujeres de 30 a 55 años en Bogotá que cuidan su bienestar (`mercado/guia-videos.md`).
-- **Secundario:** personas que entrenan, para la línea deportiva (gainer y creatina), sobre todo en las publicaciones de fin de semana.
-- **Cobertura de venta:** toda Colombia por envío.
+- **Pauta en TikTok:** Bogotá, de 25 a 54 años, con énfasis en mujeres.
+- **Secundario:** personas que entrenan, para la línea deportiva (gainer y creatina).
+- **Cobertura de venta:** Bogotá y la Sabana, con envíos a toda Colombia.
 
 ## Datos de contacto y canales
 
 | Canal | Dato |
 |---|---|
-| WhatsApp (ventas y asesoría) | +57 322 455 9027 · https://wa.me/573224559027 |
-| Instagram | @SENTIRSEBIENCOL (@sentirsebiencol) |
-| TikTok | @SENTIRSEBIEN26 |
+| WhatsApp (ventas y asesoría) | 322 455 9027 · https://wa.me/573224559027 |
+| Instagram | [@sentirsebiencol](https://www.instagram.com/sentirsebiencol/) |
+| TikTok | [@sentirsebien26](https://www.tiktok.com/@sentirsebien26) |
 | Facebook | Sentirse Bien |
-| Sitio web | https://sentirsebien.co (tienda, productos y "Nuestra Historia") |
-| Ciudad | Bogotá, D.C. |
+| Web | https://sentirsebien-v2.vercel.app (ver [Desarrollo](06-desarrollo.md)) |
+| Aliado | ZOI: [Instagram](https://www.instagram.com/zoi.naturales/), [TikTok](https://www.tiktok.com/@zoinatural), [Linktree](https://linktr.ee/ZOIProductosNaturales) |
 
 ## Modelo de negocio
 
-1. **Atraer:** contenido diario en redes (carruseles, estáticas, historias y videos) que no muestra precios y cierra con "Escríbenos para saber más" y el WhatsApp.
-2. **Conversar:** el cliente escribe por WhatsApp; se le asesora y se le da el precio en privado.
-3. **Vender:** el pedido se cierra en WhatsApp (o desde la tienda web, que arma el mensaje del pedido) y se acuerdan pago y envío.
-4. **Medir y ajustar:** Metricool para programar y medir, y pauta en TikTok con el presupuesto diario que defina Jhoan.
+1. **Atraer:** contenido diario en redes (carruseles, estáticas, historias y videos). Las piezas no muestran precios y cierran con "Escríbenos para saber más" y el WhatsApp.
+2. **Conversar:** el cliente escribe por WhatsApp, recibe asesoría y ahí se le da el precio.
+3. **Vender:** el pedido se cierra en WhatsApp, o desde la web, que arma el mensaje del pedido. Pago y envío se acuerdan en el mismo chat.
+4. **Medir y ajustar:** Metricool para programar y medir, y pauta pequeña en TikTok Promocionar.
 
 Detalle en [Administración y operación](04-administracion.md).
 
 ## Equipo
 
-- **Jhoan:** dueño. Aprueba piezas, precios, cuentas a seguir e indicaciones, y graba los clips reales con el celular.
-- **Agentes de Claude**, cada uno con un rol: diseño de campañas (rutina diaria de mercado y 3 propuestas), videos, desarrollo web y estrategia de TikTok Ads. Ver [Administración](04-administracion.md#agentes-y-tareas-programadas).
-
-## Otro negocio: Licorera Tour
-
-Jhoan también está montando **Licorera Tour**, una licorera de domicilios por WhatsApp en Bogotá, con marca y reglas propias. Ver [Licorera Tour](07-licorera-tour.md).
+- **Jhoan:** dueño. Aprueba todo en el Panel (publicaciones, videos, cuentas a seguir, anuncios, indicaciones), pone los precios, activa y paga la pauta, y graba los clips reales con el celular.
+- **Tres agentes de Claude:** diseño de campañas y videos, desarrollo web y estrategia de TikTok Ads. Ver [Administración](04-administracion.md#agentes-y-tareas-programadas).

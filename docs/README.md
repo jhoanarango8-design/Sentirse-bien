@@ -1,42 +1,45 @@
 # SentirseBien: documentación de la empresa
 
-Este índice reúne, por áreas, todo lo que está en el repositorio sobre SentirseBien y su emprendimiento hermano, Licorera Tour. Cada documento resume lo que hay y enlaza al archivo original, que sigue siendo la fuente oficial: si algo cambia, se actualiza primero el original y después este resumen.
+Este índice reúne, por áreas, la información de SentirseBien que está en el repositorio, en el chat de planeación de redes y en el "Mapa del proyecto SentirseBien". Cada documento resume lo que hay y enlaza al archivo original, que sigue siendo la fuente oficial: si algo cambia, se actualiza primero el original y después este resumen.
 
-Información reunida el 31 de octubre de 2026.
+Información reunida el 31 de octubre de 2026. La carpeta `licorera-tour/` es de otro emprendimiento y no se incluye aquí.
 
 ## En una frase
 
-SentirseBien ("Siempre Contigo") es una tienda de bienestar natural en Bogotá que vende productos ZOI y de nutrición deportiva por WhatsApp a toda Colombia, con una tienda web propia, una mascota (Cebollín) y una rutina diaria de contenido para Instagram, TikTok y Facebook.
+SentirseBien ("Siempre Contigo") es la distribuidora digital de productos naturales ZOI (y otras marcas) de Jhoan en Bogotá y la Sabana. Vende por WhatsApp, tiene una tienda web propia y una mascota (Cebollín), y publica en Instagram, Facebook y TikTok con tres agentes automáticos. Todo lo que preparan pasa por un Panel donde Jhoan lo aprueba.
 
 ## Secciones
 
 | # | Área | Qué encuentras |
 |---|---|---|
 | 1 | [Empresa](01-empresa.md) | Qué es SentirseBien, propósito, valores, público, datos de contacto y canales |
-| 2 | [Marketing](02-marketing.md) | Marca, voz, estilos de pieza, Cebollín, redes, rutina diaria, videos, competencia y calendario |
+| 2 | [Marketing](02-marketing.md) | Marca, voz, estilos de pieza, Cebollín, redes, rutina diaria, videos, competencia y pauta en TikTok |
 | 3 | [Productos y catálogo](03-productos.md) | Líneas de producto, productos foco, presentaciones y qué catálogo usar para qué |
-| 4 | [Administración y operación](04-administracion.md) | Cómo se vende, pagos y envíos, precios, proveedores, agentes y tareas programadas, Panel |
-| 5 | [Legal y cumplimiento](05-legal-cumplimiento.md) | Reglas INVIMA para la publicidad de SentirseBien y reglas de alcohol para Licorera Tour |
-| 6 | [Desarrollo (tienda web)](06-desarrollo.md) | Tecnología, archivos, cómo se construye y publica, SEO y analítica |
-| 7 | [Licorera Tour](07-licorera-tour.md) | El segundo negocio: datos, marca, reglas y estado |
-| 8 | [Pendientes y riesgos](08-pendientes-y-riesgos.md) | Lo que falta decidir y las inconsistencias encontradas al reunir la información |
+| 4 | [Administración y operación](04-administracion.md) | Cómo se vende, pagos y envíos, precios, proveedores, herramientas, agentes, Panel y aprobaciones |
+| 5 | [Legal y cumplimiento](05-legal-cumplimiento.md) | Reglas INVIMA para la publicidad y aviso legal de la web |
+| 6 | [Desarrollo (tienda web)](06-desarrollo.md) | La web vigente (rama `web/correcciones-fase1`), tecnología, archivos, construcción y publicación |
+| 7 | [Pendientes y riesgos](07-pendientes-y-riesgos.md) | Lo que falta decidir y las inconsistencias encontradas |
 
 ## Dónde vive cada cosa en el repositorio
 
 | Carpeta o archivo | Área | Contenido |
 |---|---|---|
-| `index.html`, `tienda.html`, `nosotros.html`, `main.js`, `style.css` | Desarrollo | Tienda web con carrito y pedido por WhatsApp |
+| Rama `web/correcciones-fase1` | Desarrollo | **Web vigente**: la versión corregida que está publicada en Vercel |
+| `index.html`, `tienda.html`, `nosotros.html`, `main.js`, `style.css` (en `main`) | Desarrollo | Versión anterior de la web, reemplazada por la rama de arriba |
 | `public/Catalogo.json` | Desarrollo / Productos | Catálogo que usa la tienda web (con precios) |
 | `data/catalogo-publico.json` | Productos / Marketing | Textos públicos del catálogo ZOI, sin precios, con frases INVIMA |
 | `public/imagenes/` | Productos | Fotos de producto |
 | `marca-kit/` | Marketing | Kit de marca: guía, logos, fuentes, Cebollín, plantilla Promo |
 | `mercado/` | Marketing | Análisis diarios de mercado, cuentas de referencia y guía de videos |
 | `public/campana/` | Marketing | Piezas propuestas, videos y clips reales |
-| `licorera-tour/` | Licorera Tour | Kit de marca, catálogo, análisis de mercado, plantilla y logos |
 
 ## Enlaces clave
 
-- Sistema de diseño (versión visual del kit): https://claude.ai/artifact/CkKwcXqpjSUEFnaogPus6n
-- Panel Licorera Tour: https://claude.ai/artifact/NDopN9ueGpbAXjYBzixnM1
-- Sitio web (dominio configurado en el código): https://sentirsebien.co
-- WhatsApp de SentirseBien: +57 322 455 9027 (https://wa.me/573224559027)
+| Herramienta | Para qué | Enlace |
+|---|---|---|
+| Mapa del proyecto SentirseBien | Referencia general para no perder detalles | https://claude.ai/artifact/SsAjomdaCb7xPL5UNg5SvT |
+| Panel SentirseBien | Aprobar publicaciones, videos, cuentas y anuncios; dejar indicaciones | https://claude.ai/artifact/GcaRxwTb8vXbCZdt3eYe4X |
+| Sistema de diseño | Identidad completa | https://claude.ai/artifact/CkKwcXqpjSUEFnaogPus6n |
+| Web vigente | Publicada en Vercel desde la rama `web/correcciones-fase1` (proyecto `sentirse-bien-opal`; la dirección configurada en el código es `sentirsebien-v2.vercel.app`) | https://sentirsebien-v2.vercel.app |
+| WhatsApp | Ventas y asesoría | https://wa.me/573224559027 |
+| Drive "PROYECTO SENTIRSE BIEN" | Redes, fotos, videos, MASCOTA CEBOLLIN, IMAGENES BASE PRODUCTOS ZOI | Drive → Compartidos conmigo |

@@ -28,25 +28,16 @@ Los productos son alimentos y suplementos, no medicamentos. La publicidad no pue
 
 **Contexto:** en 2026 el INVIMA emitió alertas por creatinas vendidas de forma ilegal en redes. Mostrar marca, presentación y etiqueta claras es un diferencial.
 
-## Licorera Tour: publicidad de bebidas alcohólicas
+## Aviso legal de la web
 
-Resumen de `licorera-tour/README.md`:
+La web vigente tiene una página `legal.html` (actualizada el 29-oct-2026) con cuatro apartados:
 
-1. **En cada pieza y en cada texto:** "El exceso de alcohol es perjudicial para la salud." y "Prohíbese el expendio de bebidas embriagantes a menores de edad.", más el sello +18 y "Venta solo a mayores de 18 años".
-2. **Nunca:**
-   - Personas que parezcan menores de 25 años.
-   - Embarazadas.
-   - Consumo excesivo o competencias de beber.
-   - Alcohol junto a conducir, deportes o éxito sexual, social o profesional.
-   - Consumo en vía pública.
-   - El alcohol como premio en sorteos.
-   - Propiedades medicinales.
-   - Textos en otro idioma que engañen (Decreto 780 de 2016).
-3. **Precios:** el precio con IVA va en cada pieza de venta, y solo si Jhoan lo confirmó. Precio tachado solo si el anterior es real.
-4. **Meta:** se puede publicar y vender; los anuncios van segmentados a mayores de 18 en Colombia.
-5. **TikTok:** solo contenido de estilo de vida, sin precio ni "pide ya". No se pauta.
-6. **Ley seca:** revisarla antes de programar. Verificar la edad al entregar.
+1. **Sobre los productos:** son alimentos, suplementos dietarios y productos naturales (ZOI, GMN), no medicamentos. No previenen, tratan ni curan enfermedades. Hay que leer la etiqueta y el registro sanitario, respetar la porción recomendada y consultar a un profesional en caso de embarazo, lactancia, medicamentos o alguna condición. Las frases con * son declaraciones aceptadas por el INVIMA para el nutriente.
+2. **Cómo funcionan los pedidos:** el pedido se envía por WhatsApp y queda confirmado cuando SentirseBien responde con la disponibilidad, el envío y el total. Los precios son al público, en pesos colombianos, y pueden cambiar.
+3. **Envíos y pagos:** se coordinan por WhatsApp según la ciudad.
+4. **Privacidad y datos:** nombre, teléfono y dirección se usan solo para gestionar el pedido. No se venden ni se comparten, salvo con la transportadora. El cliente puede pedir que se actualicen o se borren. El carrito se guarda solo en su navegador.
 
-## Datos personales
+## Otras reglas
 
-El formulario de la tienda pide nombre, celular y dirección, y los envía por WhatsApp; no se guardan en un servidor. El enlace a "Políticas de Privacidad" todavía no lleva a ninguna página (ver [Pendientes](08-pendientes-y-riesgos.md)).
+- No se copian textos ni videos de otras cuentas: se adaptan los patrones.
+- En TikTok solo se usa sonido original o de la biblioteca comercial (por derechos y para poder promocionar).
