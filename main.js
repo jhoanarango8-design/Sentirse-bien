@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Common UI Initializations (Header, Cart Drawer)
 function initCommonUI() {
+  initCebollinGreeting();
   // Hamburger Menu
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
@@ -729,6 +730,37 @@ function initFeatured3D() {
   if (!supportsWebGL) { box.classList.add('no-3d'); return; }
   const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { io.disconnect(); mount3D(box, product, { fit: 0.8 }); } }, { rootMargin: '200px' });
   io.observe(box);
+}
+
+
+// Cebollín saluda con alegría cada 15 segundos (solo cuando se ve en pantalla)
+function initCebollinGreeting() {
+  const hero = document.querySelector('.cebollin-hero');
+  const actor = hero && hero.querySelector('.cebollin-actor');
+  const bubble = hero && hero.querySelector('.cebollin-bubble');
+  if (!actor || !bubble) return;
+  const saludos = [
+    '¡Hola, hola! 👋<br>¡Qué alegría verte!',
+    '¡Hola! Soy Cebollín.<br>Te acompaño en la cocina.',
+    '¿Preparamos algo rico hoy?',
+    '¡Hola de nuevo! 🌱<br>Aquí sigo, en la cocina.',
+    '¿Ya viste las recetas de la semana?'
+  ];
+  let i = 0, visible = false, timer = null;
+  const saludar = () => {
+    if (!visible || document.hidden) return;
+    actor.classList.remove('is-greeting'); hero.classList.remove('is-greeting'); bubble.classList.remove('is-new');
+    void actor.offsetWidth; // reinicia la animación
+    i = (i + 1) % saludos.length;
+    bubble.innerHTML = saludos[i];
+    actor.classList.add('is-greeting'); hero.classList.add('is-greeting'); bubble.classList.add('is-new');
+    setTimeout(() => { actor.classList.remove('is-greeting'); hero.classList.remove('is-greeting'); }, 2300);
+  };
+  new IntersectionObserver(([en]) => {
+    const was = visible; visible = en.isIntersecting;
+    if (visible && !was) { setTimeout(saludar, 600); clearInterval(timer); timer = setInterval(saludar, 15000); }
+    if (!visible) clearInterval(timer);
+  }, { threshold: 0.35 }).observe(hero);
 }
 
 // Render Home Page Featured Products (all catalog products for carousel)
