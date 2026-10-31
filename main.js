@@ -816,6 +816,23 @@ function renderFeaturedProducts() {
   initFeatured3D();
 }
 
+// Comprar por necesidad (tienda.html?necesidad=...)
+const NECESIDADES = {
+  colagenos: { nombre: 'Colágenos', ids: ['colmare', 'colageno-marino-natural', 'colageno-marino-crema-coco'] },
+  deporte: { nombre: 'Deporte y proteína', ids: ['super-mega-gainer-gmn', 'mega-gainer-gmn', 'creatina-gmn'] },
+  desayunos: { nombre: 'Desayunos y batidos', ids: ['superalimento-quinua-amaranto', 'colmare', 'colageno-marino-crema-coco'] },
+  familia: { nombre: 'Para la familia', ids: ['maca-negra-maca-roja', 'calcio-coral-marino', 'factor-transferencia'] },
+  despensa: { nombre: 'Despensa natural', ids: ['stevia-jarabe', 'cafe-brusca'] }
+};
+let currentNeed = new URLSearchParams(location.search).get('necesidad');
+function renderNeedChip() {
+  const grid = document.getElementById('shop-products-grid'); if (!grid) return;
+  let chip = document.getElementById('need-chip');
+  if (!currentNeed || !NECESIDADES[currentNeed]) { if (chip) chip.remove(); return; }
+  if (!chip) { chip = document.createElement('div'); chip.id = 'need-chip'; chip.className = 'need-chip'; grid.parentElement.insertBefore(chip, grid); }
+  chip.innerHTML = `Mostrando: <strong>${NECESIDADES[currentNeed].nombre}</strong> <button type="button" aria-label="Ver todos los productos">Ver todos <i class="fas fa-xmark" aria-hidden="true"></i></button>`;
+  chip.querySelector('button').onclick = () => { currentNeed = null; history.replaceState(null, '', location.pathname); renderNeedChip(); renderShopProducts(); };
+}
 // Shop Filtering and Logic
 let currentCategory = 'all';
 let searchQuery = '';
@@ -844,9 +861,11 @@ function initShopFilters() {
 function renderShopProducts() {
   const container = document.getElementById('shop-products-grid');
   if (!container || catalogProducts.length === 0) return;
+  renderNeedChip();
 
   // Apply filters
   let filtered = catalogProducts;
+  if (currentNeed && NECESIDADES[currentNeed]) filtered = filtered.filter(p => NECESIDADES[currentNeed].ids.includes(p.id));
   
   if (currentCategory !== 'all') {
     filtered = filtered.filter(p => p.categoria.toLowerCase().includes(currentCategory.toLowerCase()) || 

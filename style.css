@@ -2219,3 +2219,28 @@ body.cart-open .whatsapp-float { display: none; }
   .tt-card { scroll-snap-align: start; }
 }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* ===== Comprar por necesidad ===== */
+.needs { background: #FAF6F0; }
+.needs-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.25rem; }
+.need-card { grid-column: span 2; position: relative; display: block; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3; color: #fff; text-decoration: none; box-shadow: 0 18px 40px -28px rgba(16,63,41,.5); isolation: isolate; }
+.need-card:nth-child(4), .need-card:nth-child(5) { grid-column: span 3; aspect-ratio: 16 / 9; }
+.need-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.16,1,.3,1); z-index: -2; }
+.need-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(16,63,41,0) 45%, rgba(16,63,41,.78) 100%); }
+.need-card:hover img, .need-card:focus-visible img { transform: scale(1.05); }
+.need-card:focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; }
+.need-body { position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.1rem; display: flex; flex-direction: column; gap: .2rem; }
+.need-body strong { font-family: var(--font-heading); font-size: 1.3rem; line-height: 1.2; }
+.need-body > span:not(.need-go) { font-size: .88rem; opacity: .92; }
+.need-go { position: absolute; right: 0; bottom: .1rem; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--primary); display: grid; place-items: center; transition: transform .4s cubic-bezier(.16,1,.3,1); }
+.need-card:hover .need-go { transform: translateX(4px); }
+.need-body strong, .need-body > span:not(.need-go) { padding-right: 3rem; }
+.need-chip { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin: 0 0 1.5rem; padding: .7rem 1rem; background: #F6EEDF; border-radius: 999px; color: var(--primary); width: fit-content; }
+.need-chip button { border: 0; background: var(--primary); color: #fff; border-radius: 999px; padding: .35rem .8rem; font: inherit; font-size: .85rem; cursor: pointer; }
+@media (max-width: 860px) {
+  .needs-grid { grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .need-card, .need-card:nth-child(4), .need-card:nth-child(5) { grid-column: span 1; aspect-ratio: 4 / 5; }
+  .need-card:nth-child(5) { grid-column: span 2; aspect-ratio: 16 / 9; }
+  .need-body strong { font-size: 1.05rem; }
+  .need-body > span:not(.need-go) { display: none; }
+}
