@@ -4,6 +4,23 @@
 
 Lo que salió al reunir la información, ordenado por prioridad. Ninguno de estos puntos se corrigió en este cambio: aquí solo quedan anotados para decidir.
 
+## Alta: pauta en TikTok sin plan nuevo
+
+El primer plan terminó el 29-oct. Para seguir con la Fase 1 hace falta escribir un presupuesto nuevo en el Panel (Indicaciones → Anuncios TikTok). La recomendación es 7 días a $5.000–$8.000 diarios buscando seguidores. Ver [Marketing](02-marketing.md#27-pauta-en-tiktok).
+
+También están pendientes estas tareas de Jhoan:
+- Fijar 3 videos en el perfil.
+- Ajustar la biografía.
+- Probar el botón del anuncio.
+- Activar los mensajes directos de TikTok.
+- Crear la lista de difusión.
+- Definir la oferta de entrada y el margen por tarro.
+- Anotar a diario los chats y las ventas.
+
+## Media: cuentas sugeridas por aprobar
+
+Hay 9 cuentas sugeridas en estado pendiente en el Panel (ver [Marketing](02-marketing.md#26-competencia-y-referencias)). El agente solo sigue las que Jhoan aprueba.
+
 ## Alta: fusionar la web vigente a `main`
 
 La web corregida vive solo en la rama `web/correcciones-fase1`. En `main` sigue la versión anterior, que tiene problemas:
@@ -13,12 +30,13 @@ La web corregida vive solo en la rama `web/correcciones-fase1`. En `main` sigue 
 - "Poder curativo" en "Nuestra Historia".
 - Enlaces de redes y de políticas vacíos.
 
-Mientras no se fusione, cualquier despliegue o agente que parta de `main` puede volver a publicar esa versión. La skill `desarrollador-web-sentirsebien` también está pendiente de actualizar con la identidad nueva.
+Mientras no se fusione, cualquier despliegue o agente que parta de `main` puede volver a publicar esa versión. Antes de fusionar hay que decidir la dirección definitiva: hoy la prueba vive en `sentirse-bien-opal.vercel.app`, pero las etiquetas canónicas apuntan a `sentirsebien-v2.vercel.app`, y el dominio `sentirsebien.co` sigue pendiente. La skill `desarrollador-web-sentirsebien` también está pendiente de actualizar con la identidad nueva.
 
 ## Alta: precios
 
 - **Redes frente a web:** en redes no se publican precios, pero la web sí los muestra. Hay que confirmar que esa diferencia es intencional.
-- **Creatina GMN:** aparece como "100 g" a $180.000 en el catálogo de la web, lo que parece un error de presentación o de precio.
+- **Creatina GMN:** tiene dos presentaciones (100 g / 33 servicios y 300 g / 100 servicios; la foto es la de 300 g). Faltan los precios de ambas, y hoy el catálogo muestra "100 g" a $180.000.
+- **Enlace de Facebook:** pendiente para la web.
 - **Pendiente del Mapa del proyecto:** pasar los datos reales de la lista de precios públicos, las formas de pago, los envíos y tiempos de entrega, y los enlaces de redes.
 
 ## Media: dos catálogos sin sincronizar
@@ -38,6 +56,7 @@ La web todavía usa su paleta propia (verde #103F29, terracota y arena) y las fu
   - Faltan 66 productos, porque los archivos de Drive pesan más de 6 MB.
   - Hay que revisar los PNG del Gel X500 (salen cortados).
   - Hay que revisar los de los champús (baja resolución).
+- **Bolsas de 500 g y 250 g:** faltan las imágenes de colágeno natural, crema de coco, maca, factor y calcio. Los archivos de Drive pesan unos 10 MB y no pasan por el conector.
 - **Video 3D de Colmaré** (giro y acercamientos, 20 a 25 s): espera el arte original de la etiqueta que se va a pedir a ZOI.
 - **TikTok:** revisar el informe del plan del 25 al 29 de octubre y decidir el siguiente presupuesto.
 - **My Kids:** el contenido sale de un kit de marca local de Jhoan (carpeta "KIT DE MARCA" en su PC), que todavía no está en el repositorio.

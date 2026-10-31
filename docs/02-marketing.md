@@ -103,20 +103,60 @@ Lista completa en `mercado/cuentas-referencia.md`.
 
 **Herramienta:** Biblioteca de anuncios de Meta para Colombia.
 
+**Cuentas en el Panel (sugerencias, al 30-oct-2026):**
+- **Seguidas** desde @sentirsebiencol (aprobadas por Jhoan): @naturalbe__, @nutrijema, @healthyamericacol, @labnaturalfreshly, @funat_sersaludable, @naturalbodega, @taeqcolombia, @padam.bienestar, @bodaifoods, @naturalmentebatidos, @solverde_tiendas, @naturvitalcolombia.
+- **Rechazadas:** @beautyboost.col, @molinatural, @drogueriaverdeynatural, @elevherwellness, @naturalshopco, @dejamusubachoque, @kefirpuroamor.
+- **Pendientes de aprobar:** @macroblends, @buggafit, @misvitaminas.com.co, @vitaliah.stevia, @formulabscolombia, @naturalxsiempre.co, @naturalmacolombia, @tiendanaturistamuynatural, @huitaka.naturista.
+
+**Lo que más ha funcionado en TikTok** (sección de la web, 30-oct): "¿Sales corriendo todas las mañanas?" (carrusel, 16,6 mil vistas), "¿Cuántas cosas caben en un solo tarro?" (2.206), "Postre cremoso con Kfir" (2.038) y "Nueva presentación: Colmaré" (867).
+
 ## 2.7 Pauta en TikTok
 
-**Primer plan:** $5.000 al día durante 5 días (del 25 al 29 de octubre de 2026) con TikTok Promocionar. Con el 19 % de IVA son unos $5.950 al día, cerca de $29.750 en total.
+Resumen del Panel (colecciones `anunciosPlan` y `anuncios`) y del documento "SentirseBien: modelo digital y línea de tiempo" (https://claude.ai/artifact/3YaUkXbLwqdwBYeE1sjpPf).
 
-- **Por qué Promocionar y no Ads Manager:** Ads Manager pide mínimo US$20 al día por grupo de anuncios (unos $80.000). Promocionar acepta desde $2.500 al día.
-- **Objetivo:** conseguir clientes potenciales por "Otras aplicaciones de mensajería", con destino wa.me/573224559027.
-- **Modelo:**
-  - Se pauta el video con mejor retención orgánica.
-  - Un video y un público por día.
-  - Público: Bogotá, de 25 a 54 años, con énfasis en mujeres, más un día de prueba con público automático.
-  - Se mantiene el ganador. Si un video no logra clics en unas 1.000 impresiones (tasa de clic menor a 0,5 %), se cambia.
-- **Ciclo diario:** a las 7:20 p. m. el agente lee los resultados y deja la recomendación de mañana en el Panel. Jhoan la activa y la paga en TikTok, y toca "Ya lo activé".
-- **Al terminar el plan:** informe con gasto total, costo por clic, mejor video y mejor público, y cuándo subir el presupuesto o pasar a Ads Manager (el conector TikTok for Business ya está disponible para esa etapa).
-- **Para cambiar el presupuesto:** dejar una indicación en el Panel (área "Anuncios TikTok").
+**Primer plan:** del 25 al 29 de octubre de 2026, $5.000 diarios sin IVA en TikTok Promocionar. Con el 19 % de IVA son unos $5.950 por día.
+
+| Día | Fecha | Objetivo | Contenido | Resultado |
+|---|---|---|---|---|
+| 1 | 25 oct | Mensajes a WhatsApp | Carrusel "¿Sales corriendo todas las mañanas?" | 232 clics al botón (unos $24 cada uno) pero **0 chats** y 1 seguidor |
+| 2 | 26 oct | Más seguidores | El mismo carrusel | 21 seguidores, unos $238 cada uno |
+| 3 | 27 oct | Más seguidores (solo 25 a 54 años) | Video "Mañanas con afán" | 16 seguidores, unos $313 cada uno (el contenido ya estaba cansado) |
+| 4 | 28 oct | Más seguidores | Video "¿Postre cremoso con tu Kfir?" | 19 seguidores, unos $263 cada uno; vistas a un tercio del precio, pero poca retención |
+| 5 | 29 oct | Más seguidores, solo mujeres | El mismo video del Kfir | 14 seguidores, unos $357 cada uno |
+
+**Cierre del plan:**
+- Gasto: unos $23.939 sin IVA ($28.487 con IVA), dentro del presupuesto.
+- 70 seguidores nuevos, a unos $286 cada uno; la meta era menos de $150.
+- 0 conversaciones de WhatsApp.
+- El mejor contenido para ganar seguidores fue el carrusel de Cebollín. El mejor público fue Bogotá, de 25 a 54 años, todos los géneros, con intereses. Mostrarlo solo a mujeres encareció el seguidor un 36 %.
+- Conclusión: pesa más el video que el público.
+
+**Cambio de estrategia (Fase 1, "Calentar", del 26 de octubre al 22 de noviembre):** Jhoan preguntó si no convenía ganar primero seguidores y confianza antes de buscar ventas. Por eso la pauta pasó a buscar seguidores. El modelo recomendado es **comunidad → conversación → recompra**, con una hoja de ruta de 90 días en 3 fases:
+
+| Fase | Fechas | Meta |
+|---|---|---|
+| 1. Calentar | 26 oct – 22 nov | +300 seguidores, costo por seguidor menor a $150, 3 o más chats por semana, 1 venta por semana |
+| 2. Conversar | Hasta finales de diciembre (prima y Navidad) | +600 seguidores, 10 o más chats por semana a menos de $5.000 cada uno, 3 ventas por semana |
+| 3. Vender y repetir | Hasta el 24 de enero de 2027 (propósitos de año nuevo) | +1.000 seguidores, 15 o más chats por semana, 5 ventas por semana y 30 % de recompra |
+
+**Recomendación para el siguiente plan** (todavía no hay presupuesto nuevo en el Panel):
+- 7 días a $5.000–$8.000 diarios, buscando seguidores, para todos los géneros.
+- Un día a la semana, "Más mensajes de TikTok" en lugar de WhatsApp.
+- Probar el público automático.
+- Cambiar de video cada 2 días.
+- Pasar a Ads Manager con Spark Ads solo con unos US$20 diarios, 300 seguidores o más, y videos que más del 10 % de la gente vea completos.
+- Pedir videos de Kfir de 15 a 20 s con el gancho en el primer segundo.
+
+**Tareas que Jhoan tiene pendientes** (del documento):
+- Fijar 3 videos en el perfil.
+- Poner en la biografía: Bogotá · envíos · WhatsApp.
+- Probar el botón del anuncio desde otro celular.
+- Activar los mensajes directos de TikTok.
+- Crear una lista de difusión de clientes.
+- Definir la oferta de entrada y contar el margen por tarro.
+- Anotar a diario en el Panel los chats y las ventas que lleguen.
+
+**Regla del Panel:** en TikTok solo se usa sonido original o de la biblioteca comercial, para poder promocionar los videos, y se cierra invitando a escribir por WhatsApp.
 
 ## 2.8 Formatos
 

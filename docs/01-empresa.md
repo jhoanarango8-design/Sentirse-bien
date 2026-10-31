@@ -40,7 +40,7 @@ Pilares (web vigente):
 | Instagram | [@sentirsebiencol](https://www.instagram.com/sentirsebiencol/) |
 | TikTok | [@sentirsebien26](https://www.tiktok.com/@sentirsebien26) |
 | Facebook | Sentirse Bien |
-| Web | https://sentirsebien-v2.vercel.app (ver [Desarrollo](06-desarrollo.md)) |
+| Web | Vigente (en prueba): https://sentirse-bien-opal.vercel.app · anterior: https://sentirsebien-v2.vercel.app (ver [Desarrollo](06-desarrollo.md)) |
 | Aliado | ZOI: [Instagram](https://www.instagram.com/zoi.naturales/), [TikTok](https://www.tiktok.com/@zoinatural), [Linktree](https://linktr.ee/ZOIProductosNaturales) |
 
 ## Modelo de negocio

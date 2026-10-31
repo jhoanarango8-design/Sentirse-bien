@@ -1,6 +1,6 @@
 # SentirseBien: documentación de la empresa
 
-Este índice reúne, por áreas, la información de SentirseBien que está en el repositorio, en el chat de planeación de redes y en el "Mapa del proyecto SentirseBien". Cada documento resume lo que hay y enlaza al archivo original, que sigue siendo la fuente oficial: si algo cambia, se actualiza primero el original y después este resumen.
+Este índice reúne, por áreas, la información de SentirseBien que está en el repositorio, en el chat de planeación de redes (del 21 al 31 de octubre de 2026), en sus artefactos (Panel, Mapa del proyecto, sistema de diseño, documentos de análisis), en las tareas programadas y en las skills de los agentes. Cada documento resume lo que hay y enlaza al archivo original, que sigue siendo la fuente oficial: si algo cambia, se actualiza primero el original y después este resumen.
 
 Información reunida el 31 de octubre de 2026. La carpeta `licorera-tour/` es de otro emprendimiento y no se incluye aquí.
 
@@ -19,6 +19,8 @@ SentirseBien ("Siempre Contigo") es la distribuidora digital de productos natura
 | 5 | [Legal y cumplimiento](05-legal-cumplimiento.md) | Reglas INVIMA para la publicidad y aviso legal de la web |
 | 6 | [Desarrollo (tienda web)](06-desarrollo.md) | La web vigente (rama `web/correcciones-fase1`), tecnología, archivos, construcción y publicación |
 | 7 | [Pendientes y riesgos](07-pendientes-y-riesgos.md) | Lo que falta decidir y las inconsistencias encontradas |
+| 8 | [Historial de la semana](08-historial.md) | Qué se hizo día por día del 21 al 31 de octubre y qué decisiones tomó Jhoan |
+| 9 | [Artefactos, agentes y skills](09-artefactos-agentes-skills.md) | Inventario de enlaces, colecciones del Panel, tareas programadas y skills |
 
 ## Dónde vive cada cosa en el repositorio
 
@@ -40,6 +42,6 @@ SentirseBien ("Siempre Contigo") es la distribuidora digital de productos natura
 | Mapa del proyecto SentirseBien | Referencia general para no perder detalles | https://claude.ai/artifact/SsAjomdaCb7xPL5UNg5SvT |
 | Panel SentirseBien | Aprobar publicaciones, videos, cuentas y anuncios; dejar indicaciones | https://claude.ai/artifact/GcaRxwTb8vXbCZdt3eYe4X |
 | Sistema de diseño | Identidad completa | https://claude.ai/artifact/CkKwcXqpjSUEFnaogPus6n |
-| Web vigente | Publicada en Vercel desde la rama `web/correcciones-fase1` (proyecto `sentirse-bien-opal`; la dirección configurada en el código es `sentirsebien-v2.vercel.app`) | https://sentirsebien-v2.vercel.app |
+| Web vigente | Enlace de prueba de la rama `web/correcciones-fase1` (PR #1) | https://sentirse-bien-opal.vercel.app |
 | WhatsApp | Ventas y asesoría | https://wa.me/573224559027 |
 | Drive "PROYECTO SENTIRSE BIEN" | Redes, fotos, videos, MASCOTA CEBOLLIN, IMAGENES BASE PRODUCTOS ZOI | Drive → Compartidos conmigo |
