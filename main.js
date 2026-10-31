@@ -818,7 +818,7 @@ function renderFeaturedProducts() {
 
 // Comprar por necesidad (tienda.html?necesidad=...)
 const NECESIDADES = {
-  colagenos: { nombre: 'Colágenos', ids: ['colmare', 'colageno-marino-natural', 'colageno-marino-crema-coco'] },
+  colagenos: { nombre: 'Colágenos', ids: ['colmare', 'colageno-marino-crema-coco'] },
   deporte: { nombre: 'Deporte y proteína', ids: ['super-mega-gainer-gmn', 'mega-gainer-gmn', 'creatina-gmn'] },
   desayunos: { nombre: 'Desayunos y batidos', ids: ['superalimento-quinua-amaranto', 'colmare', 'colageno-marino-crema-coco'] },
   familia: { nombre: 'Para la familia', ids: ['maca-negra-maca-roja', 'calcio-coral-marino', 'factor-transferencia'] },
