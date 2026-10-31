@@ -2161,6 +2161,10 @@ body.cart-open .whatsapp-float { display: none; }
 @keyframes cebollin-chispa { 0% { opacity: 0; transform: translate(-50%, 0) scale(.4); } 25% { opacity: 1; } 100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), var(--dy)) scale(1); } }
 @keyframes burbuja-pop { 0% { opacity: 0; scale: .6; } 100% { opacity: 1; scale: 1; } }
 @media (prefers-reduced-motion: reduce) {
-  .cebollin-actor.is-greeting, .cebollin-actor.is-greeting .cebollin-sparks i, .cebollin-hero.is-greeting .cebollin-floor { animation: none; }
-  .cebollin-actor.is-greeting .cebollin-wave { animation: none; opacity: 1; scale: 1; }
+  /* con "reducir movimiento" activo el saludo se mantiene, pero más suave y sin chispas */
+  .cebollin-actor.is-greeting { animation: cebollin-salto-suave 1.4s ease-in-out both; }
+  .cebollin-actor.is-greeting .cebollin-sparks i { animation: none; }
+  .cebollin-hero.is-greeting .cebollin-floor { animation: none; }
 }
+
+@keyframes cebollin-salto-suave { 0%, 100% { transform: translateY(0) rotate(0); } 30% { transform: translateY(-7%) rotate(-3deg); } 55% { transform: translateY(0) rotate(3deg); } 75% { transform: translateY(-2%) rotate(-1deg); } }
