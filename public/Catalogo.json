@@ -9,6 +9,12 @@
         "peso": "1000 g",
         "precio": 70000,
         "imagen": "productos/colmare.webp"
+      },
+      {
+        "tipo": "Bolsa",
+        "peso": "250 g",
+        "precio": 22500,
+        "imagen": "productos/colmare.webp"
       }
     ],
     "descripcion": "Alimento en polvo a base de proteína de suero con colágeno hidrolizado y proteína de colágeno, con bisglicinato de magnesio y probióticos. Sabor vainilla.",
@@ -27,46 +33,6 @@
     ]
   },
   {
-    "id": "colageno-marino-natural",
-    "categoria": "Línea de Pulverizados",
-    "nombre": "Colágeno Hidrolizado Marino Zoí",
-    "presentaciones": [
-      {
-        "tipo": "Tarro",
-        "peso": "1000 g",
-        "precio": 76000,
-        "imagen": "productos/colageno-marino-natural.webp"
-      },
-      {
-        "tipo": "Bolsa",
-        "peso": "500 g",
-        "precio": 39600,
-        "imagen": "productos/colageno-marino-natural-500g.webp",
-        "escala": 0.86
-      },
-      {
-        "tipo": "Bolsa",
-        "peso": "250 g",
-        "precio": 22000,
-        "imagen": "productos/colageno-marino-natural-250g.webp",
-        "escala": 0.76
-      }
-    ],
-    "descripcion": "Mezcla en polvo para preparar bebida con colágeno hidrolizado marino tipo I y II, péptidos de colágeno, biotina y vitamina E.",
-    "beneficios": [
-      "Con una dieta balanceada y actividad física, el colágeno contribuye a la salud articular.*",
-      "La vitamina E contribuye a la protección de las células frente al daño oxidativo.*",
-      "Se mezcla en agua, jugo, café o batidos."
-    ],
-    "imagen_referencia": "colageno-marino-hidrolizado.jpg",
-    "imagen": "productos/colageno-marino-natural.webp",
-    "etiquetas": [
-      "Colágeno tipo I y II",
-      "Con biotina y vitamina E",
-      "1000 g · 33 porciones aprox."
-    ]
-  },
-  {
     "id": "colageno-marino-crema-coco",
     "categoria": "Línea de Pulverizados",
     "nombre": "Colágeno con Crema de Coco Zoí",
@@ -74,20 +40,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000,
+        "precio": 70000,
         "imagen": "productos/colageno-marino-crema-coco.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600,
+        "precio": 40000,
         "imagen": "productos/colageno-marino-crema-coco-500g.webp",
         "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000,
+        "precio": 22500,
         "imagen": "productos/colageno-marino-crema-coco-250g.webp",
         "escala": 0.76
       }
@@ -114,20 +80,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000,
+        "precio": 70000,
         "imagen": "productos/maca-negra-maca-roja.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600,
+        "precio": 40000,
         "imagen": "productos/maca-negra-maca-roja-500g.webp",
         "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000,
+        "precio": 22500,
         "imagen": "productos/maca-negra-maca-roja-250g.webp",
         "escala": 0.76
       }
@@ -153,20 +119,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000,
+        "precio": 70000,
         "imagen": "productos/factor-transferencia.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600,
+        "precio": 40000,
         "imagen": "productos/factor-transferencia-500g.webp",
         "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000,
+        "precio": 22500,
         "imagen": "productos/factor-transferencia-250g.webp",
         "escala": 0.76
       }
@@ -219,7 +185,14 @@
       {
         "tipo": "Bolsa",
         "peso": "450 g",
-        "precio": 74000,
+        "precio": 72000,
+        "imagen": "productos/superalimento-quinua-amaranto.webp",
+        "escala": 0.76
+      },
+      {
+        "tipo": "Bolsa",
+        "peso": "240 g",
+        "precio": 38000,
         "imagen": "productos/superalimento-quinua-amaranto.webp",
         "escala": 0.76
       }
@@ -245,20 +218,20 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000,
+        "precio": 70000,
         "imagen": "productos/calcio-coral-marino.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600,
+        "precio": 40000,
         "imagen": "productos/calcio-coral-marino-500g.webp",
         "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000,
+        "precio": 22500,
         "imagen": "productos/calcio-coral-marino-250g.webp",
         "escala": 0.76
       }
@@ -317,7 +290,7 @@
       {
         "tipo": "Bolsa",
         "peso": "2 lb",
-        "precio": 100000,
+        "precio": 57900,
         "imagen": "productos/super-mega-gainer-gmn.webp",
         "escala": 0.76
       }
@@ -344,7 +317,7 @@
       {
         "tipo": "Bolsa",
         "peso": "2 lb",
-        "precio": 110000,
+        "precio": 74900,
         "imagen": "productos/mega-gainer-gmn.webp",
         "escala": 0.76
       }
@@ -370,7 +343,7 @@
       {
         "tipo": "Tarro",
         "peso": "100 g",
-        "precio": 180000,
+        "precio": 34900,
         "imagen": "productos/creatina-gmn.webp"
       }
     ],
