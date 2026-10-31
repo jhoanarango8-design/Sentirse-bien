@@ -756,6 +756,15 @@ function initCebollinGreeting() {
     actor.classList.add('is-greeting'); hero.classList.add('is-greeting'); bubble.classList.add('is-new');
     setTimeout(() => { actor.classList.remove('is-greeting'); hero.classList.remove('is-greeting'); }, 2300);
   };
+  // Parpadeo natural: cada 2,5 a 5,5 s, a veces doble
+  const parpadear = () => {
+    if (visible && !document.hidden) {
+      actor.classList.remove('is-blinking'); void actor.offsetWidth; actor.classList.add('is-blinking');
+      if (Math.random() < 0.25) setTimeout(() => { actor.classList.remove('is-blinking'); void actor.offsetWidth; actor.classList.add('is-blinking'); }, 320);
+    }
+    setTimeout(parpadear, 2500 + Math.random() * 3000);
+  };
+  setTimeout(parpadear, 1800);
   new IntersectionObserver(([en]) => {
     const was = visible; visible = en.isIntersecting;
     if (visible && !was) { setTimeout(saludar, 600); clearInterval(timer); timer = setInterval(saludar, 15000); }
