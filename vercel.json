@@ -1,0 +1,6 @@
+{
+  "headers": [
+    { "source": "/productos/(.*)", "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }] },
+    { "source": "/necesidades/(.*)", "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }] }
+  ]
+}
