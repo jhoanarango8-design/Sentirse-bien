@@ -1,32 +1,36 @@
 [
   {
-    "id": "colageno-marino-natural",
+    "id": "colmare",
     "categoria": "Línea de Pulverizados",
-    "nombre": "Colágeno Hidrolizado Marino Zoí",
+    "nombre": "Colmaré con Colágeno Hidrolizado ZOI",
     "presentaciones": [
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
-      },
-      {
-        "tipo": "Bolsa",
-        "peso": "500 g",
-        "precio": 39600
+        "precio": 70000,
+        "imagen": "productos/colmare.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22500,
+        "imagen": "productos/colmare.webp"
       }
     ],
-    "descripcion": "Mezcla para preparar bebida con vitaminas y minerales con: Colágeno Hidrolizado de Origen Marino tipo I y II, Péptidos de colágeno, Biotina y Vitamina E.",
+    "descripcion": "Alimento en polvo a base de proteína de suero con colágeno hidrolizado y proteína de colágeno, con bisglicinato de magnesio y probióticos. Sabor vainilla.",
     "beneficios": [
-      "Especial para fortalecer el crecimiento en cabello y uñas.",
-      "Preserva la salud de las articulaciones.",
-      "Previene la osteoporosis, fracturas o fisuras."
+      "16 g de proteína por porción preparada (30 g), según su tabla nutricional.",
+      "Trae vitaminas A, C, D3, E y del complejo B, calcio, hierro, magnesio, zinc y selenio.",
+      "Sin colorantes artificiales y sin maltodextrina, según su etiqueta.",
+      "Se prepara con 1 y 1/2 cucharadas dosificadoras en 240 mL de agua."
     ],
-    "imagen_referencia": "colageno-marino-hidrolizado.jpg"
+    "imagen": "productos/colmare.webp",
+    "modelo3d": "productos/colmare-etiqueta.webp",
+    "etiquetas": [
+      "16 g de proteína por porción",
+      "Con magnesio y probióticos",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "colageno-marino-crema-coco",
@@ -36,25 +40,37 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 70000,
+        "imagen": "productos/colageno-marino-crema-coco.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 40000,
+        "imagen": "productos/colageno-marino-crema-coco-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22500,
+        "imagen": "productos/colageno-marino-crema-coco-250g.webp",
+        "escala": 0.76
       }
     ],
-    "descripcion": "Mezcla para preparar bebida con vitaminas y minerales con: Colágeno hidrolizado de origen marino Tipo I y II, Péptidos de colágeno bovino, Biotina y Vitamina E.",
+    "descripcion": "Mezcla en polvo con colágeno hidrolizado marino tipo I y II, péptidos de colágeno bovino, biotina y vitamina E, con sabor a crema de coco.",
     "beneficios": [
-      "Promueve la salud de la piel y articulaciones.",
-      "Sabor delicioso a crema de coco natural."
+      "Con una dieta balanceada y actividad física, el colágeno contribuye a la salud articular.*",
+      "La vitamina E contribuye a la protección de las células frente al daño oxidativo.*",
+      "Sabor cremoso para batidos y café."
     ],
-    "imagen_referencia": "colageno-crema-coco.jpg"
+    "imagen_referencia": "colageno-crema-coco.jpg",
+    "imagen": "productos/colageno-marino-crema-coco.webp",
+    "etiquetas": [
+      "Colágeno hidrolizado marino",
+      "Sabor crema de coco",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "maca-negra-maca-roja",
@@ -64,25 +80,36 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 70000,
+        "imagen": "productos/maca-negra-maca-roja.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 40000,
+        "imagen": "productos/maca-negra-maca-roja-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22500,
+        "imagen": "productos/maca-negra-maca-roja-250g.webp",
+        "escala": 0.76
       }
     ],
     "descripcion": "Mezcla para preparar bebida con vitaminas y minerales con: Maca Roja, Maca Negra, Chontaduro, Borojó, Zinc, Moringa, Jalea Real y Polen.",
     "beneficios": [
-      "Impulsa la energía y resistencia física.",
-      "Equilibra el sistema hormonal de forma natural."
+      "Mezcla en polvo con maca roja y maca negra para preparar bebida.",
+      "Se mezcla en agua, jugo, batidos o avena."
     ],
-    "imagen_referencia": "maca-negra-roja.jpg"
+    "imagen_referencia": "maca-negra-roja.jpg",
+    "imagen": "productos/maca-negra-maca-roja.webp",
+    "etiquetas": [
+      "Maca roja + maca negra",
+      "Con chontaduro y borojó",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "factor-transferencia",
@@ -92,25 +119,37 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 70000,
+        "imagen": "productos/factor-transferencia.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 40000,
+        "imagen": "productos/factor-transferencia-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22500,
+        "imagen": "productos/factor-transferencia-250g.webp",
+        "escala": 0.76
       }
     ],
-    "descripcion": "Mezcla para preparar bebida con vitaminas y minerales con: Calostro Bovino, Betaglucanos de Ganoderma Lucidum y Vitamina C. Con Echinacea y Hongo en presentación de 1000g.",
+    "descripcion": "Mezcla en polvo con calostro bovino, betaglucanos de Ganoderma lucidum y vitamina C.",
     "beneficios": [
-      "Fortalece el sistema inmunológico y previene infecciones.",
-      "Sirve para la recuperación muscular y bienestar general."
+      "La vitamina C contribuye al funcionamiento normal del sistema inmune.*",
+      "Con un consumo regular de betaglucanos de Ganoderma lucidum, dieta balanceada y ejercicio, ayuda a fortalecer las defensas.*",
+      "Para toda la familia."
     ],
-    "imagen_referencia": "factor-transferencia.jpg"
+    "imagen_referencia": "factor-transferencia.jpg",
+    "imagen": "productos/factor-transferencia.webp",
+    "etiquetas": [
+      "Con calostro bovino",
+      "Betaglucanos de Ganoderma",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "stevia-jarabe",
@@ -120,15 +159,23 @@
       {
         "tipo": "Gotero",
         "peso": "Estándar",
-        "precio": 17800
+        "precio": 17800,
+        "imagen": "productos/stevia-jarabe.webp"
       }
     ],
-    "descripcion": "Endulzante natural concentrado a base de Stevia. Sin calorías, ideal para endulzar bebidas y recetas.",
+    "descripcion": "Endulzante a base de estevia natural. 0 calorías.",
     "beneficios": [
-      "Endulza naturalmente sin calorías.",
-      "Apto para personas con diabetes o en control de peso."
+      "Endulza bebidas y recetas sin calorías.",
+      "Rinde mucho: pocas gotas endulzan un vaso.",
+      "Precio especial en combo de 2 goteros."
     ],
-    "imagen_referencia": "stevia-drops.jpg"
+    "imagen_referencia": "stevia-drops.jpg",
+    "imagen": "productos/stevia-jarabe.webp",
+    "etiquetas": [
+      "Endulzante a base de stevia",
+      "0 calorías",
+      "En gotero"
+    ]
   },
   {
     "id": "superalimento-quinua-amaranto",
@@ -138,15 +185,30 @@
       {
         "tipo": "Bolsa",
         "peso": "450 g",
-        "precio": 74000
+        "precio": 72000,
+        "imagen": "productos/superalimento-quinua-amaranto.webp",
+        "escala": 0.76
+      },
+      {
+        "tipo": "Bolsa",
+        "peso": "240 g",
+        "precio": 38000,
+        "imagen": "productos/superalimento-quinua-amaranto.webp",
+        "escala": 0.76
       }
     ],
-    "descripcion": "El Kfir es un alimento funcional con millones de probióticos y prebióticos (FOS y GOS). Práctico, sin azúcar añadida y fácil de preparar a base de quinua y amaranto.",
+    "descripcion": "Alimento en polvo con probióticos y prebióticos (FOS y GOS), sin azúcar añadida, a base de quinua y amaranto.",
     "beneficios": [
-      "Ayuda a equilibrar la flora intestinal y mejorar la digestión.",
-      "Favorece el tránsito intestinal y fortalece el sistema inmune."
+      "Los probióticos ayudan a mantener el equilibrio de la flora intestinal.*",
+      "Fácil de preparar: mézclalo con agua, leche o fruta."
     ],
-    "imagen_referencia": "kfir-450gr.jpg"
+    "imagen_referencia": "kfir-450gr.jpg",
+    "imagen": "productos/superalimento-quinua-amaranto.webp",
+    "etiquetas": [
+      "Con probióticos",
+      "Prebióticos FOS y GOS",
+      "450 g · 15 porciones aprox."
+    ]
   },
   {
     "id": "calcio-coral-marino",
@@ -156,25 +218,37 @@
       {
         "tipo": "Tarro",
         "peso": "1000 g",
-        "precio": 76000
+        "precio": 70000,
+        "imagen": "productos/calcio-coral-marino.webp"
       },
       {
         "tipo": "Bolsa",
         "peso": "500 g",
-        "precio": 39600
+        "precio": 40000,
+        "imagen": "productos/calcio-coral-marino-500g.webp",
+        "escala": 0.86
       },
       {
         "tipo": "Bolsa",
         "peso": "250 g",
-        "precio": 22000
+        "precio": 22500,
+        "imagen": "productos/calcio-coral-marino-250g.webp",
+        "escala": 0.76
       }
     ],
-    "descripcion": "Mezcla para preparar bebida con vitaminas y minerales con: Calcio de Origen Marino, Cloruro de Magnesio, Péptidos de Colágeno, Cúrcuma, Biotina y Vitamina C.",
+    "descripcion": "Mezcla en polvo con calcio de origen marino, cloruro de magnesio, péptidos de colágeno, cúrcuma, biotina y vitamina C.",
     "beneficios": [
-      "Refuerza el sistema óseo e inmune.",
-      "Es un excelente antioxidante para dolores musculares y articulares."
+      "El magnesio contribuye al mantenimiento de la función muscular normal.*",
+      "La vitamina C contribuye a la formación de colágeno necesario para los huesos.*",
+      "Para tu bebida de la mañana o de la tarde."
     ],
-    "imagen_referencia": "calcio-marino.jpg"
+    "imagen_referencia": "calcio-marino.jpg",
+    "imagen": "productos/calcio-coral-marino.webp",
+    "etiquetas": [
+      "Calcio de origen marino",
+      "Con magnesio",
+      "1000 g · 33 porciones aprox."
+    ]
   },
   {
     "id": "cafe-brusca",
@@ -184,20 +258,29 @@
       {
         "tipo": "Tarro",
         "peso": "500 g",
-        "precio": 44000
+        "precio": 44000,
+        "imagen": "productos/cafe-brusca.webp"
       },
       {
         "tipo": "Tarro",
         "peso": "250 g",
-        "precio": 24000
+        "precio": 24000,
+        "imagen": "productos/cafe-brusca-250.webp"
       }
     ],
-    "descripcion": "Polvo para preparar bebida tradicional a base de Café de Brusca y Senna Occidentalis.",
+    "descripcion": "Polvo tradicional a base de café de brusca (Senna occidentalis).",
     "beneficios": [
-      "Tradicionalmente utilizado para el cuidado de la próstata y el tracto urinario.",
-      "Fórmula natural depurativa."
+      "Bebida tradicional colombiana para preparar como infusión.",
+      "Modo de uso: hervir con agua, agregar el producto, colar y servir.",
+      "Consulta a tu médico si estás en embarazo o lactancia."
     ],
-    "imagen_referencia": "cafe-de-brusca.jpg"
+    "imagen_referencia": "cafe-de-brusca.jpg",
+    "imagen": "productos/cafe-brusca.webp",
+    "etiquetas": [
+      "Café de brusca",
+      "Bebida tradicional colombiana",
+      "Tarro de 500 g"
+    ]
   },
   {
     "id": "super-mega-gainer-gmn",
@@ -207,15 +290,24 @@
       {
         "tipo": "Bolsa",
         "peso": "2 lb",
-        "precio": 100000
+        "precio": 57900,
+        "imagen": "productos/super-mega-gainer-gmn.webp",
+        "escala": 0.76
       }
     ],
-    "descripcion": "Suplemento alimenticio hipercalórico diseñado para la ganancia masiva de peso y recuperación muscular.",
+    "descripcion": "Alimento en polvo a base de maltodextrina y proteína concentrada de suero para preparar bebida con glutamina y aminoácidos (leucina, isoleucina y valina), sabor artificial a vainilla gourmet. Por porción preparada: 50 g de proteína, 967 calorías y 178 g de carbohidratos. Contiene edulcorantes.",
     "beneficios": [
-      "Alto contenido en proteínas y carbohidratos complejos.",
-      "Aporte calórico ideal para deportistas de alto rendimiento."
+      "Para quienes buscan sumar calorías y proteína a su día de entrenamiento.",
+      "Prepáralo con agua o leche según la etiqueta.",
+      "Sabor vainilla gourmet."
     ],
-    "imagen_referencia": "super-mega-gainer.jpg"
+    "imagen_referencia": "super-mega-gainer.jpg",
+    "imagen": "productos/super-mega-gainer-gmn.webp",
+    "etiquetas": [
+      "50 g de proteína por porción",
+      "Vainilla gourmet",
+      "Bolsa de 2 lb"
+    ]
   },
   {
     "id": "mega-gainer-gmn",
@@ -225,15 +317,23 @@
       {
         "tipo": "Bolsa",
         "peso": "2 lb",
-        "precio": 110000
+        "precio": 74900,
+        "imagen": "productos/mega-gainer-gmn.webp",
+        "escala": 0.76
       }
     ],
-    "descripcion": "Proteína ganadora de masa muscular con excelente aporte calórico y aminoácidos para el desarrollo de fuerza.",
+    "descripcion": "Proteína hipercalórica en polvo de la marca GMN, sabor vainilla gourmet.",
     "beneficios": [
-      "Favorece el desarrollo muscular rápido.",
-      "Excelente sabor y disolución."
+      "Para quienes buscan sumar calorías y proteína a su día de entrenamiento.",
+      "Se prepara con agua o leche según la porción de la etiqueta."
     ],
-    "imagen_referencia": "mega-gainer.jpg"
+    "imagen_referencia": "mega-gainer.jpg",
+    "imagen": "productos/mega-gainer-gmn.webp",
+    "etiquetas": [
+      "53 g de proteína por porción",
+      "Vainilla gourmet",
+      "Bolsa de 2 lb"
+    ]
   },
   {
     "id": "creatina-gmn",
@@ -243,14 +343,21 @@
       {
         "tipo": "Tarro",
         "peso": "100 g",
-        "precio": 180000
+        "precio": 34900,
+        "imagen": "productos/creatina-gmn.webp"
       }
     ],
-    "descripcion": "Suplemento deportivo a base de Creatina GMN. Aporta energía y potencia, ideal para potenciar el rendimiento y la fuerza muscular en entrenamientos de alta intensidad.",
+    "descripcion": "Suplemento deportivo en polvo a base de creatina, de la marca GMN.",
     "beneficios": [
-      "Aumenta la fuerza y potencia muscular.",
-      "Mejora la resistencia y acelera la recuperación."
+      "Creatina en polvo para mezclar con agua o tu bebida favorita.",
+      "Usa la porción que indica la etiqueta."
     ],
-    "imagen_referencia": "creatina-gmn.jpg"
+    "imagen_referencia": "creatina-gmn.jpg",
+    "imagen": "productos/creatina-gmn.webp",
+    "etiquetas": [
+      "Creatina en polvo",
+      "Marca GMN",
+      "Para mezclar con agua"
+    ]
   }
 ]

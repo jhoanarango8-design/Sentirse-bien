@@ -6,29 +6,29 @@
   
   <!-- SEO Optimization for Colombia -->
   <title>SentirseBien | Productos de Bienestar Natural y Suplementos en Colombia</title>
-  <meta name="description" content="Descubre el poder de la naturaleza colombiana con SentirseBien. Colágenos hidrolizados, aceites vegetales prensados en frío y medicina homeopática de alta pureza. Envíos a todo el país y pago seguro por WhatsApp.">
-  <meta name="keywords" content="bienestar natural Colombia, suplementos naturales, colágeno marino, aceites vegetales, homeopatía Bogotá, alimentación saludable, Nequi, Daviplata, SentirseBien">
-  <link rel="canonical" href="https://sentirsebien.co/">
+  <meta name="description" content="Descubre el poder de la naturaleza colombiana con SentirseBien. Colágeno hidrolizado, Kfir, maca, calcio marino y suplementos deportivos de ZOI y GMN, con asesoría y pedido por WhatsApp.">
+  <meta name="keywords" content="productos ZOI Bogotá, colágeno hidrolizado marino, Kfir ZOI, maca roja y negra, calcio marino, Super Mega Gainer GMN, creatina, SentirseBien">
+  <link rel="canonical" href="https://sentirsebien-v2.vercel.app/">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sentirsebien.co/">
-  <meta property="og:title" content="SentirseBien | Bienestar Natural y Suplementos Orgánicos">
-  <meta property="og:description" content="Colágenos hidrolizados, aceites vegetales y suplementos naturales premium. Compra fácil y segura con entrega en toda Colombia a través de WhatsApp.">
-  <meta property="og:image" content="assets/hero_wellness.jpg">
+  <meta property="og:url" content="https://sentirsebien-v2.vercel.app/">
+  <meta property="og:title" content="SentirseBien – Siempre Contigo | Productos naturales ZOI en Colombia">
+  <meta property="og:description" content="Productos naturales ZOI y suplementos deportivos con asesoría personal. Pide fácil por WhatsApp.">
+  <meta property="og:image" content="https://sentirsebien-v2.vercel.app/marca/og-sentirsebien.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://sentirsebien.co/">
+  <meta property="twitter:url" content="https://sentirsebien-v2.vercel.app/">
   <meta property="twitter:title" content="SentirseBien | Bienestar Natural Colombia">
-  <meta property="twitter:description" content="Los mejores suplementos y aceites naturales para tu salud. Envíos nacionales con atención personalizada por WhatsApp.">
-  <meta property="twitter:image" content="assets/hero_wellness.jpg">
+  <meta property="twitter:description" content="Productos naturales ZOI y suplementos deportivos con asesoría personal. Pide fácil por WhatsApp.">
+  <meta property="twitter:image" content="https://sentirsebien-v2.vercel.app/marca/og-sentirsebien.jpg">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="https://placehold.co/32x32/103f29/ffffff?text=SB" type="image/png">
+  <link rel="icon" href="marca/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="marca/favicon-180.png">
 
   <!-- Icons and Styles -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
   <!-- Schema.org JSON-LD for Local Business / Store in Colombia -->
@@ -37,8 +37,10 @@
     "@context": "https://schema.org",
     "@type": "Store",
     "name": "SentirseBien Colombia",
-    "image": "assets/hero_wellness.jpg",
-    "description": "Tienda en línea de suplementos alimenticios, aceites naturales y homeopáticos en Colombia.",
+    "image": "https://sentirsebien-v2.vercel.app/marca/og-sentirsebien.jpg",
+    "description": "Distribuidora digital de productos naturales ZOI y suplementos deportivos en Bogotá, con pedidos por WhatsApp.",
+    "url": "https://sentirsebien-v2.vercel.app/",
+    "sameAs": ["https://www.instagram.com/sentirsebiencol/", "https://www.tiktok.com/@sentirsebien26"],
     "telephone": "+573224559027",
     "priceRange": "$$",
     "address": {
@@ -85,17 +87,18 @@
       <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html" class="nav-link active">Inicio</a></li>
         <li><a href="tienda.html" class="nav-link">Productos</a></li>
+        <li><a href="index.html#cebollin" class="nav-link">Cebollín</a></li>
         <li><a href="nosotros.html" class="nav-link">Nuestra Historia</a></li>
       </ul>
 
       <!-- Nav Actions -->
       <div class="nav-actions">
-        <a href="tienda.html" class="nav-action-btn" title="Buscar productos"><i class="fas fa-search"></i></a>
-        <button id="cart-btn" class="nav-action-btn" title="Ver carrito">
+        <a href="tienda.html" class="nav-action-btn" title="Buscar productos" aria-label="Buscar productos"><i class="fas fa-search"></i></a>
+        <button id="cart-btn" class="nav-action-btn" type="button" title="Ver carrito" aria-label="Ver carrito">
           <i class="fas fa-shopping-bag"></i>
           <span class="cart-count-badge">0</span>
         </button>
-        <button class="menu-toggle" id="menu-toggle">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -107,9 +110,9 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <span class="badge">Bienestar 100% Orgánico</span>
+          <span class="badge">Bienestar natural, sin complicarte</span>
           <h1>Nutre tu cuerpo y siente el equilibrio natural</h1>
-          <p>Llevamos lo mejor de la tierra colombiana a tu hogar. Suplementos en polvo de alta densidad, aceites vegetales extra virgen y soluciones homeopáticas creadas bajo los más altos estándares para tu bienestar integral.</p>
+          <p>Productos naturales ZOI y marcas de confianza, con asesoría personal por WhatsApp y entrega hasta tu casa.</p>
           <div class="hero-buttons">
             <a href="tienda.html" class="btn btn-primary">Explorar Catálogo</a>
             <a href="nosotros.html" class="btn btn-outline">Nuestra Filosofía</a>
@@ -117,7 +120,7 @@
         </div>
         <div class="hero-image-wrapper">
           <div class="hero-image-container">
-            <img src="assets/hero_wellness.jpg" alt="Suplementos y aceites de bienestar SentirseBien" class="hero-image">
+            <img src="assets/hero-bodegon.webp" alt="Colmaré con colágeno hidrolizado, Colágeno Marino y Maca Negra + Roja de ZOI sobre un mesón de cocina con luz de mañana" class="hero-image" width="960" height="1200" fetchpriority="high">
           </div>
           <div class="hero-floating-badge">
             <i class="fas fa-heart"></i> Hecho con amor en Colombia
@@ -131,23 +134,56 @@
       <div class="container features-grid">
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-          <h3>100% Natural</h3>
-          <p>Sin aditivos químicos nocivos</p>
+          <h3>Marcas de confianza</h3>
+          <p>Productos originales ZOI y GMN</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-truck-moving"></i></div>
-          <h3>Envíos Nacionales</h3>
-          <p>Seguros y garantizados en Colombia</p>
+          <h3>Envíos a toda Colombia</h3>
+          <p>Coordinamos tu envío por WhatsApp</p>
         </div>
         <div class="feature-item">
           <div class="feature-icon"><i class="fas fa-comments"></i></div>
-          <h3>Asesoría WhatsApp</h3>
-          <p>Contacto directo y personalizado</p>
+          <h3>Asesoría por WhatsApp</h3>
+          <p>Te ayudamos a elegir</p>
         </div>
         <div class="feature-item">
-          <div class="feature-icon"><i class="fas fa-thumbs-up"></i></div>
-          <h3>Calidad Premium</h3>
-          <p>Procesos controlados de pureza</p>
+          <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+          <h3>Pago fácil</h3>
+          <p>Lo acordamos contigo al pedir</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprar por necesidad -->
+    <section class="needs section-padding" aria-labelledby="needs-titulo">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Encuentra lo tuyo</span>
+          <h2 id="needs-titulo">¿Qué estás buscando hoy?</h2>
+          <p>Elige por el momento del día o por para quién es, y te mostramos los productos que encajan.</p>
+        </div>
+        <div class="needs-grid">
+          <a class="need-card" href="tienda.html?necesidad=colagenos">
+            <img src="necesidades/colagenos.webp" alt="" loading="lazy" width="1200" height="900">
+            <span class="need-body"><strong>Colágenos</strong><span>Colmaré, Colágeno Marino y Crema de Coco</span><span class="need-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></span>
+          </a>
+          <a class="need-card" href="tienda.html?necesidad=deporte">
+            <img src="necesidades/deporte.webp" alt="" loading="lazy" width="1200" height="900">
+            <span class="need-body"><strong>Deporte y proteína</strong><span>Gainers y creatina GMN</span><span class="need-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></span>
+          </a>
+          <a class="need-card" href="tienda.html?necesidad=desayunos">
+            <img src="necesidades/desayunos.webp" alt="" loading="lazy" width="1200" height="900">
+            <span class="need-body"><strong>Desayunos y batidos</strong><span>Kfir y colágenos para tu batido</span><span class="need-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></span>
+          </a>
+          <a class="need-card" href="tienda.html?necesidad=familia">
+            <img src="necesidades/familia.webp" alt="" loading="lazy" width="1200" height="900">
+            <span class="need-body"><strong>Para la familia</strong><span>Maca, Calcio Coral y Factor</span><span class="need-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></span>
+          </a>
+          <a class="need-card" href="tienda.html?necesidad=despensa">
+            <img src="necesidades/despensa.webp" alt="" loading="lazy" width="1200" height="900">
+            <span class="need-body"><strong>Despensa natural</strong><span>Stevia y Café de Brusca</span><span class="need-go" aria-hidden="true"><i class="fas fa-arrow-right"></i></span></span>
+          </a>
         </div>
       </div>
     </section>
@@ -158,7 +194,7 @@
         <div class="section-header">
           <span class="badge">Favoritos de la comunidad</span>
           <h2>Productos Destacados</h2>
-          <p>Nuestras formulaciones más queridas y recomendadas para potenciar tu energía, vitalidad y salud diaria.</p>
+          <p>Los productos que más nos piden, con su precio y presentación. Pasa el mouse o toca uno para verlo de cerca.</p>
         </div>
         <div class="carousel-container">
           <button class="carousel-nav-btn prev-btn" id="carousel-prev" aria-label="Anterior">
@@ -179,104 +215,156 @@
       </div>
     </section>
 
+    <!-- Colmaré en 3D -->
+    <section class="colmare3d-section section-padding" aria-labelledby="colmare3d-titulo">
+      <div class="container colmare3d-grid">
+        <div class="jar3d colmare3d-stage" id="colmare-3d" data-id="colmare">
+          <img class="jar3d-fallback" src="productos/colmare.webp" alt="Tarro de Colmaré con colágeno hidrolizado ZOI, 1000 g" loading="lazy" width="669" height="900">
+          <span class="jar3d-hint"><i class="fas fa-hand-pointer" aria-hidden="true"></i> Arrástralo para girarlo</span>
+        </div>
+        <div class="colmare3d-info">
+          <span class="badge">Míralo por todos lados</span>
+          <h2 id="colmare3d-titulo">Colmaré con colágeno hidrolizado</h2>
+          <p>Gira el tarro y lee su etiqueta completa: ingredientes, tabla nutricional y forma de uso, tal como te llega a casa.</p>
+          <ul class="colmare3d-facts">
+            <li><strong>16 g</strong><span>de proteína por porción</span></li>
+            <li><strong>1000 g</strong><span>33 porciones aprox.</span></li>
+            <li><strong>Vainilla</strong><span>con magnesio y probióticos</span></li>
+          </ul>
+          <p class="colmare3d-price"><span>Tarro 1000 g</span> <strong id="colmare-3d-price">$70.000</strong></p>
+          <div class="colmare3d-actions">
+            <button type="button" class="btn btn-primary" onclick="window.addToCartByDefault('colmare', 0)"><i class="fas fa-shopping-bag" aria-hidden="true" style="margin-right:.5rem"></i> Añadir al carrito</button>
+            <button type="button" class="btn btn-outline" onclick="window.quickViewProduct('colmare')">Ver detalles</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Así nos ven en TikTok (prueba social real) -->
+    <section class="tt-section section-padding" aria-labelledby="tt-titulo">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Así nos ven en redes</span>
+          <h2 id="tt-titulo">Lo que más ha gustado en TikTok</h2>
+          <p>Nuestras publicaciones con más vistas, más el carrusel y la receta más recientes. Tócalas para verlas completas en <a href="https://www.tiktok.com/@sentirsebien26" target="_blank" rel="noopener">@sentirsebien26</a>.</p>
+        </div>
+        <div class="tt-grid">
+          <a class="tt-card" href="https://www.tiktok.com/@sentirsebien26/photo/7700262463782014228" target="_blank" rel="noopener">
+            <span class="tt-cover"><img src="redes/tt-mananas.webp" alt="" loading="lazy" width="480" height="480"><span class="tt-type">Carrusel</span><span class="tt-play" aria-hidden="true"><i class="fab fa-tiktok"></i></span></span>
+            <span class="tt-body"><span class="tt-caption">¿Sales corriendo todas las mañanas? Cebollín también… pero tiene un truco.</span><span class="tt-stats"><span class="tt-stat"><i class="fas fa-play" aria-hidden="true"></i> 16,6 mil vistas</span><span class="tt-stat"><i class="fas fa-heart" aria-hidden="true"></i> 45</span></span></span>
+            <span class="sr-only">(se abre en TikTok)</span>
+          </a>
+          <a class="tt-card" href="https://www.tiktok.com/@sentirsebien26/photo/7699508292082601237" target="_blank" rel="noopener">
+            <span class="tt-cover"><img src="redes/tt-tarro.webp" alt="" loading="lazy" width="480" height="480"><span class="tt-type">Carrusel</span><span class="tt-play" aria-hidden="true"><i class="fab fa-tiktok"></i></span></span>
+            <span class="tt-body"><span class="tt-caption">¿Cuántas cosas caben en un solo tarro? Desliza y cuéntalas.</span><span class="tt-stats"><span class="tt-stat"><i class="fas fa-play" aria-hidden="true"></i> 2.206 vistas</span><span class="tt-stat"><i class="fas fa-heart" aria-hidden="true"></i> 12</span></span></span>
+            <span class="sr-only">(se abre en TikTok)</span>
+          </a>
+          <a class="tt-card" href="https://www.tiktok.com/@sentirsebien26/video/7701365439607098642" target="_blank" rel="noopener">
+            <span class="tt-cover"><img src="redes/tt-postre-kfir.webp" alt="" loading="lazy" width="480" height="480"><span class="tt-type">Receta</span><span class="tt-play" aria-hidden="true"><i class="fab fa-tiktok"></i></span></span>
+            <span class="tt-body"><span class="tt-caption">¿Postre cremoso con tu Kfir? Sí, y sale en minutos.</span><span class="tt-stats"><span class="tt-stat"><i class="fas fa-play" aria-hidden="true"></i> 2.038 vistas</span><span class="tt-stat"><i class="fas fa-heart" aria-hidden="true"></i> 56</span></span></span>
+            <span class="sr-only">(se abre en TikTok)</span>
+          </a>
+          <a class="tt-card" href="https://www.tiktok.com/@sentirsebien26/photo/7699214323025104148" target="_blank" rel="noopener">
+            <span class="tt-cover"><img src="redes/tt-colmare.webp" alt="" loading="lazy" width="480" height="480"><span class="tt-type">Lanzamiento</span><span class="tt-play" aria-hidden="true"><i class="fab fa-tiktok"></i></span></span>
+            <span class="tt-body"><span class="tt-caption">¡Nueva presentación! Te presentamos Colmaré con colágeno hidrolizado.</span><span class="tt-stats"><span class="tt-stat"><i class="fas fa-play" aria-hidden="true"></i> 867 vistas</span><span class="tt-stat"><i class="fas fa-heart" aria-hidden="true"></i> 5</span></span></span>
+            <span class="sr-only">(se abre en TikTok)</span>
+          </a>
+          <a class="tt-card" href="https://www.tiktok.com/@sentirsebien26/photo/7702477452555095304" target="_blank" rel="noopener">
+            <span class="tt-cover"><img src="redes/tt-gainer.webp" alt="" loading="lazy" width="480" height="480"><span class="tt-type">Carrusel</span><span class="tt-play" aria-hidden="true"><i class="fab fa-tiktok"></i></span></span>
+            <span class="tt-body"><span class="tt-caption">¿Qué es un gainer? Te lo contamos con la etiqueta, sin cuentos.</span><span class="tt-stats"><span class="tt-stat tt-new">Carrusel más reciente</span></span></span>
+            <span class="sr-only">(se abre en TikTok)</span>
+          </a>
+          <a class="tt-card" href="https://www.tiktok.com/@sentirsebien26/video/7702509170095934721" target="_blank" rel="noopener">
+            <span class="tt-cover"><img src="redes/tt-avena-kfir.webp" alt="" loading="lazy" width="480" height="480"><span class="tt-type">Receta</span><span class="tt-play" aria-hidden="true"><i class="fab fa-tiktok"></i></span></span>
+            <span class="tt-body"><span class="tt-caption">¿Desayuno listo desde la noche anterior? Avena de noche con Kfir.</span><span class="tt-stats"><span class="tt-stat tt-new">Receta más reciente</span></span></span>
+            <span class="sr-only">(se abre en TikTok)</span>
+          </a>
+        </div>
+        <p class="tt-note">Cifras de TikTok al 30 de octubre de 2026.</p>
+        <div class="text-center" style="margin-top: 2rem;">
+          <a href="https://www.tiktok.com/@sentirsebien26" class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-tiktok" aria-hidden="true" style="margin-right:.5rem"></i> Síguenos en TikTok</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Brand Story (Double Column Layout Inspired by Fable & Mane) -->
     <section class="brand-story section-padding">
       <div class="container brand-story-grid">
         <div class="brand-story-left">
           <span class="badge">Nuestras Raíces</span>
-          <h2>Un compromiso real con la salud orgánica</h2>
-          <p>En Colombia, contamos con una de las mayores biodiversidades del planeta. En **SentirseBien**, creemos firmemente que la salud verdadera proviene de honrar y respetar esta abundancia.</p>
-          <p>Nuestros colágenos y suplementos en polvo están formulados con ingredientes seleccionados para nutrir cada célula de tu cuerpo, devolviéndole su equilibrio natural de manera holística.</p>
+          <h2>Un compromiso real con el bienestar natural</h2>
+          <p>Colombia tiene una de las mayores biodiversidades del planeta. En <strong>SentirseBien</strong> te acercamos productos naturales hechos aquí, como los de ZOI, de forma sencilla y honesta.</p>
+          <p>Te contamos qué trae cada producto según su etiqueta y cómo se usa, sin promesas exageradas. Y si tienes dudas, te acompañamos por WhatsApp.</p>
           <a href="nosotros.html" class="btn btn-outline" style="margin-top: 1.5rem;">Saber más de nosotros</a>
         </div>
         <div class="brand-story-right">
           <h2>Rituales de Bienestar</h2>
-          <p>Redescubre el autocuidado diario a través de nuestros productos. Cada gota de nuestros aceites prensados en frío y cada cucharada de nuestros pulverizados forman parte de un ritual diseñado para reconectarte contigo mismo.</p>
+          <p>Pequeños hábitos que sí se sostienen: una porción en el café de la mañana, un batido después de entrenar, una receta fácil el fin de semana.</p>
           <ul>
-            <li><i class="fas fa-circle-check"></i> <strong>Prensado en frío:</strong> Conserva al 100% los nutrientes vitales.</li>
-            <li><i class="fas fa-circle-check"></i> <strong>Bebidas nutritivas:</strong> Rápida preparación para estilos de vida activos.</li>
-            <li><i class="fas fa-circle-check"></i> <strong>Homeopatía Consciente:</strong> Estímulo suave y seguro para tu sistema inmune.</li>
+            <li><i class="fas fa-circle-check" aria-hidden="true"></i> <strong>Bebidas en polvo:</strong> se preparan en un minuto con agua, jugo o café.</li>
+            <li><i class="fas fa-circle-check" aria-hidden="true"></i> <strong>Recetas:</strong> ideas fáciles con lo que ya tienes en la cocina.</li>
+            <li><i class="fas fa-circle-check" aria-hidden="true"></i> <strong>Asesoría:</strong> te ayudamos a elegir la presentación que te sirve.</li>
           </ul>
           <a href="tienda.html" class="btn btn-secondary">Comenzar mi ritual</a>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials section-padding">
+    <!-- Cómo pedir -->
+    <section class="how-to section-padding" aria-labelledby="como-pedir">
       <div class="container">
         <div class="section-header">
-          <span class="badge">Testimonios Reales</span>
-          <h2>Historias de Bienestar</h2>
-          <p>Descubre cómo SentirseBien está ayudando a miles de colombianos a mejorar su estilo de vida y salud día a día.</p>
+          <span class="badge">Así de fácil</span>
+          <h2 id="como-pedir">Cómo hacer tu pedido</h2>
+          <p>Sin registros ni contraseñas: eliges, nos escribes y lo coordinamos contigo.</p>
         </div>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">"El Colágeno Marino con sabor a coco ha mejorado increíblemente la caída de mi cabello. Llevo 3 meses tomándolo y lo noto más fuerte y brillante. El pedido por WhatsApp me llegó súper rápido a Medellín."</p>
-            <h4 class="testimonial-author">Juliana Restrepo <span>Medellín, Antioquia</span></h4>
-          </div>
-          <div class="testimonial-card">
-            <div class="stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">"Uso el Citrato de Magnesio por las noches y mi calidad de sueño ha cambiado totalmente. La atención que brindan por WhatsApp es súper atenta y me guiaron en cuál presentación elegir. Recomiendo la marca al 100%."</p>
-            <h4 class="testimonial-author">Carlos Mario Gómez <span>Bogotá, D.C.</span></h4>
-          </div>
-          <div class="testimonial-card">
-            <div class="stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="testimonial-text">"El Aceite de Coco Orgánico lo uso tanto en la cocina como para masajes capilares, la textura y el aroma son incomparables. Me encanta que sea prensado en frío y natural de verdad."</p>
-            <h4 class="testimonial-author">María Camila Vivas <span>Cali, Valle del Cauca</span></h4>
-          </div>
-        </div>
+        <ol class="how-to-steps">
+          <li class="how-to-step"><span class="how-to-num">1</span><h3>Elige tus productos</h3><p>Agrégalos al carrito con la presentación que quieras.</p></li>
+          <li class="how-to-step"><span class="how-to-num">2</span><h3>Envía el pedido por WhatsApp</h3><p>El mensaje sale armado con tus productos y el total.</p></li>
+          <li class="how-to-step"><span class="how-to-num">3</span><h3>Acordamos pago y entrega</h3><p>Te confirmamos el envío y el medio de pago por el mismo chat.</p></li>
+        </ol>
       </div>
     </section>
 
-    <!-- Reels Section (Mocked UI) -->
-    <section class="reels-placeholder section-padding">
-      <div class="container">
-        <div class="section-header">
-          <span class="badge">#SentirseBienEnComunidad</span>
-          <h2>Rituales Compartidos</h2>
-          <p>Síguenos en nuestras redes sociales y comparte tus momentos saludables usando la etiqueta oficial de la marca.</p>
+    <!-- Conoce a Cebollín -->
+    <section class="cebollin section-padding" id="cebollin" aria-labelledby="cebollin-titulo">
+      <div class="container cebollin-grid">
+        <div class="cebollin-hero">
+          <div class="cebollin-arch">
+            <span class="cebollin-leaf l1" aria-hidden="true"></span>
+            <span class="cebollin-leaf l2" aria-hidden="true"></span>
+            <span class="cebollin-actor"><img src="cebollin/cebollin-brazo.webp" class="cebollin-arm" alt="" aria-hidden="true" width="77" height="58" loading="lazy"><img src="cebollin/cebollin-cuerpo.webp" alt="Cebollín, la mascota de SentirseBien: una cebolla blanca con tres hojas verdes, ojos grandes y mejillas rosadas" class="cebollin-main" width="579" height="781" loading="lazy"><span class="cebollin-lid l" aria-hidden="true"></span><span class="cebollin-lid r" aria-hidden="true"></span></span>
+            <span class="cebollin-floor" aria-hidden="true"></span>
+          </div>
+          <p class="cebollin-bubble" aria-live="polite">¡Hola! Soy Cebollín.<br>Te acompaño en la cocina.</p>
         </div>
-        <div class="reels-grid">
-          <!-- Reel Card 1 -->
-          <div class="reel-card">
-            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=400" alt="Haciendo batido de colágeno SentirseBien" onerror="this.src='https://placehold.co/400x600?text=Momento+SentirseBien'">
-            <div class="reel-overlay">
-              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
-              <p class="reel-caption">@lucia.fit: Mi batido de la mañana con Proteína Dorada 🌱🔋 #Medellin</p>
-            </div>
+        <div class="cebollin-content">
+          <span class="badge">Nuestro compañero</span>
+          <h2 id="cebollin-titulo">Conoce a Cebollín</h2>
+          <p>Cebollín es la cara amable de SentirseBien. Vive en la cocina, presenta las recetas de la semana y te cuenta, en palabras sencillas, qué trae cada producto según su etiqueta.</p>
+          <ul class="cebollin-facts">
+            <li><span class="cebollin-fact-icon" aria-hidden="true"><i class="fas fa-utensils"></i></span><div><strong>Recetas fáciles</strong><span>Ideas con lo que ya tienes en casa.</span></div></li>
+            <li><span class="cebollin-fact-icon" aria-hidden="true"><i class="fas fa-magnifying-glass"></i></span><div><strong>Lee las etiquetas por ti</strong><span>Datos curiosos, sin promesas exageradas.</span></div></li>
+            <li><span class="cebollin-fact-icon" aria-hidden="true"><i class="fas fa-heart"></i></span><div><strong>Siempre contigo</strong><span>En Instagram, TikTok y WhatsApp.</span></div></li>
+          </ul>
+          <div class="social-follow-links">
+            <a href="https://www.instagram.com/sentirsebiencol/" class="btn btn-primary" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> @sentirsebiencol</a>
+            <a href="https://www.tiktok.com/@sentirsebien26" class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-tiktok" aria-hidden="true"></i> @sentirsebien26</a>
           </div>
-          <!-- Reel Card 2 -->
-          <div class="reel-card">
-            <img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=400" alt="Cuidado capilar con aceite de coco" onerror="this.src='https://placehold.co/400x600?text=Momento+SentirseBien'">
-            <div class="reel-overlay">
-              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
-              <p class="reel-caption">@antonia_style: Ritual nocturno de nutrición para puntas secas con Aceite de Coco 🥥✨</p>
-            </div>
-          </div>
-          <!-- Reel Card 3 -->
-          <div class="reel-card">
-            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=400" alt="Preparación de citrato de magnesio" onerror="this.src='https://placehold.co/400x600?text=Momento+SentirseBien'">
-            <div class="reel-overlay">
-              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
-              <p class="reel-caption">@salud_consciente: Adiós calambres y estrés. Cómo tomo el Citrato de Magnesio y Potasio 🧪🥛</p>
-            </div>
-          </div>
-          <!-- Reel Card 4 -->
-          <div class="reel-card">
-            <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=400" alt="Unboxing de productos naturales" onerror="this.src='https://placehold.co/400x600?text=Momento+SentirseBien'">
-            <div class="reel-overlay">
-              <div class="reel-play-btn"><i class="fas fa-play"></i></div>
-              <p class="reel-caption">@juan_wellness: Unboxing de mi pedido SentirseBien. Llegó en perfectas condiciones y a tiempo! 📦🌿</p>
-            </div>
-          </div>
+        </div>
+      </div>
+      <div class="container">
+        <h3 class="cebollin-gallery-title">Cebollín y sus favoritos</h3>
+        <div class="cebollin-gallery">
+          <button type="button" class="cebollin-card" onclick="window.quickViewProduct('superalimento-quinua-amaranto')">
+            <img src="cebollin/cebollin-kfir.webp" alt="Cebollín sosteniendo una bolsa de Kfir ZOI" loading="lazy" width="640" height="610"><span>Kfir en polvo</span>
+          </button>
+          <button type="button" class="cebollin-card" onclick="window.quickViewProduct('superalimento-quinua-amaranto')">
+            <img src="cebollin/cebollin-kfir-batido.webp" alt="Cebollín con un batido de fresa y una bolsa de Kfir" loading="lazy" width="640" height="627"><span>Su batido de la mañana</span>
+          </button>
+          <button type="button" class="cebollin-card" onclick="window.quickViewProduct('super-mega-gainer-gmn')">
+            <img src="cebollin/cebollin-gainer.webp" alt="Cebollín abrazando una bolsa de Super Mega Gainer GMN" loading="lazy" width="522" height="640"><span>Super Mega Gainer</span>
+          </button>
         </div>
       </div>
     </section>
@@ -290,20 +378,19 @@
         <a href="index.html" class="logo footer-logo" style="color: white;">Sentirse<span>Bien</span></a>
         <p>Tu aliado en el camino hacia un estilo de vida saludable y en armonía natural en Colombia.</p>
         <div class="social-links">
-          <a href="#" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-btn" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/search/top?q=Sentirse%20Bien" class="social-btn" title="Facebook" aria-label="Facebook de SentirseBien" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/sentirsebiencol/" class="social-btn" title="Instagram" aria-label="Instagram @sentirsebiencol" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@sentirsebien26" class="social-btn" title="TikTok" aria-label="TikTok @sentirsebien26" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
         </div>
       </div>
       <!-- Column 2 -->
       <div class="footer-col">
         <h3>Categorías</h3>
         <ul class="footer-links">
-          <li><a href="tienda.html">Línea de Pulverizados</a></li>
-          <li><a href="tienda.html">Línea de Aceites Vegetales</a></li>
-          <li><a href="tienda.html">Línea de Homeopáticos</a></li>
-          <li><a href="tienda.html">Línea de Jarabes</a></li>
-          <li><a href="tienda.html">Alimentación Saludable</a></li>
+          <li><a href="tienda.html">Línea de pulverizados</a></li>
+          <li><a href="tienda.html">Suplementos deportivos</a></li>
+          <li><a href="tienda.html">Jarabes</a></li>
+          <li><a href="legal.html">Aviso legal</a></li>
         </ul>
       </div>
       <!-- Column 3 -->
@@ -313,27 +400,24 @@
           <li><a href="index.html">Inicio</a></li>
           <li><a href="tienda.html">Tienda</a></li>
           <li><a href="nosotros.html">Nuestra Historia</a></li>
-          <li><a href="#">Preguntas Frecuentes</a></li>
-          <li><a href="#">Contacto Directo</a></li>
+          <li><a href="legal.html#envios">Envíos y pagos</a></li>
+          <li><a href="https://wa.me/573224559027" target="_blank" rel="noopener">WhatsApp 322 455 9027</a></li>
         </ul>
       </div>
       <!-- Column 4 -->
       <div class="footer-col">
-        <h3>Boletín Informativo</h3>
-        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Suscríbete para recibir consejos de salud y ofertas exclusivas para Colombia.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
-          <input type="email" placeholder="Tu correo electrónico" class="newsletter-input" required>
-          <button type="submit" class="newsletter-btn">Unirme</button>
-        </form>
+        <h3>¿Tienes dudas?</h3>
+        <p class="footer-help">Escríbenos y te ayudamos a elegir el producto y la presentación que mejor te queda.</p>
+        <a href="https://wa.me/573224559027?text=Hola%20SentirseBien%2C%20tengo%20una%20pregunta" class="btn btn-secondary footer-wa-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Escríbenos por WhatsApp</a>
       </div>
     </div>
 
     <div class="container footer-bottom">
-      <p>&copy; 2026 SentirseBien. Todos los derechos reservados. Diseñado para un público saludable en Colombia.</p>
+      <p>&copy; 2026 SentirseBien – Siempre Contigo. Los productos que vendemos no son medicamentos: no previenen, tratan ni curan enfermedades. Lee siempre la etiqueta.</p>
       <div class="footer-bottom-links">
-        <a href="#">Términos y Condiciones</a>
-        <a href="#">Políticas de Privacidad</a>
-        <a href="#">Políticas de Envíos</a>
+        <a href="legal.html#terminos">Términos y condiciones</a>
+        <a href="legal.html#privacidad">Privacidad</a>
+        <a href="legal.html#envios">Envíos</a>
       </div>
     </div>
   </footer>
@@ -343,7 +427,7 @@
     <div class="cart-drawer" id="cart-drawer">
       <div class="cart-header">
         <h2>Mi Carrito</h2>
-        <div class="cart-close-btn" id="cart-close">&times;</div>
+        <button type="button" class="cart-close-btn" id="cart-close" aria-label="Cerrar carrito">&times;</button>
       </div>
       
       <!-- Cart Items Container -->
@@ -359,7 +443,7 @@
         </div>
         <div class="cart-summary-line total">
           <span>Total Estimado</span>
-          <span id="cart-subtotal-val">$0</span>
+          <span id="cart-total-val">$0</span>
         </div>
         <p class="cart-checkout-note">El despacho y el pago de tu pedido se acordarán de forma directa y personalizada a través de WhatsApp.</p>
         <button id="checkout-whatsapp-btn" class="btn btn-secondary btn-block" onclick="window.checkoutWhatsApp()">
@@ -372,7 +456,7 @@
   <!-- Product Detail Modal (Quick View) -->
   <div class="modal-overlay" id="product-modal-overlay">
     <div class="product-modal">
-      <div class="modal-close-btn" onclick="window.closeProductModal()">&times;</div>
+      <button type="button" class="modal-close-btn" onclick="window.closeProductModal()" aria-label="Cerrar">&times;</button>
       <div class="modal-grid">
         <!-- Image Area -->
         <div class="modal-image-wrapper">
@@ -412,6 +496,12 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/573224559027?text=Hola%20SentirseBien%2C%20quiero%20informaci%C3%B3n" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i><span class="whatsapp-float-label">¿Te ayudamos?</span>
+  </a>
 
   <!-- Script links -->
   <script type="module" src="main.js"></script>

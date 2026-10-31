@@ -3,10 +3,103 @@
 
 // Import Vercel Analytics
 import { inject } from '@vercel/analytics';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // Configuration
 const WHATSAPP_NUMBER = "573224559027"; // Client's WhatsApp number (+57 3224559027)
 let catalogProducts = [];
+const FALLBACK_IMG = 'marca/logo-sentirsebien.png';
+// Foto del producto: recorte limpio en WebP (public/productos/<id>.webp)
+const productImage = (p) => (p && p.imagen) ? p.imagen : FALLBACK_IMG;
+const cartItemImage = (item) => (item.image && item.image.includes('/')) ? item.image : FALLBACK_IMG;
+// Bloque de imagen con efecto "producto flotante"
+const minPrice = (p) => Math.min(...p.presentaciones.map(x => x.precio));
+const floatingImage = (p) => {
+  const tags = (p.etiquetas || []).slice(0, 3).map((t, i) => `<span class="float-tag t${i + 1}">${t}</span>`).join('');
+  const sizes = p.presentaciones.map(x => x.peso || x.volumen || x.cantidad || x.tipo).join(' · ');
+  return `
+        <div class="product-card-image-wrapper product-float" data-id="${p.id}">
+          <span class="product-float-glow" aria-hidden="true"></span>
+          ${p.modelo3d ? '<span class="float-3d jar3d" aria-hidden="true"></span>' : ''}
+          <img src="${productImage(p)}" alt="${p.nombre}" class="product-card-image" loading="lazy" decoding="async" width="360" height="360" onerror="this.onerror=null;this.src='${FALLBACK_IMG}'">
+          <span class="product-float-shadow" aria-hidden="true"></span>
+          <span class="product-float-tags" aria-hidden="true">${tags}</span>
+          <span class="product-float-glass" aria-hidden="true"><strong>${p.nombre}</strong><span>${sizes} · ${p.presentaciones.length > 1 ? 'desde ' : ''}${formatCOP(minPrice(p))}</span></span>
+        </div>`;
+};
+// Inclinación 3D que sigue el mouse y toque en celular
+function initFloatingProducts() {
+  if (window.__floatInit) return; window.__floatInit = true;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse' || reduce) return;
+    const el = e.target.closest && e.target.closest('.product-card');
+    if (!el) return;
+    const f = el.querySelector('.product-float'); if (!f) return;
+    if (f.querySelector('.float-3d')) { card3DEnter(el); card3DMove(el, e); }
+    const r = f.getBoundingClientRect();
+    const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+    const y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+    f.style.setProperty('--ry', `${(x - 0.5) * 34}deg`);
+    f.style.setProperty('--rx', `${(0.5 - y) * 18}deg`);
+    f.style.setProperty('--mx', `${x * 100}%`);
+    f.style.setProperty('--my', `${y * 100}%`);
+  }, { passive: true });
+  document.addEventListener('pointerout', (e) => {
+    const el = e.target.closest && e.target.closest('.product-card');
+    if (!el || el.contains(e.relatedTarget)) return;
+    const f = el.querySelector('.product-float');
+    if (f) { f.style.setProperty('--ry', '0deg'); f.style.setProperty('--rx', '0deg'); }
+    if (card3D && card3D.card === el) card3DLeave();
+  });
+  // En celular: el primer toque hace saltar el producto; el segundo abre la ficha
+  document.addEventListener('click', (e) => {
+    const f = e.target.closest && e.target.closest('.product-float');
+    if (!f) return;
+    const touch = window.matchMedia('(hover: none)').matches;
+    if (touch && !f.classList.contains('is-active')) {
+      document.querySelectorAll('.product-float.is-active').forEach(x => x.classList.remove('is-active'));
+      f.classList.add('is-active');
+      f.style.setProperty('--ry', '-12deg'); f.style.setProperty('--rx', '4deg');
+      const card = f.closest('.product-card');
+      if (card && f.querySelector('.float-3d')) { card3DEnter(card); card3D && (card3D.last = [Math.PI * 0.35, 0]); setTimeout(() => card3D && card3D.viewer && card3D.viewer.point(Math.PI * 0.35, 0), 50); }
+      return;
+    }
+    window.quickViewProduct(f.dataset.id);
+  });
+}
+// Imagen de cada presentación (tarro, bolsa...). Si aún no existe, usa la principal más pequeña.
+const presentationImage = (p, i) => (p.presentaciones[i] && p.presentaciones[i].imagen) || productImage(p);
+function morphImage(img, product, idx) {
+  if (!img) return;
+  const src = presentationImage(product, idx);
+  const bigger = (product.presentaciones[idx].precio || 0) >= Math.max(...product.presentaciones.map(x => x.precio));
+  const apply = () => {
+    img.classList.remove('morph-out');
+    img.classList.add('morph-in');
+    img.style.setProperty('--size', String(product.presentaciones[idx].escala || 1));
+    img.onerror = function () { this.onerror = null; this.src = productImage(product); this.style.setProperty('--size', bigger ? '1' : String(0.72 + 0.14 * (product.presentaciones.length - 1 - idx))); };
+    img.src = src;
+    setTimeout(() => img.classList.remove('morph-in'), 650);
+  };
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { apply(); return; }
+  img.classList.add('morph-out');
+  setTimeout(apply, 260);
+}
+// Tocar una presentación en la tarjeta cambia el empaque y el precio
+document.addEventListener('click', (e) => {
+  const t = e.target.closest && e.target.closest('.variant-tag[data-idx]');
+  if (!t) return;
+  e.stopPropagation();
+  const product = catalogProducts.find(p => p.id === t.dataset.id); if (!product) return;
+  const idx = +t.dataset.idx; const card = t.closest('.product-card');
+  card.querySelectorAll('.variant-tag').forEach(b => { const on = b === t; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on)); });
+  morphImage(card.querySelector('.product-card-image'), product, idx);
+  const price = card.querySelector('.product-card-price');
+  if (price) price.textContent = formatCOP(product.presentaciones[idx].precio);
+  card.dataset.idx = idx;
+});
+const hasInvimaNote = (p) => (p.beneficios || []).some(b => b.includes('*'));
 let cart = JSON.parse(localStorage.getItem('sentirsebien_cart')) || [];
 
 // Initialize Application
@@ -20,15 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Common UI Initializations (Header, Cart Drawer)
 function initCommonUI() {
+  initCebollinGreeting();
   // Hamburger Menu
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('open');
-      menuToggle.innerHTML = navMenu.classList.contains('open') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
+      const open = navMenu.classList.contains('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      menuToggle.innerHTML = open
+        ? '<i class="fas fa-times" aria-hidden="true"></i>'
+        : '<i class="fas fa-bars" aria-hidden="true"></i>';
     });
   }
 
@@ -56,8 +153,7 @@ function initCommonUI() {
     // Close on clicking overlay background
     cartOverlay.addEventListener('click', (e) => {
       if (e.target === cartOverlay) {
-        cartOverlay.classList.remove('remove');
-        cartOverlay.classList.remove('open');
+                cartOverlay.classList.remove('open');
         document.body.style.overflow = 'auto';
       }
     });
@@ -71,11 +167,12 @@ function initCommonUI() {
 // Fetch Catalog Data
 async function fetchCatalog() {
   try {
-    const response = await fetch('/Catalogo.json');
+    const response = await fetch('Catalogo.json');
     if (!response.ok) {
       throw new Error('No se pudo cargar el catálogo de productos');
     }
     catalogProducts = await response.json();
+    initFloatingProducts();
     
     // Check which page we are on and render accordingly
     const isHomePage = document.getElementById('featured-products-grid') !== null;
@@ -132,6 +229,8 @@ function renderCartItems() {
       </div>
     `;
     if (subtotalVal) subtotalVal.textContent = formatCOP(0);
+    const totalVal0 = document.getElementById('cart-total-val');
+    if (totalVal0) totalVal0.textContent = formatCOP(0);
     if (checkoutBtn) checkoutBtn.setAttribute('disabled', 'true');
     return;
   }
@@ -146,12 +245,12 @@ function renderCartItems() {
     subtotal += itemTotal;
     
     // Default placeholder image if target is missing
-    const imageSrc = item.image ? `imagenes/${item.image}` : 'https://placehold.co/100x100?text=SentirseBien';
+    const imageSrc = cartItemImage(item);
 
     html += `
       <div class="cart-item" data-index="${index}">
         <div class="cart-item-image">
-          <img src="${imageSrc}" alt="${item.name}" onerror="this.src='https://placehold.co/100x100?text=SentirseBien'">
+          <img src="${imageSrc}" alt="${item.name}" onerror="this.onerror=null;this.src='marca/logo-sentirsebien.png'">
         </div>
         <div class="cart-item-details">
           <h4>${item.name}</h4>
@@ -172,6 +271,8 @@ function renderCartItems() {
 
   container.innerHTML = html;
   if (subtotalVal) subtotalVal.textContent = formatCOP(subtotal);
+  const totalVal = document.getElementById('cart-total-val');
+  if (totalVal) totalVal.textContent = formatCOP(subtotal);
 }
 
 // Global functions for cart mutations (attached to window for inline onclick triggers)
@@ -216,7 +317,7 @@ function addToCart(product, presentationIndex, qty = 1) {
       price: presentation.precio,
       presentationType: presentation.tipo + (presentation.variedad ? ` (${presentation.variedad})` : ''),
       size: size,
-      image: product.imagen_referencia,
+      image: presentation.imagen || product.imagen,
       quantity: qty
     });
   }
@@ -234,10 +335,10 @@ function addToCart(product, presentationIndex, qty = 1) {
 }
 
 // Add product to cart by ID (first/default presentation)
-window.addToCartByDefault = (productId) => {
+window.addToCartByDefault = (productId, idx = 0) => {
   const product = catalogProducts.find(p => p.id === productId);
   if (!product) return;
-  addToCart(product, 0, 1);
+  addToCart(product, Math.min(idx || 0, product.presentaciones.length - 1), 1);
 };
 
 // Check URL for product parameter or hash to open modal
@@ -570,6 +671,107 @@ function initCarousel() {
   setTimeout(updateCarousel, 300);
 }
 
+
+// ---- Visor 3D (solo productos con etiqueta plana: campo modelo3d) ----
+const supportsWebGL = (() => { try { const c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'))); } catch (e) { return false; } })();
+function mount3D(container, product, opts = {}) {
+  if (!supportsWebGL || !product || !product.modelo3d) return Promise.resolve(null);
+  return import('./colmare3d.js').then(m => m.mountJar3D(container, { label: product.modelo3d, ...opts })).catch(() => null);
+}
+// Tarjetas: al pasar el mouse el tarro sale de la tarjeta en 3D y gira según dónde esté el puntero
+let card3D = null; // { card, box, viewer, timer }
+function card3DEnter(card) {
+  const box = card.querySelector('.float-3d'); if (!box || !supportsWebGL) return;
+  if (card3D && card3D.card === card) { clearTimeout(card3D.timer); return; }
+  card3DLeave(true);
+  const product = catalogProducts.find(p => p.id === card.querySelector('.product-float').dataset.id);
+  const entry = { card, box, viewer: null, timer: null };
+  card3D = entry;
+  mount3D(box, product, { fit: 0.92, interactive: false, autoSpin: false }).then(v => {
+    if (card3D !== entry) { v && v.dispose(); return; }
+    entry.viewer = v; if (v && entry.last) v.point(...entry.last);
+  });
+}
+function card3DMove(card, e) {
+  if (!card3D || card3D.card !== card) return;
+  const r = card.getBoundingClientRect();
+  const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+  const y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+  card3D.last = [(x - 0.5) * Math.PI * 1.9, (y - 0.5) * 0.25];
+  card3D.viewer && card3D.viewer.point(...card3D.last);
+}
+function card3DLeave(now) {
+  if (!card3D) return;
+  const entry = card3D;
+  const kill = () => { entry.viewer && entry.viewer.dispose(); if (card3D === entry) card3D = null; };
+  if (now) { kill(); return; }
+  entry.viewer && entry.viewer.release();
+  clearTimeout(entry.timer); entry.timer = setTimeout(kill, 700);
+}
+let modal3D = null, modal3DToken = 0;
+function setModal3D(product) {
+  const wrap = document.querySelector('.modal-image-wrapper');
+  const token = ++modal3DToken;
+  if (modal3D) { modal3D.dispose(); modal3D = null; }
+  if (!wrap) return;
+  let box = wrap.querySelector('.modal-3d');
+  if (!product || !product.modelo3d || !supportsWebGL) { wrap.classList.remove('has-3d'); if (box) box.remove(); return; }
+  if (!box) { box = document.createElement('div'); box.className = 'modal-3d jar3d'; box.innerHTML = '<span class="jar3d-hint"><i class="fas fa-hand-pointer" aria-hidden="true"></i> Arrástralo para girarlo</span>'; wrap.appendChild(box); }
+  wrap.classList.add('has-3d');
+  mount3D(box, product, { fit: 0.8 }).then(v => { if (token !== modal3DToken) { v && v.dispose(); return; } modal3D = v; if (!v) wrap.classList.remove('has-3d'); });
+}
+function initFeatured3D() {
+  const box = document.getElementById('colmare-3d');
+  if (!box) return;
+  const product = catalogProducts.find(p => p.id === box.dataset.id);
+  if (!product) return;
+  const price = document.getElementById('colmare-3d-price');
+  if (price) price.textContent = formatCOP(product.presentaciones[0].precio);
+  if (!supportsWebGL) { box.classList.add('no-3d'); return; }
+  const io = new IntersectionObserver(([en]) => { if (en.isIntersecting) { io.disconnect(); mount3D(box, product, { fit: 0.8 }); } }, { rootMargin: '200px' });
+  io.observe(box);
+}
+
+
+// Cebollín saluda con alegría cada 15 segundos (solo cuando se ve en pantalla)
+function initCebollinGreeting() {
+  const hero = document.querySelector('.cebollin-hero');
+  const actor = hero && hero.querySelector('.cebollin-actor');
+  const bubble = hero && hero.querySelector('.cebollin-bubble');
+  if (!actor || !bubble) return;
+  const saludos = [
+    '¡Hola, hola! 👋<br>¡Qué alegría verte!',
+    '¡Hola! Soy Cebollín.<br>Te acompaño en la cocina.',
+    '¿Preparamos algo rico hoy?',
+    '¡Hola de nuevo! 🌱<br>Aquí sigo, en la cocina.',
+    '¿Ya viste las recetas de la semana?'
+  ];
+  let i = 0, visible = false, timer = null;
+  const saludar = () => {
+    if (!visible || document.hidden) return;
+    actor.classList.remove('is-greeting'); hero.classList.remove('is-greeting'); bubble.classList.remove('is-new');
+    void actor.offsetWidth; // reinicia la animación
+    i = (i + 1) % saludos.length;
+    bubble.innerHTML = saludos[i];
+    actor.classList.add('is-greeting'); hero.classList.add('is-greeting'); bubble.classList.add('is-new');
+    setTimeout(() => { actor.classList.remove('is-greeting'); hero.classList.remove('is-greeting'); }, 2300);
+  };
+  // Parpadeo natural: cada 2,5 a 5,5 s, a veces doble
+  const parpadear = () => {
+    if (visible && !document.hidden) {
+      actor.classList.remove('is-blinking'); void actor.offsetWidth; actor.classList.add('is-blinking');
+      if (Math.random() < 0.25) setTimeout(() => { actor.classList.remove('is-blinking'); void actor.offsetWidth; actor.classList.add('is-blinking'); }, 320);
+    }
+    setTimeout(parpadear, 2500 + Math.random() * 3000);
+  };
+  setTimeout(parpadear, 1800);
+  new IntersectionObserver(([en]) => {
+    const was = visible; visible = en.isIntersecting;
+    if (visible && !was) { setTimeout(saludar, 600); clearInterval(timer); timer = setInterval(saludar, 15000); }
+    if (!visible) clearInterval(timer);
+  }, { threshold: 0.35 }).observe(hero);
+}
+
 // Render Home Page Featured Products (all catalog products for carousel)
 function renderFeaturedProducts() {
   const container = document.getElementById('featured-products-grid');
@@ -577,32 +779,29 @@ function renderFeaturedProducts() {
 
   let html = '';
   catalogProducts.forEach(product => {
-    const imageSrc = product.imagen_referencia ? `imagenes/${product.imagen_referencia}` : 'https://placehold.co/300x300?text=SentirseBien';
     
     // Generate variants badges HTML
-    const variantsHtml = product.presentaciones.map(p => {
+    const variantsHtml = product.presentaciones.map((p, i) => {
       const sizeLabel = p.peso || p.volumen || p.cantidad || '';
       const varLabel = p.variedad ? ` (${p.variedad})` : '';
-      return `<span class="variant-tag">${p.tipo} ${sizeLabel}${varLabel}</span>`;
+      return `<button type="button" class="variant-tag${i === 0 ? ' active' : ''}" data-id="${product.id}" data-idx="${i}" aria-pressed="${i === 0}">${p.tipo} ${sizeLabel}${varLabel}</button>`;
     }).join('');
 
     html += `
       <div class="product-card">
-        <span class="badge product-badge">${product.categoria}</span>
-        <div class="product-card-image-wrapper">
-          <img src="${imageSrc}" alt="${product.nombre}" class="product-card-image" onerror="this.src='https://placehold.co/300x300?text=SentirseBien'">
-        </div>
+        ${floatingImage(product)}
         <div class="product-card-content">
           <span class="product-card-category">${product.categoria}</span>
           <h3 class="product-card-title">${product.nombre}</h3>
-          <p class="product-card-benefits">${product.beneficios.length > 0 ? product.beneficios[0] : product.descripcion}</p>
+          <p class="product-card-benefits">${product.descripcion}</p>
           
           <div class="product-card-variants">
             ${variantsHtml}
           </div>
+          <p class="product-card-price">${product.presentaciones.length > 1 ? '<span>Desde</span> ' : ''}${formatCOP(Math.min(...product.presentaciones.map(x => x.precio)))}</p>
           
           <div class="product-card-footer">
-            <button onclick="window.addToCartByDefault('${product.id}')" class="btn btn-primary btn-block">
+            <button onclick="window.addToCartByDefault('${product.id}', +(this.closest('.product-card').dataset.idx || 0))" class="btn btn-primary btn-block">
               <i class="fas fa-shopping-bag" style="margin-right: 0.5rem;"></i> Añadir al Carrito
             </button>
             <button onclick="window.quickViewProduct('${product.id}')" class="btn btn-outline btn-block">Ver Detalles</button>
@@ -614,8 +813,26 @@ function renderFeaturedProducts() {
 
   container.innerHTML = html;
   initCarousel();
+  initFeatured3D();
 }
 
+// Comprar por necesidad (tienda.html?necesidad=...)
+const NECESIDADES = {
+  colagenos: { nombre: 'Colágenos', ids: ['colmare', 'colageno-marino-crema-coco'] },
+  deporte: { nombre: 'Deporte y proteína', ids: ['super-mega-gainer-gmn', 'mega-gainer-gmn', 'creatina-gmn'] },
+  desayunos: { nombre: 'Desayunos y batidos', ids: ['superalimento-quinua-amaranto', 'colmare', 'colageno-marino-crema-coco'] },
+  familia: { nombre: 'Para la familia', ids: ['maca-negra-maca-roja', 'calcio-coral-marino', 'factor-transferencia'] },
+  despensa: { nombre: 'Despensa natural', ids: ['stevia-jarabe', 'cafe-brusca'] }
+};
+let currentNeed = new URLSearchParams(location.search).get('necesidad');
+function renderNeedChip() {
+  const grid = document.getElementById('shop-products-grid'); if (!grid) return;
+  let chip = document.getElementById('need-chip');
+  if (!currentNeed || !NECESIDADES[currentNeed]) { if (chip) chip.remove(); return; }
+  if (!chip) { chip = document.createElement('div'); chip.id = 'need-chip'; chip.className = 'need-chip'; grid.parentElement.insertBefore(chip, grid); }
+  chip.innerHTML = `Mostrando: <strong>${NECESIDADES[currentNeed].nombre}</strong> <button type="button" aria-label="Ver todos los productos">Ver todos <i class="fas fa-xmark" aria-hidden="true"></i></button>`;
+  chip.querySelector('button').onclick = () => { currentNeed = null; history.replaceState(null, '', location.pathname); renderNeedChip(); renderShopProducts(); };
+}
 // Shop Filtering and Logic
 let currentCategory = 'all';
 let searchQuery = '';
@@ -644,9 +861,11 @@ function initShopFilters() {
 function renderShopProducts() {
   const container = document.getElementById('shop-products-grid');
   if (!container || catalogProducts.length === 0) return;
+  renderNeedChip();
 
   // Apply filters
   let filtered = catalogProducts;
+  if (currentNeed && NECESIDADES[currentNeed]) filtered = filtered.filter(p => NECESIDADES[currentNeed].ids.includes(p.id));
   
   if (currentCategory !== 'all') {
     filtered = filtered.filter(p => p.categoria.toLowerCase().includes(currentCategory.toLowerCase()) || 
@@ -678,31 +897,29 @@ function renderShopProducts() {
 
   let html = '';
   filtered.forEach(product => {
-    const imageSrc = product.imagen_referencia ? `imagenes/${product.imagen_referencia}` : 'https://placehold.co/300x300?text=SentirseBien';
 
     // Generate variants badges HTML
-    const variantsHtml = product.presentaciones.map(p => {
+    const variantsHtml = product.presentaciones.map((p, i) => {
       const sizeLabel = p.peso || p.volumen || p.cantidad || '';
       const varLabel = p.variedad ? ` (${p.variedad})` : '';
-      return `<span class="variant-tag">${p.tipo} ${sizeLabel}${varLabel}</span>`;
+      return `<button type="button" class="variant-tag${i === 0 ? ' active' : ''}" data-id="${product.id}" data-idx="${i}" aria-pressed="${i === 0}">${p.tipo} ${sizeLabel}${varLabel}</button>`;
     }).join('');
 
     html += `
       <div class="product-card">
-        <div class="product-card-image-wrapper">
-          <img src="${imageSrc}" alt="${product.nombre}" class="product-card-image" onerror="this.src='https://placehold.co/300x300?text=SentirseBien'">
-        </div>
+        ${floatingImage(product)}
         <div class="product-card-content">
           <span class="product-card-category">${product.categoria}</span>
           <h3 class="product-card-title">${product.nombre}</h3>
-          <p class="product-card-benefits">${product.beneficios.length > 0 ? product.beneficios[0] : product.descripcion}</p>
+          <p class="product-card-benefits">${product.descripcion}</p>
           
           <div class="product-card-variants">
             ${variantsHtml}
           </div>
+          <p class="product-card-price">${product.presentaciones.length > 1 ? '<span>Desde</span> ' : ''}${formatCOP(Math.min(...product.presentaciones.map(x => x.precio)))}</p>
           
           <div class="product-card-footer">
-            <button onclick="window.addToCartByDefault('${product.id}')" class="btn btn-primary btn-block">
+            <button onclick="window.addToCartByDefault('${product.id}', +(this.closest('.product-card').dataset.idx || 0))" class="btn btn-primary btn-block">
               <i class="fas fa-shopping-bag" style="margin-right: 0.5rem;"></i> Añadir al Carrito
             </button>
             <button onclick="window.quickViewProduct('${product.id}')" class="btn btn-outline btn-block">Ver Detalles</button>
@@ -746,11 +963,11 @@ window.quickViewProduct = (productId) => {
   const modalPresentationOptions = document.getElementById('modal-presentation-options');
   const modalPrice = document.getElementById('modal-product-price');
 
+  setModal3D(product);
   if (modalImg) {
-    const imageSrc = product.imagen_referencia ? `imagenes/${product.imagen_referencia}` : 'https://placehold.co/300x300?text=SentirseBien';
-    modalImg.src = imageSrc;
+    modalImg.src = presentationImage(product, 0); modalImg.style.setProperty('--size', '1');
     modalImg.alt = product.nombre;
-    modalImg.onerror = function() { this.src = 'https://placehold.co/300x300?text=SentirseBien'; };
+    modalImg.onerror = function() { this.onerror = null; this.src = FALLBACK_IMG; };
   }
   if (modalCat) modalCat.textContent = product.categoria;
   if (modalTitle) modalTitle.textContent = product.nombre;
@@ -760,8 +977,8 @@ window.quickViewProduct = (productId) => {
     if (product.beneficios.length > 0) {
       modalBenefitsList.parentElement.style.display = 'block';
       modalBenefitsList.innerHTML = product.beneficios.map(b => `
-        <li><i class="fas fa-check-circle"></i><span>${b}</span></li>
-      `).join('');
+        <li><i class="fas fa-check-circle" aria-hidden="true"></i><span>${b}</span></li>
+      `).join('') + (hasInvimaNote(product) ? '<li class="modal-legal-note">*Declaración aceptada por el INVIMA para el nutriente.</li>' : '');
     } else {
       modalBenefitsList.parentElement.style.display = 'none';
     }
@@ -807,9 +1024,11 @@ window.selectModalPresentation = (index) => {
   if (modalPrice && activeProduct) {
     modalPrice.textContent = formatCOP(activeProduct.presentaciones[index].precio);
   }
+  if (activeProduct) morphImage(document.getElementById('modal-product-img'), activeProduct, index);
 };
 
 window.closeProductModal = () => {
+  setModal3D(null);
   const modalOverlay = document.getElementById('product-modal-overlay');
   if (modalOverlay) {
     modalOverlay.classList.remove('open');
@@ -846,11 +1065,11 @@ function injectProductSchema(product) {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.nombre,
-    "image": `${window.location.origin}/imagenes/${product.imagen_referencia}`,
+    "image": new URL(productImage(product), window.location.href).href,
     "description": product.descripcion,
     "brand": {
       "@type": "Brand",
-      "name": product.categoria.includes("GMN") ? "GMN" : "SentirseBien"
+      "name": (product.categoria + product.nombre).includes("GMN") ? "GMN" : "ZOI"
     },
     "offers": {
       "@type": "Offer",

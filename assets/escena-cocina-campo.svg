@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 480" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="pared" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBF4E8"/><stop offset="1" stop-color="#F3E6D2"/></linearGradient>
+    <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#CFE8F1"/><stop offset=".55" stop-color="#F8E9D2"/><stop offset="1" stop-color="#FCE3C4"/></linearGradient>
+    <linearGradient id="madera" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9AE7E"/><stop offset=".12" stop-color="#C8925F"/><stop offset="1" stop-color="#A9744A"/></linearGradient>
+    <radialGradient id="sol" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF6D8"/><stop offset=".45" stop-color="#FFE7A8" stop-opacity=".9"/><stop offset="1" stop-color="#FFE7A8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="luz" cx=".5" cy=".35" r=".6"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".4"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+    <clipPath id="ventana"><path d="M170 330V150a130 130 0 0 1 260 0v180z"/></clipPath>
+  </defs>
+  <rect width="600" height="480" fill="url(#pared)"/>
+  <!-- azulejos suaves -->
+  <g opacity=".35" stroke="#E7D6BC" stroke-width="1.2" fill="none">
+    <path d="M0 300h600M0 270h600M0 240h600"/>
+    <path d="M40 240v90M100 240v90M160 240v90M440 240v90M500 240v90M560 240v90"/>
+  </g>
+  <!-- ventana con campo colombiano -->
+  <g clip-path="url(#ventana)">
+    <rect x="160" y="10" width="280" height="330" fill="url(#cielo)"/>
+    <circle cx="360" cy="150" r="70" fill="url(#sol)"/>
+    <g fill="#FFFFFF" opacity=".85"><ellipse cx="230" cy="105" rx="34" ry="10"/><ellipse cx="255" cy="96" rx="22" ry="9"/><ellipse cx="380" cy="80" rx="26" ry="8"/></g>
+    <path d="M160 230 C210 170 250 190 290 160 C330 130 370 175 440 150 V340H160Z" fill="#A9CDA0"/>
+    <path d="M160 260 C200 220 260 240 300 205 C350 165 390 230 440 205 V340H160Z" fill="#7FB37A"/>
+    <path d="M160 290 C220 255 270 285 320 255 C360 232 400 270 440 250 V340H160Z" fill="#4F8C5C"/>
+    <!-- surcos de cultivo -->
+    <g stroke="#3E7C55" stroke-width="2" opacity=".5" fill="none"><path d="M175 305 C240 285 300 300 430 280"/><path d="M170 318 C250 300 320 318 435 298"/></g>
+    <!-- palmas de cera -->
+    <g stroke="#5B7A4A" stroke-width="2.4" fill="none"><path d="M205 262V200"/><path d="M402 258V195"/></g>
+    <g fill="#5E8E4E"><path d="M205 200c-12-6-20-2-26 4 9-1 16 0 26-4zm0 0c12-6 20-2 26 4-9-1-16 0-26-4zm0 0c-4-10-1-17 5-22-1 8 0 14-5 22z"/><path d="M402 195c-12-6-20-2-26 4 9-1 16 0 26-4zm0 0c12-6 20-2 26 4-9-1-16 0-26-4zm0 0c-4-10-1-17 5-22-1 8 0 14-5 22z"/></g>
+  </g>
+  <path d="M170 330V150a130 130 0 0 1 260 0v180" fill="none" stroke="#FFFFFF" stroke-width="14"/>
+  <path d="M300 22v308M170 210h260" stroke="#FFFFFF" stroke-width="6"/>
+  <rect x="150" y="326" width="300" height="14" rx="5" fill="#EBDAC0"/>
+  <!-- luz de mañana -->
+  <ellipse cx="300" cy="300" rx="260" ry="190" fill="url(#luz)"/>
+  <!-- matica de hierbas -->
+  <g transform="translate(78 300)">
+    <g fill="#6FA86A"><ellipse cx="0" cy="-34" rx="7" ry="18" transform="rotate(-25)"/><ellipse cx="10" cy="-40" rx="7" ry="20" transform="rotate(10 10 -40)"/><ellipse cx="-12" cy="-26" rx="6" ry="15" transform="rotate(-50 -12 -26)"/><ellipse cx="20" cy="-28" rx="6" ry="15" transform="rotate(40 20 -28)"/></g>
+    <path d="M-20-12h44l-6 40h-32z" fill="#D58C63"/><rect x="-23" y="-16" width="50" height="8" rx="3" fill="#C27A52"/>
+  </g>
+  <!-- frasco con granos -->
+  <g transform="translate(520 270)">
+    <rect x="-22" y="0" width="44" height="58" rx="10" fill="#FFFFFF" opacity=".55" stroke="#E2CFB1"/>
+    <rect x="-22" y="22" width="44" height="36" rx="8" fill="#B07A47" opacity=".75"/>
+    <rect x="-16" y="-8" width="32" height="10" rx="3" fill="#9C6B3F"/>
+  </g>
+  <!-- mesón de madera -->
+  <rect x="0" y="352" width="600" height="128" fill="url(#madera)"/>
+  <rect x="0" y="352" width="600" height="6" fill="#E8C49A"/>
+  <g stroke="#9A673F" stroke-width="1.4" opacity=".35" fill="none">
+    <path d="M0 395 C120 388 240 400 360 392 S540 398 600 392"/><path d="M0 435 C140 428 260 440 380 432 S520 438 600 430"/>
+  </g>
+  <!-- hojitas sobre el mesón -->
+  <g fill="#7DB36F" opacity=".9">
+    <path d="M110 372c10-8 24-8 30 0-10 6-22 6-30 0z"/><path d="M470 378c10-9 25-7 31 1-10 6-23 5-31-1z"/>
+  </g>
+</svg>

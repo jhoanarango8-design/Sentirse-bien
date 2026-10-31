@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sentirsebien.co/sitemap.xml
+Sitemap: https://sentirsebien-v2.vercel.app/sitemap.xml
